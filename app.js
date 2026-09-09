@@ -83,7 +83,9 @@ function go(n){
   if(!pages.includes(n))n='home';
   pages.forEach(p=>document.getElementById('page-'+p).classList.toggle('active',p===n));
   document.documentElement.style.setProperty('--accent',document.getElementById('page-'+n).dataset.accent||'#f4f6f7');
-  location.hash=n;window.scrollTo(0,0);init();
+  location.hash=n;
+  window.scrollTo(0,0);
+  init();
 }
 
 document.querySelectorAll('[data-page]').forEach(e=>e.onclick=()=>go(e.dataset.page));
@@ -96,16 +98,36 @@ function init(){
   io?.disconnect();
   io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.15});
   document.querySelectorAll('.page.active .reveal').forEach(e=>io.observe(e));
+
   document.querySelectorAll('.page.active [data-story]').forEach(w=>{
     w.u=()=>{
-      let r=w.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/Math.max(1,w.offsetHeight-innerHeight))),t=[...w.querySelectorAll('.story-text')],s=[...w.querySelectorAll('.story-bg')],v=[...w.querySelectorAll('.visual')],i=Math.min(t.length-1,Math.floor(p*t.length));
-      t.forEach((e,x)=>e.classList.toggle('active',x===i));s.forEach((e,x)=>e.classList.toggle('active',x===i));v.forEach((e,x)=>e.classList.toggle('active',x===i));let b=w.querySelector('.progress i');if(b)b.style.width=p*100+'%'
-    };w.u()
+      const r=w.getBoundingClientRect();
+      const p=Math.max(0,Math.min(1,-r.top/Math.max(1,w.offsetHeight-innerHeight)));
+      const t=[...w.querySelectorAll('.story-text')];
+      const s=[...w.querySelectorAll('.story-bg')];
+      const v=[...w.querySelectorAll('.visual')];
+      const i=Math.min(t.length-1,Math.floor(p*t.length));
+      t.forEach((e,x)=>e.classList.toggle('active',x===i));
+      s.forEach((e,x)=>e.classList.toggle('active',x===i));
+      v.forEach((e,x)=>e.classList.toggle('active',x===i));
+      const b=w.querySelector('.progress i');if(b)b.style.width=p*100+'%';
+    };
+    w.u();
   });
+
   document.querySelectorAll('.page.active .horizontal').forEach(w=>{
-    let t=w.querySelector('.reel-track');w.u=()=>{let r=w.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/Math.max(1,w.offsetHeight-innerHeight))),m=Math.max(0,t.scrollWidth-innerWidth+innerWidth*.08);t.style.transform='translateX('+(-m*p)+'px'};w.u()
-  })
+    const t=w.querySelector('.reel-track');
+    w.u=()=>{
+      const r=w.getBoundingClientRect();
+      const p=Math.max(0,Math.min(1,-r.top/Math.max(1,w.offsetHeight-innerHeight)));
+      const m=Math.max(0,t.scrollWidth-innerWidth+innerWidth*.08);
+      t.style.transform='translateX('+(-m*p)+'px)';
+    };
+    w.u();
+  });
 }
+
 function tick(){document.querySelectorAll('.page.active [data-story],.page.active .horizontal').forEach(e=>e.u&&e.u())}
-addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);
+addEventListener('scroll',tick,{passive:true});
+addEventListener('resize',tick);
 addEventListener('load',()=>go(pages.includes(location.hash.slice(1))?location.hash.slice(1):'home'));
