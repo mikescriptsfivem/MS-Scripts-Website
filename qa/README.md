@@ -1,7 +1,9 @@
-# V2 QA record
+# V3 QA — 2026-09-25
 
-9 API-client unit tests and 23 automated browser checks passed. See `browser-results.json` and `unit-results.txt` in the delivered source package. The browser run covered 35 page/viewport combinations with no horizontal page overflow. Additional standalone HTML startup and product-navigation smoke checks passed.
+9 API-client unit checks, 23 regression browser checks, and 15 owner-experience browser checks passed (47 total). Regression covers 35 home/product viewport combinations at 320, 390, 768, 1024 and 1440px.
 
-All screenshots in the delivered source package are marked **offline** because external media could not be fetched in this environment. Do not represent them as live media verification. Browser navigation is restricted; location, session storage, Tebex API/SDK and the editor download action use test adapters. Actual external images/video, cross-site login, CORS, native persistence/downloads, payments and fulfillment remain unverified.
+New checks cover font-family wiring/fallbacks, framework filtering/reset, three-resource comparison, contained mobile comparison scrolling, Ctrl-K search and keyboard routing, honest unlisted-framework status, checklist/brief copying, session-adapter restoration, clipboard fallback, sticky purchase link, manual/device reduced motion, terminating transitions, and published-but-unverified demo instructions.
 
-Fixed during QA: narrow-screen gallery min-content overflow, wrapped gallery controls, product information anchor URLs with a base element, thumbnail failure-caption overflow, and oversized secondary bag control.
+Tests use actual Chromium DOM/CSS, keyboard events, native dialogs and the Web Animations API. Location, session storage, clipboard, payment services and download navigation use explicit test adapters because the browser cannot navigate externally in this environment. No remote font, external gallery playback, live server connection, payment or fulfillment is claimed. Screenshots are OFFLINE fallback layout checks.
+
+Files in the delivered ZIP: unit-v3.txt, browser-v3-base.log, browser-results.json, owner-tests.log, owner-results.json, and labelled layout screenshots. No font binaries are included. A narrow-screen visually hidden select overflow was found and fixed during QA.

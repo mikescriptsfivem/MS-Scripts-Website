@@ -1,79 +1,58 @@
-# MikeScripts — media-first storefront, V2
+# MikeScripts V3 — server-owner experience
 
-A static, multi-page storefront rebuilt around product media rather than slogans. No npm install, build server, private keys, stock-aircraft imagery or generated gameplay screenshots.
+This revision keeps the V2 media-first storefront and adds typography, motion and server-planning tools. The repository-root live site is unchanged. Publish `storefront/` only on a commerce-permitted HTTPS host after review. Keep GitHub for source control; this change does not publish or merge the draft.
 
-## Open it
+## Typography and motion
 
-The delivered **MikeScripts_Media_First_Preview.html** is a single-file browsing preview. Open it in a desktop browser. Its source, styles, logo and product information are embedded; the official product images/clips and YouTube still need internet access.
+Barlow Condensed (500/600) for product headings, DM Sans (400/500/600/700) for body and controls. Fonts are requested from Google Fonts with `display=swap`; system fonts remain available when offline or blocked. **No font binaries are included.**
 
-For the actual site, serve this folder over HTTP locally (`python -m http.server 8000`) or publish it on an appropriate HTTPS host. `index.html` is the home page. There are six physical product pages under `products/` and a website-data disclosure under `privacy/`.
+The interface uses short Web Animations, staggered product entries, featured-media transitions, gallery/dialog transitions, responsive hover/focus states and a scroll-progress line. Content is never hidden while waiting for an animation. Native scroll, pointer and keyboard behavior remain intact. There is no particle loop, scroll hijacking, custom cursor or unsolicited audio. The footer motion control and `prefers-reduced-motion` disable the effects; the device preference wins. Media remains user-controlled.
 
-The existing repository-root site is untouched. This changes the `storefront/` review build only. Source can stay on GitHub; use commerce-permitted production hosting rather than GitHub Pages. GitHub Pages' published limits exclude sites primarily facilitating commercial transactions.
+## Server-owner tools
 
-## What changed
+- Choose ESX Legacy, QBCore, Qbox or Standalone to filter by **declared** framework support. This is not a scan or guarantee about the visitor's server.
+- Compare up to three scripts by package type, framework support, required/optional dependencies, editable files, protection and live price when connected. Unknown/unlisted support stays labelled; no performance numbers are invented.
+- Use Ctrl/Cmd+K or `/` for quick search. Results include aircraft and all frameworks. Arrow keys navigate, Enter opens, Escape dismisses.
+- Product pages provide required/optional-resource summaries, a personal four-step pre-install checklist and a copyable setup brief. Clipboard failure opens a selectable-text fallback instead of reporting false success.
+- A purchase shortcut appears after the product's purchase panel scrolls away. It always uses the selected package and the same Tebex flow. The comparison tray takes priority to avoid overlapping controls.
+- Demo instructions use the public address advertised on the MikeScripts listing on 2026-09-25. Availability and installed demos were not tested. No connection is initiated without the visitor's own action.
+- Framework, comparison, checklist and motion preferences are kept in this tab's session storage. No account, analytics, private token or server credential is requested. See the updated privacy page.
 
-- Full-width featured-product preview, with a manual product selector and play/stop controls.
-- Product-led copy, quiet styling, larger image areas and a compact catalogue.
-- Individual product URLs, full galleries, thumbnail navigation, keyboard-operable lightbox, and on-demand videos.
-- Six Flight gallery entries, four Police entries, four Fire entries, two Wrecker entries.
-- Separate MS100 MAX and MS8000 aircraft pages. No invented aircraft images, purchase IDs, prices, customer counts or performance claims.
-- Clear included/not-included information and direct original-listing links.
-- Responsive layouts, explicit media controls and reduced-motion styling. GIF previews are painted to a canvas as stills until the visitor chooses playback. Cross-origin canvas is painted, never read or exported.
-- Tebex basket and payment code separated from the presentation.
+## Local review and packaging
 
-## Add the actual aircraft media
+Open the delivered `MikeScripts_Server_Owner_Preview.html` in a browser. Code and styles are embedded; webfonts, product media and YouTube require an internet connection. The actual website has six physical product pages. For local HTTP review run `python -m http.server 8000` at this package root, then open `/storefront/`.
 
-Open the supplied **MikeScripts_Media_Studio.html**. Select an aircraft, add real exterior/cabin/cockpit shots and an MP4/WebM or YouTube walkthrough, set the lead item, edit captions and export.
+Run `python build_site.py` from the source root to regenerate the standalone preview, the V3 Media Studio and the source HTML entry points. Build scripts are not runtime dependencies. The new modules are `owner-data.js`, `experience.css` and `experience.js`; the core gallery/payment functionality remains separate.
 
-**Export media update ZIP** produces `storefront/media-overrides.js` and the local media files. Merge the update into this source and redeploy. **Create website preview** embeds uploaded media into a new HTML preview for local review. The tool never publishes to GitHub or changes Tebex.
+`MikeScripts_Media_Studio_V3.html` accepts local aircraft/gameplay media and can export an update ZIP or an HTML preview. It does not publish to GitHub or Tebex. The aircraft galleries still need the actual approved MS100 MAX and MS8000 assets. No stock/AI aircraft screenshots are substituted. The source editor's optional preview-template feature is provided in the standalone editor.
 
-The source `media-studio.html` can export the update ZIP, but its preview-template feature is available in the delivered standalone Media Studio file. Run `build_site.py` from the full source package to regenerate the standalone files.
+## Checkout
 
-Accepted file types: PNG, JPEG, WebP, GIF, AVIF, MP4, WebM. SVG/HTML uploads are excluded. Limit: 100 MB per file, 200 MB total. Prefer short compressed video. Unexported edits are lost when the tab closes. Keep your original media.
+The public token remains blank, so Buy on Tebex opens the correct hosted product listing. The local bag explicitly explains that it is not automatically transferred in fallback mode. The Headless API + Tebex.js implementation remains available when configured and live-tested. No private credentials or browser-side fulfillment are used. The unconfirmed monthly Flight mapping remains hidden; aircraft remain showcase-only until actual package IDs are confirmed.
 
-`media-overrides.js` can also be edited directly. Its object is keyed by product slug; allowed fields are `cover` and `media`. A media item has `type`, `url`, `label` and optional `poster`. Relative paths are rooted in this `storefront/` directory. No price or payment configuration is changed by media overrides.
+## Validation
 
-## Checkout status
+9 API-client tests, 23 regression browser checks and 15 owner-experience browser checks passed (47 checks total). The regression suite also covers 35 page/viewport combinations, from 320 to 1440 pixels. Node syntax checks passed. Keyboard navigation, native dialogs and Web Animations were exercised in Chromium. Motion effects were checked to terminate, and device/user reduced-motion behavior was checked.
 
-`config.js` still has a blank `publicToken`. Therefore **Buy on Tebex** opens the selected official product listing. The local shopping bag is not secretly passed to Tebex; its fallback explains that limitation.
-
-To activate the implemented Headless API + Tebex.js flow, add the store's **Headless public token**, never its private key, to `config.js`. Test on the actual HTTPS production origin. Authentication, purchase restrictions, CORS, payment popups/mobile tabs, cancellation, recurring plans and fulfillment require live verification. The public-token format guard is inherited from V1 and based on Tebex's documented public-token prefix.
-
-Prices are read from Tebex when connected, otherwise omitted. The four currently checked one-time product mappings remain active. The previous monthly Flight mapping (`7472845`) is retained with `needsConfirmation: true` and is not shown: that listing could not be revalidated in this pass. Remove the flag only after confirming the current package, recurrence, availability and content. This is not a claim the monthly product was deleted.
-
-FiveM authentication comes from the provider/API response, not a URL hash. Unexpected basket contents stop checkout. Failed writes are not automatically retried; a manual retry reads the server basket before adding anything. The client never issues entitlements. A return URL alone never confirms a purchase.
-
-## Validation and limitations
-
-9 Node API-client tests and 23 automated browser checks passed. The browser checks cover 35 page/viewport combinations (home plus six products at 320, 390, 768, 1024 and 1440 pixels), galleries, filters, navigation, checkout adapters, and the editor's ZIP and embedded-media output. Two additional smoke checks confirmed standalone preview startup and its product hash navigation.
-
-The execution environment blocks browser navigation and direct network downloads. Tests render source inline. Location, storage, Headless API, SDK and editor-download navigation use explicitly documented test adapters. Official media URLs were collected from the live product listings, but the image/GIF files could not be downloaded or rendered here. Screenshots in `qa/` intentionally show **offline fallback states**, not the real media or a live hosted site.
-
-Real authentication, native persistence across provider redirects, hosted CORS, native download behavior, external media playback, payments, subscriptions and fulfillment remain launch checks. The two aircraft's authentic media and sale package IDs were not available in the retrieved files. Their galleries remain unfilled until supplied.
-
-Run from the source-package root:
+The test origin is isolated: location, session storage, clipboard, Tebex API/SDK and editor-download navigation use explicit adapters. External fonts and media are blocked in this environment. The tests verify typography wiring and fallback layout, not successful font/media delivery. All QA screenshots are labelled offline. Native cross-site persistence, public-host CORS, real login, actual SDK popup behavior, subscriptions, payment, fulfillment and demo server availability remain launch checks. The website has no false online indicator, benchmark, payment confirmation or automated compatibility claim.
 
 ```sh
 node --check storefront/site.js
-node --check storefront/commerce.js
-node --check storefront/media-studio.js
+node --check storefront/experience.js
 node --test tests/tebex.test.cjs
 python tests/browser_test.py
+python tests/owner_test.py
 ```
 
-The browser test uses Python Playwright, Pillow and `/usr/bin/chromium`; adjust that executable for your system. Build scripts are packaging conveniences, not production dependencies.
+Browser tests need Python Playwright, Pillow and Chromium. They use `/usr/bin/chromium`; adjust the path for another system.
 
-## Source notes — checked 2026-09-25
+## References checked for this revision (2026-09-25)
 
-Product copy is a brief paraphrase of the owner's official listings. Gallery labels are intentionally generic where the source media could not be visually inspected. Aircraft descriptions use the owner's stated custom/walkable-interior scope, without adding unverified specifications.
+- https://mikescripts.tebex.io/package/7324328 — Flight framework/dependency details and advertised demo address.
+- https://mikescripts.tebex.io/package/7426329 — Police framework support, optional resources and editable files.
+- https://mikescripts.tebex.io/package/7437723 — Fire dependencies, bundled props and editable/protected files.
+- https://mikescripts.tebex.io/package/7692812 — Wrecker contents, OneSync and optional framework permissions.
+- https://developers.google.com/fonts/docs/css2 — font-family requests and display=swap.
+- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion — motion preference behavior.
 
-- Flight: https://mikescripts.tebex.io/package/7324328
-- Wrecker: https://mikescripts.tebex.io/package/7692812
-- Police: https://mikescripts.tebex.io/package/7426329
-- Fire: https://mikescripts.tebex.io/package/7437723
-- Headless auth: https://docs.tebex.io/developers/headless-api/authorization
-- Headless endpoints: https://docs.tebex.io/developers/headless-api/endpoints
-- Checkout UI: https://docs.tebex.io/developers/tebex.js/checkout
-- GitHub Pages limits: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
-
-The privacy page describes technical behavior. Review merchant privacy, licensing, refund and purchase disclosures before launching; it is not a reviewed legal policy.
+Product details are short paraphrases of the owner's listings, not independent tests. Check the live listing before purchase. Privacy copy describes technical behavior and still requires the merchant's production policy review.

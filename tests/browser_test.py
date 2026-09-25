@@ -9,9 +9,9 @@ def standalone_studio():
  # Build the test document from committed sources; no packaged HTML required.
  def inline(text,names):
   text=re.sub(r'<script\b[^>]*>[\s\S]*?</script>','',text)
-  text=text.replace('<link rel="stylesheet" href="site.css">','<style>'+(S/'site.css').read_text()+'</style>')
+  text=text.replace('<link rel="stylesheet" href="site.css">','<style>'+((S/'site.css').read_text()+'\n'+(S/'experience.css').read_text())+'</style>')
   return text.replace('</body>',''.join('<script>'+(S/n).read_text().replace('</script','<\\/script')+'</script>' for n in names)+'</body>')
- preview=inline((S/'index.html').read_text(),['brand.js','config.js','media-overrides.js','tebex.js','layout.js','site.js','commerce.js'])
+ preview=inline((S/'index.html').read_text(),['brand.js','config.js','media-overrides.js','owner-data.js','tebex.js','layout.js','site.js','commerce.js','experience.js'])
  preview=re.sub(r'<base[^>]*>','',preview).replace('<body data-page="home">','<body data-page="home"><script>window.MS_PREVIEW=true;</script>')
  editor=inline((S/'media-studio.html').read_text(),['config.js','media-overrides.js','media-studio.js'])
  return editor.replace('</head>','<script>window.MS_SITE_TEMPLATE='+json.dumps(preview).replace('<','\\u003c')+';</script></head>')
@@ -31,15 +31,15 @@ setup='''(opts)=>{
  if(url.endsWith('/test-basket'))return good({data:basket()});throw Error('Unexpected API request');};
  window.Tebex={checkout:{init(c){window.checkoutIdent=c.ident;},launch(){window.checkoutLaunched=true;}}};
 }'''
-html=(S/'index.html').read_text();html=re.sub(r'<script\b[^>]*>[\s\S]*?</script>','',html);html=html.replace('<link rel="stylesheet" href="site.css">','<style>'+(S/'site.css').read_text()+'</style>');html=re.sub(r'<base[^>]*>','<base href="https://preview.example/storefront/">',html)
+html=(S/'index.html').read_text();html=re.sub(r'<script\b[^>]*>[\s\S]*?</script>','',html);html=html.replace('<link rel="stylesheet" href="site.css">','<style>'+((S/'site.css').read_text()+'\n'+(S/'experience.css').read_text())+'</style>');html=html.replace('<link rel="stylesheet" href="experience.css">','');html=re.sub(r'<base[^>]*>','<base href="https://preview.example/storefront/">',html)
 with sync_playwright() as pw:
  b=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox']);ctx=b.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce');ctx.route('**/*',lambda route:route.abort())
  def mount(configured=False,saved=None,hash=''):
   pg=ctx.new_page();errors=[];pg.on('pageerror',lambda e:errors.append(str(e)));pg.set_content(html,wait_until='domcontentloaded');pg.evaluate(setup,{'saved':saved or {},'hash':hash})
-  for name in ['brand.js','config.js','media-overrides.js','tebex.js','layout.js','site.js','commerce.js']:
+  for name in ['brand.js','config.js','media-overrides.js','owner-data.js','tebex.js','layout.js','site.js','commerce.js','experience.js']:
    code=(S/name).read_text()
    if name=='config.js' and configured:code=code.replace('"publicToken": ""','"publicToken": "test-0123456789012345678901234567890123456789"')
-   if name in ['site.js','commerce.js']:code='((location,sessionStorage)=>{'+code+'})(__location,__storage);'
+   if name in ['site.js','commerce.js','experience.js']:code='((location,sessionStorage)=>{'+code+'})(__location,__storage);'
    pg.add_script_tag(content=code)
   pg.wait_for_selector('#main h1');return pg,errors
  pg,errors=mount();assert pg.locator('.product-card').count()==4 and pg.locator('.aircraft-row').count()==2;ok('Four products and two aircraft; no fabricated aircraft imagery')
