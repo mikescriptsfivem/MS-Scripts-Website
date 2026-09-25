@@ -1,7 +1,7 @@
-# Validation record — 2026-09-25
+# V2 QA record
 
-9/9 Node API-client tests and 15/15 browser checks passed on the source in this change. JavaScript syntax checks passed. No page overflow at 320, 390, 768, 1024 or 1440 pixels. Browser tests use Playwright and Chromium with real DOM/CSS and native dialogs, but mocked location, storage, Headless API and payment SDK adapters because public browser navigation is blocked in the build environment.
+9 API-client unit tests and 23 automated browser checks passed. See `browser-results.json` and `unit-results.txt` in the delivered source package. The browser run covered 35 page/viewport combinations with no horizontal page overflow. Additional standalone HTML startup and product-navigation smoke checks passed.
 
-Verified cases: script/aircraft counts, category filters and empty search, correct monthly package selection, explicit hosted-store fallback, cart restoration through the storage adapter, mutually exclusive one-time/monthly options, empty bag, media cleanup on close, no aircraft purchase without a mapped package, narrow layouts, trusted auth provider flow, visible ambiguous API failures, no duplicate additions on manual retry, explicit SDK launch, and no clearing of the bag on an unconfirmed payment return.
+All screenshots in the delivered source package are marked **offline** because external media could not be fetched in this environment. Do not represent them as live media verification. Browser navigation is restricted; location, session storage, Tebex API/SDK and the editor download action use test adapters. Actual external images/video, cross-site login, CORS, native persistence/downloads, payments and fulfillment remain unverified.
 
-NOT LIVE-TESTED: FiveM authentication redirects, native session persistence across external navigation, public-host CORS, card payments, subscriptions, actual SDK popup behavior, receipt/fulfillment, and external images/videos. Complete these checks with the real public token on the production HTTPS host. Offline layout screenshots and detailed test results are included in the delivered source ZIP; rerunning tests also generates them here.
+Fixed during QA: narrow-screen gallery min-content overflow, wrapped gallery controls, product information anchor URLs with a base element, thumbnail failure-caption overflow, and oversized secondary bag control.

@@ -1,95 +1,84 @@
-"""DOM/browser tests with a deliberately isolated origin and mocked external services.
-No live payments, public-host CORS, persistent browser storage, or external media tested.
-"""
+"""Offline DOM tests. External media/API/SDK/location/storage are NOT live-verified."""
 from pathlib import Path
-import json,re
+import re,json,base64,io,zipfile
 from playwright.sync_api import sync_playwright
-ROOT=Path(__file__).resolve().parents[1]
-SOURCE=ROOT/'storefront'
-(ROOT/'qa').mkdir(exist_ok=True)
+R=Path(__file__).resolve().parents[1];S=R/'storefront';QA=R/'qa';QA.mkdir(exist_ok=True)
 results=[]
-def ok(name):results.append(name);print('PASS:',name,flush=True)
-html=(SOURCE/'index.html').read_text()
-html=re.sub(r'<script\b[^>]*>[\s\S]*?</script>','',html,flags=re.I)
-html=re.sub(r'<link\b[^>]*>','',html,flags=re.I)
-html=html.replace('</head>','<style>'+(SOURCE/'styles.css').read_text()+'</style></head>')
-config=(SOURCE/'config.js').read_text()
-setup="""(saved) => {
- window.__saved = saved;
- window.__storage = {getItem:k => window.__saved[k] || null, setItem:(k,v) => {window.__saved[k] = String(v)}};
- window.__hash = '';
- window.__location = {href:'https://preview.example/storefront/'};
- Object.defineProperty(window.__location,'hash',{get:()=>window.__hash,set:v=>{window.__hash=v;window.dispatchEvent(new Event('hashchange'))}});
+def ok(name):results.append(name);print('PASS',name,flush=True)
+def standalone_studio():
+ # Build the test document from committed sources; no packaged HTML required.
+ def inline(text,names):
+  text=re.sub(r'<script\b[^>]*>[\s\S]*?</script>','',text)
+  text=text.replace('<link rel="stylesheet" href="site.css">','<style>'+(S/'site.css').read_text()+'</style>')
+  return text.replace('</body>',''.join('<script>'+(S/n).read_text().replace('</script','<\\/script')+'</script>' for n in names)+'</body>')
+ preview=inline((S/'index.html').read_text(),['brand.js','config.js','media-overrides.js','tebex.js','layout.js','site.js','commerce.js'])
+ preview=re.sub(r'<base[^>]*>','',preview).replace('<body data-page="home">','<body data-page="home"><script>window.MS_PREVIEW=true;</script>')
+ editor=inline((S/'media-studio.html').read_text(),['config.js','media-overrides.js','media-studio.js'])
+ return editor.replace('</head>','<script>window.MS_SITE_TEMPLATE='+json.dumps(preview).replace('<','\\u003c')+';</script></head>')
+setup='''(opts)=>{
+ window.MS_PREVIEW=true;window.__hash=opts.hash||'';
+ window.__location={href:'https://preview.example/storefront/'};
+ Object.defineProperty(__location,'hash',{get:()=>__hash,set:v=>{__hash=v;queueMicrotask(()=>dispatchEvent(new Event('hashchange')))}});
+ window.__saved=opts.saved||{};window.__storage={getItem:k=>__saved[k]||null,setItem:(k,v)=>{__saved[k]=v;}};
  window.fixture={authorized:false,complete:false,ids:[],adds:0,creates:0,failAfterAdd:true};
  const basket=()=>({ident:'test-basket',username_id:fixture.authorized?123:null,complete:fixture.complete,packages:fixture.ids.map(id=>({id:Number(id),in_basket:{quantity:1}})),total_price:12.34,currency:'USD',links:{checkout:'https://checkout.tebex.io/checkout/test-basket'}});
- window.fetch=async (url,options={})=>{
-   const good=data=>Promise.resolve({ok:true,status:200,json:async()=>JSON.parse(JSON.stringify(data))});
-   if(!url.startsWith('https://headless.tebex.io/'))throw Error('Unexpected request');
-   if(url.endsWith('/packages') && (!options.method||options.method==='GET'))return good({data:[{id:7324328,total_price:12.34,currency:'USD'}]});
-   if(url.includes('/auth?'))return good([{name:'FiveM',url:'https://ident.tebex.io/auth/test'}]);
-   if(url.endsWith('/baskets') && options.method==='POST'){fixture.creates++;return good({data:basket()})}
-   if(url.endsWith('/test-basket/packages')){fixture.adds++;fixture.ids.push(JSON.parse(options.body).package_id);if(fixture.failAfterAdd){fixture.failAfterAdd=false;throw Error('Simulated lost response')}return good({data:basket()})}
-   if(url.endsWith('/test-basket'))return good({data:basket()});
-   throw Error('Unexpected API request '+url);
- };
- window.Tebex={checkout:{init(c){window.testCheckoutIdent=c.ident},launch(){window.testCheckoutLaunched=true}}};
-}"""
-with sync_playwright() as p:
- browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
- ctx=browser.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce')
- def mount(saved=None,configured=False,width=1440):
-  pg=ctx.new_page();pg.set_viewport_size({'width':width,'height':1000});errs=[];pg.on('pageerror',lambda e:errs.append(str(e)))
-  pg.set_content(html,wait_until='domcontentloaded');pg.evaluate(setup,saved or {})
-  pg.add_script_tag(content=config.replace("publicToken: ''","publicToken: 'test-0123456789012345678901234567890123456789'") if configured else config)
-  for f in ['brand.js','tebex.js']:pg.add_script_tag(content=(SOURCE/f).read_text())
-  pg.add_script_tag(content='((location,sessionStorage)=>{'+(SOURCE/'app.js').read_text()+'})(window.__location,window.__storage);')
-  pg.wait_for_selector('.product-card');return pg,errs
- page,errors=mount()
- assert page.locator('.product-card').count()==4 and page.locator('.aircraft-card').count()==2
- ok('Four script products and exactly two aircraft render')
- page.locator('[data-filter="fire"]').click();assert page.locator('.product-card').count()==1;assert 'Advanced Fire' in page.locator('.product-card').inner_text()
- page.locator('[data-filter="all"]').click();page.locator('#search').fill('nothing-here');assert page.locator('#empty-state').is_visible()
- page.locator('#search').fill('');ok('Category filters and search empty state')
- page.locator('.product-card [data-product="flight"]').first.click();assert page.locator('#product-dialog').is_visible()
- page.locator('#purchase-variant').select_option('7472845');page.locator('#add-to-bag').click()
- assert 'Monthly subscription' in page.locator('#cart-items').inner_text()
- page.locator('#prepare-checkout').click();assert 'not automatically transferred' in page.locator('#checkout-stage').inner_text()
- assert page.locator('#checkout-stage a').get_attribute('href').endswith('/7472845')
- ok('Correct monthly package and honest hosted-store fallback')
- saved=page.evaluate('window.__saved');page.close();page,errors=mount(saved)
- page.locator('[data-cart]').click();assert page.locator('.cart-item').count()==1
- page.keyboard.press('Escape');page.locator('.product-card [data-product="flight"]').first.click();page.locator('#add-to-bag').click();assert page.locator('.cart-item').count()==1;assert 'One-time purchase' in page.locator('#cart-items').inner_text()
- ok('Storage adapter restores selection; purchase options are mutually exclusive')
- page.locator('[data-remove]').click();assert page.locator('#prepare-checkout').is_disabled();page.keyboard.press('Escape')
- page.locator('[data-watch-hero]').click();assert page.locator('#media-dialog iframe').get_attribute('src').startswith('https://www.youtube-nocookie.com/')
- page.keyboard.press('Escape');page.wait_for_function("document.querySelectorAll('#media-dialog iframe').length===0")
- ok('Empty basket and video destroyed on close')
- page.locator('.aircraft-card [data-product="ms8000"]').click();assert page.locator('#add-to-bag').count()==0;assert 'Ask about this aircraft' in page.locator('#product-dialog').inner_text();page.keyboard.press('Escape')
- ok('Aircraft cannot be purchased without a mapped Tebex package')
- for w in [320,390,768,1024,1440]:
-  page.set_viewport_size({'width':w,'height':950});page.evaluate('scrollTo(0,0)')
-  if page.evaluate('document.documentElement.scrollWidth > window.innerWidth'):
-   print(page.evaluate("[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1 && getComputedStyle(e).position!=='fixed').map(e=>[e.tagName,e.className,e.getBoundingClientRect().width,e.getBoundingClientRect().right]).slice(0,25)"),flush=True)
-   raise AssertionError(f'horizontal overflow at {w}')
-  if w in [390,1440]:page.screenshot(path=str(ROOT/'qa'/f'layout-{w}-offline.png'),full_page=True)
- ok('No horizontal overflow at 320, 390, 768, 1024 and 1440 pixels')
- assert not errors,errors;ok('No uncaught browser errors in fallback flow')
- page.close()
- pg,errs=mount(configured=True)
- pg.wait_for_function("document.querySelector('.product-card').textContent.includes('12.34')")
- pg.locator('.product-card [data-product="flight"]').first.click();pg.locator('#add-to-bag').click();pg.locator('#prepare-checkout').click()
- pg.wait_for_selector('#checkout-stage a[href^="https://ident.tebex.io/"]');assert pg.evaluate('fixture.adds')==0
- ok('Unauthenticated basket waits for official FiveM authentication')
- pg.evaluate("fixture.authorized=true;__location.hash='#checkout-auth'");pg.wait_for_selector('#checkout-stage .error');assert pg.evaluate('fixture.adds')==1
- ok('Ambiguous add failure is surfaced, not automatically retried')
- pg.locator('#prepare-checkout').click();pg.wait_for_selector('#launch-checkout:not([disabled])');assert pg.evaluate('fixture.adds')==1 and pg.evaluate('fixture.creates')==1
- ok('Retry reads authoritative basket and does not duplicate packages')
- pg.locator('#launch-checkout').click();assert pg.evaluate('window.testCheckoutIdent')=='test-basket';assert pg.evaluate('window.testCheckoutLaunched') is True
- ok('Explicit second click initializes SDK adapter with basket identity')
- pg.evaluate("__location.hash='#checkout-complete'");pg.wait_for_function("document.querySelector('#checkout-stage').textContent.includes('not been confirmed')");assert pg.locator('.cart-item').count()==1
- ok('Forged success hash never clears cart or grants a product')
- pg.evaluate("fixture.complete=true;__location.hash='#checkout-complete'");pg.wait_for_function("document.querySelector('#checkout-stage').textContent.includes('checkout is complete')");assert pg.locator('.cart-item').count()==0
- ok('Only authoritative complete status clears the local basket')
- assert not errs,errs;ok('No uncaught browser errors in mocked integration flow')
- ctx.close();browser.close()
-(ROOT/'qa/browser-results.json').write_text(json.dumps({'passed':len(results),'tests':results,'limits':['Tebex API, payment SDK, location and storage adapters were mocked. No live authentication, payment, CORS, native persistence or fulfillment test was possible without the store public token and public host.','Browser tests used inline source on an isolated origin because this runtime blocks browser navigation. Product media could not be loaded. Layout screenshots show offline fallback artwork, not the real product images.']},indent=2))
+ window.fetch=async(url,o={})=>{const good=data=>({ok:true,status:200,json:async()=>JSON.parse(JSON.stringify(data))});
+ if(!url.startsWith('https://headless.tebex.io/'))throw Error('Unexpected request');
+ if(url.endsWith('/packages')&&(!o.method||o.method==='GET'))return good({data:[{id:7324328,total_price:12.34,currency:'USD'}]});
+ if(url.includes('/auth?'))return good([{name:'FiveM',url:'https://ident.tebex.io/auth/test'}]);
+ if(url.endsWith('/baskets')&&o.method==='POST'){fixture.creates++;return good({data:basket()});}
+ if(url.endsWith('/test-basket/packages')){fixture.adds++;fixture.ids.push(JSON.parse(o.body).package_id);if(fixture.failAfterAdd){fixture.failAfterAdd=false;throw Error('Simulated lost response');}return good({data:basket()});}
+ if(url.endsWith('/test-basket'))return good({data:basket()});throw Error('Unexpected API request');};
+ window.Tebex={checkout:{init(c){window.checkoutIdent=c.ident;},launch(){window.checkoutLaunched=true;}}};
+}'''
+html=(S/'index.html').read_text();html=re.sub(r'<script\b[^>]*>[\s\S]*?</script>','',html);html=html.replace('<link rel="stylesheet" href="site.css">','<style>'+(S/'site.css').read_text()+'</style>');html=re.sub(r'<base[^>]*>','<base href="https://preview.example/storefront/">',html)
+with sync_playwright() as pw:
+ b=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox']);ctx=b.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce');ctx.route('**/*',lambda route:route.abort())
+ def mount(configured=False,saved=None,hash=''):
+  pg=ctx.new_page();errors=[];pg.on('pageerror',lambda e:errors.append(str(e)));pg.set_content(html,wait_until='domcontentloaded');pg.evaluate(setup,{'saved':saved or {},'hash':hash})
+  for name in ['brand.js','config.js','media-overrides.js','tebex.js','layout.js','site.js','commerce.js']:
+   code=(S/name).read_text()
+   if name=='config.js' and configured:code=code.replace('"publicToken": ""','"publicToken": "test-0123456789012345678901234567890123456789"')
+   if name in ['site.js','commerce.js']:code='((location,sessionStorage)=>{'+code+'})(__location,__storage);'
+   pg.add_script_tag(content=code)
+  pg.wait_for_selector('#main h1');return pg,errors
+ pg,errors=mount();assert pg.locator('.product-card').count()==4 and pg.locator('.aircraft-row').count()==2;ok('Four products and two aircraft; no fabricated aircraft imagery')
+ assert pg.locator('.hero h1').inner_text()=='Flight Simulator';pg.locator('[data-feature="wrecker"]').click();assert 'Wrecker' in pg.locator('.hero h1').inner_text();ok('Manual featured-product selector')
+ pg.locator('[data-filter="fire"]').click();assert pg.locator('.product-card').count()==1;pg.locator('[data-filter="all"]').click();pg.locator('#search').fill('no such product');assert pg.locator('#empty-state').is_visible();pg.locator('#search').fill('');ok('Category and text filtering with empty state')
+ pg.locator('.product-card a[data-route="flight"]').first.click();pg.wait_for_selector('.buy-panel h1');assert pg.locator('.buy-panel h1').inner_text()=='Flight Simulator' and pg.locator('#product-dialog').count()==0;ok('Product opens as a full page, not a modal')
+ assert pg.locator('.gallery-thumb').count()==6;pg.locator('[data-gallery-step="1"]').click();assert pg.locator('[data-gallery-index="1"]').get_attribute('aria-pressed')=='true';ok('Six-item Flight gallery and thumbnail selection')
+ pg.locator('#product-gallery [data-view]').first.click();assert pg.locator('#media-dialog').is_visible();pg.keyboard.press('ArrowRight');assert pg.locator('#viewer-count').inner_text()=='3 / 6';pg.keyboard.press('Escape');pg.wait_for_function("document.querySelector('#media-content').children.length===0");ok('Lightbox arrows, Escape and media cleanup')
+ pg.locator('[data-gallery-index="5"]').click();pg.locator('.gallery-play').click();assert pg.locator('#media-dialog iframe').get_attribute('src').startswith('https://www.youtube-nocookie.com/');pg.keyboard.press('Escape');ok('Video player loads on explicit action only')
+ assert pg.locator('#buy-now').get_attribute('href').endswith('/7324328');assert pg.locator('#purchase-variant option').count()==1;ok('Verified one-time mapping; unconfirmed monthly option not advertised')
+ pg.locator('#add-to-bag').click();pg.locator('#prepare-checkout').click();assert 'not automatically transferred' in pg.locator('#checkout-stage').inner_text();saved=pg.evaluate('__saved');pg.keyboard.press('Escape');ok('Hosted checkout fallback explains local bag limitation')
+ pg.close();pg,errors2=mount(saved=saved);pg.locator('[data-cart]').click();assert pg.locator('.cart-item').count()==1;pg.locator('[data-remove]').click();assert pg.locator('#prepare-checkout').is_disabled();pg.keyboard.press('Escape');ok('Cart restoration through test storage adapter and empty-cart guard')
+ pg.locator('[data-route="ms8000"]').click();pg.wait_for_selector('.buy-panel h1');assert pg.locator('#buy-now').count()==0 and pg.locator('.aircraft-empty').count()==1;ok('Aircraft showcase cannot sell an unmapped product')
+ for slug in ['home','flight','police','fire','wrecker','ms100','ms8000']:
+  pg.evaluate("s=>{__location.hash=s==='home'?'#/':'#/product/'+s}",slug)
+  pg.wait_for_function("s=>s==='home'?!!document.querySelector('.hero'):document.querySelector('.buy-panel h1')?.textContent===({flight:'Flight Simulator',police:'Police Helicopter System',fire:'Fire & Alarm System',wrecker:'Heavy Rotator Wrecker',ms100:'MS100 MAX',ms8000:'MS8000'})[s]",arg=slug)
+  for w in [320,390,768,1024,1440]:
+   pg.set_viewport_size({'width':w,'height':1000});assert not pg.evaluate('document.documentElement.scrollWidth > innerWidth'),(slug,w,pg.evaluate('document.documentElement.scrollWidth'))
+  if slug in ['home','flight']:
+   pg.evaluate('scrollTo(0,0)');pg.screenshot(path=str(QA/f'{slug}-desktop-offline.png'),full_page=True)
+ ok('35 page/viewport combinations: no horizontal page overflow')
+ pg.evaluate("__location.hash='#/'");pg.wait_for_selector('.hero');pg.set_viewport_size({'width':390,'height':844});pg.locator('.menu-toggle').click();assert pg.locator('#mobile-nav').is_visible();pg.keyboard.press('Escape');assert pg.locator('#mobile-nav').is_hidden();pg.screenshot(path=str(QA/'home-mobile-offline.png'),full_page=True);ok('Mobile navigation opens and dismisses with Escape')
+ assert not errors+errors2,(errors,errors2);ok('No uncaught UI errors in fallback navigation')
+ pg.close();pg,errs=mount(configured=True,hash='#/product/flight');pg.locator('#buy-now').click();pg.wait_for_selector('#checkout-stage a[href^="https://ident.tebex.io/"]');assert pg.evaluate('fixture.adds')==0;ok('FiveM authentication required before package mutation')
+ pg.evaluate("fixture.authorized=true;__location.hash='#checkout-auth'");pg.wait_for_selector('#checkout-stage .error');assert pg.evaluate('fixture.adds')==1;ok('Ambiguous mutation failure stops without automatic retry')
+ pg.locator('#prepare-checkout').click();pg.wait_for_selector('#launch-checkout:not([disabled])');assert pg.evaluate('fixture.adds')==1;ok('Manual retry reads basket and does not add a duplicate')
+ pg.locator('#launch-checkout').click();assert pg.evaluate('checkoutIdent')=='test-basket' and pg.evaluate('checkoutLaunched');ok('Explicit user action launches payment SDK adapter')
+ pg.evaluate("__location.hash='#checkout-complete'");pg.wait_for_function("document.querySelector('#checkout-stage').textContent.includes('not been confirmed')");assert pg.locator('.cart-item').count()==1;ok('Unconfirmed success URL never clears cart')
+ pg.evaluate("fixture.complete=true;__location.hash='#checkout-complete'");pg.wait_for_function("document.querySelector('#checkout-stage').textContent.includes('checkout is complete')");assert pg.locator('.cart-item').count()==0;assert not errs,errs;ok('Only server-reported completion clears selection')
+ pg.close()
+ # Check local media editor by capturing generated blobs; no native download navigation is claimed.
+ pg=ctx.new_page();pg.set_content(standalone_studio(),wait_until='domcontentloaded');pg.evaluate('''()=>{window.__blobs={};const create=URL.createObjectURL;URL.createObjectURL=b=>{const u=create(b);__blobs[u]=b;return u;};HTMLAnchorElement.prototype.click=function(){if(this.download)window.__lastDownload={blob:__blobs[this.href],name:this.download};};}''')
+ from PIL import Image
+ png=io.BytesIO();Image.new('RGB',(32,18),'gray').save(png,format='PNG')
+ pg.locator('#studio-files').set_input_files({'name':'cabin.png','mimeType':'image/png','buffer':png.getvalue()});pg.wait_for_selector('.studio-item');pg.locator('[data-caption="0"]').fill('Test cabin <safe>');pg.locator('#export-media').click();pg.wait_for_function('window.__lastDownload?.name.endsWith(".zip")')
+ out=pg.evaluate('async()=>Array.from(new Uint8Array(await __lastDownload.blob.arrayBuffer()))');z=zipfile.ZipFile(io.BytesIO(bytes(out)));assert z.testzip() is None;assert 'storefront/media-overrides.js' in z.namelist();override=z.read('storefront/media-overrides.js').decode();assert '\\u003c' in override;assert any(n.endswith('.png') for n in z.namelist());ok('Media editor exports a valid ZIP with escaped configuration and real uploaded bytes')
+ pg.locator('#export-preview').click();pg.wait_for_function('window.__lastDownload?.name.endsWith(".html")');phtml=pg.evaluate('async()=>await __lastDownload.blob.text()');assert 'data:image/png;base64,' in phtml;ok('Media editor embeds user media in a self-contained browsing preview')
+ pg.close();ctx.close();b.close()
+for p in (S/'products').glob('*/index.html'):
+ t=p.read_text();assert '<base href="../../">' in t and 'description' in t
+ok('Six physical product entry points with individual metadata and correct base paths')
+(QA/'browser-results.json').write_text(json.dumps({'passed':len(results),'checks':results,'limits':['Navigation/location, storage, Headless API and Tebex.js use test adapters. Browser external navigation is blocked by environment policy.','Official media URLs were extracted from live product listings, but external media bytes could not be retrieved or rendered here. Screenshots show offline fallbacks only.','Native downloads, cross-site auth, CORS, SDK popup behavior, subscriptions and real payment/fulfillment were not live-tested.']},indent=2))
