@@ -39,7 +39,7 @@
         throw error;
       } finally { clearTimeout(timer); }
     }
-    async catalogue() { const body = await this.request('/packages'); return Array.isArray(body.data) ? body.data : []; }
+    async catalogue() { const body = await this.request('/packages'); if (!Array.isArray(body.data)) throw new Error('Tebex returned an invalid catalog.'); return body.data; }
     async createBasket(returnBase) {
       const u = new URL(returnBase);
       if (u.protocol !== 'https:' && !['localhost', '127.0.0.1'].includes(u.hostname)) throw new Error('Checkout requires a secure HTTPS website.');
