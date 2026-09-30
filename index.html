@@ -1,162 +1,970 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="MS Scripts builds cinematic simulation ecosystems for FiveM: Flight, Police, and Fire & Rescue.">
-  <title>MS Scripts — Simulation Ecosystems for FiveM</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <nav class="nav">
-    <button class="brand" data-page="home">MS <span>SCRIPTS</span></button>
-    <div class="navlinks">
-      <button data-page="home">Home</button>
-      <button data-page="flight">Flight</button>
-      <button data-page="police">Police</button>
-      <button data-page="fire">Fire</button>
-    </div>
-    <button class="navcta" id="plansBtn">Subscriptions</button>
-  </nav>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MikeScripts — FiveM scripts &amp; custom aircraft</title><meta name="description" content="Shop MikeScripts FiveM resources: Flight Simulator, police helicopter, fire systems, heavy recovery and the MS8000 walkable luxury jet. Secure purchase through Tebex."><meta name="theme-color" content="#101111"><meta name="referrer" content="strict-origin-when-cross-origin"><meta property="og:title" content="MikeScripts — FiveM scripts &amp; custom aircraft"><meta property="og:description" content="Shop MikeScripts FiveM resources: Flight Simulator, police helicopter, fire systems, heavy recovery and the MS8000 walkable luxury jet. Secure purchase through Tebex."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap"><style>:root{color-scheme:dark;--bg:#101111;--panel:#191a1a;--text:#f3f2ed;--muted:#a7aaa7;--line:#343635;--accent:#d9efaa;--max:1440px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}body:has(dialog[open]){overflow:hidden}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer;color:inherit;background:none;border:0}button:disabled{opacity:.5;cursor:not-allowed}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:5px}img,video{display:block;max-width:100%}[hidden]{display:none!important}.wrap{max-width:var(--max);padding-inline:48px;margin:auto}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip{position:fixed;top:-100px;left:15px;padding:12px;background:var(--accent);color:#111;z-index:100}.skip:focus{top:10px}.site-header{height:82px;position:sticky;top:0;z-index:25;background:#101111f7;border-bottom:1px solid var(--line)}.header-inner{height:100%;display:flex;align-items:center;gap:42px}.brand{display:flex;align-items:center;gap:11px;white-space:nowrap;font-size:23px;font-weight:700;letter-spacing:-1.1px}.brand img{height:32px;width:32px;object-fit:contain}.brand span span{font-weight:400;color:#d5d8d1}.nav{display:flex;gap:28px;align-items:center;margin-left:auto;font-size:13px}.nav a{color:#d2d5d0}.nav a:hover{color:var(--accent)}.header-actions{display:flex;align-items:center;gap:22px}.bag-button{border-left:1px solid var(--line);padding:8px 0 8px 24px;display:flex;gap:9px;align-items:center;font-size:12px}.bag-count{font-size:10px;min-width:19px;height:19px;display:grid;place-items:center;border-radius:50%;background:#30352c;color:var(--accent)}.menu-toggle{display:none;padding:8px}.mobile-nav{position:fixed;left:0;right:0;top:82px;background:#181a19;z-index:24;padding:15px 24px;border-bottom:1px solid var(--line)}.mobile-nav a{display:block;padding:12px 0}.icon{width:18px;height:18px;display:inline-block;flex-shrink:0;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.6}.hero{position:relative;min-height:550px;isolation:isolate;max-width:1800px;margin:auto;overflow:hidden;background:#222725}.hero-media{position:absolute;inset:0;z-index:-3}.hero-media .media-frame{height:100%;aspect-ratio:auto;border:0}.hero-media .media-frame>canvas,.hero-media .media-frame>img,.hero-media .media-frame>video{object-fit:cover;width:100%;height:100%}.hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#0a0e0deb,rgba(10,14,13,.25) 68%),linear-gradient(0deg,#0a0e0d70,transparent 60%);pointer-events:none}.hero .wrap{padding-top:136px;padding-bottom:57px}.hero-kicker,.kicker{font-size:10px;letter-spacing:1.45px;text-transform:uppercase;display:block;color:var(--muted)}.hero-kicker{color:#dce1d8;margin-bottom:19px}.hero-kicker i{display:inline-block;width:6px;height:6px;background:var(--accent);margin-right:9px;border-radius:50%}.hero h1{font-size:clamp(38px,5.5vw,76px);font-weight:500;letter-spacing:-.058em;line-height:1.04;margin:0 0 19px;max-width:660px}.hero-copy{font-size:16px;line-height:1.75;max-width:425px;color:#d4d9d1;margin:0 0 28px}.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.button{min-height:46px;padding:13px 19px;font-size:12px;display:inline-flex;align-items:center;justify-content:center;gap:22px;border:1px solid #787f75;border-radius:2px}.button.primary{background:var(--accent);border-color:var(--accent);color:#16200d}.button:hover{filter:brightness(1.12)}.button.secondary{background:#11151370}.text-link{font-size:12px;display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid #6e7568;padding-bottom:4px}.hero-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:64px;color:#bac2b8;font-size:10px}.hero-bottom>span{letter-spacing:1.2px}.hero-motion{display:flex;align-items:center;gap:9px;font-size:11px;border:1px solid #b5c2b262;padding:8px 12px;background:#0d140c88}.featured-rail{border-bottom:1px solid var(--line)}.featured-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:0}.feature-choice{padding:20px 19px;text-align:left;display:flex;align-items:center;gap:15px;border-top:2px solid transparent;border-right:1px solid var(--line);position:relative;min-width:0}.feature-choice:first-child{padding-left:0}.feature-choice:last-child{border-right:0}.feature-choice[aria-pressed=true]{border-top-color:var(--accent)}.feature-choice small{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:3px}.feature-choice strong{font-weight:500;font-size:12px;display:block;line-height:1.5}.feature-choice .mini-media{width:76px;aspect-ratio:16/10;flex-shrink:0;overflow:hidden;background:#282d29}.mini-media .media-frame{height:100%;width:100%;border:0}.mini-media .media-fallback{font-size:0}.section{padding-top:77px;padding-bottom:79px}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:26px;margin-bottom:29px}.section-head h2{font-size:36px;font-weight:500;line-height:1.15;letter-spacing:-1.5px;margin:9px 0 0}.section-head>p{font-size:13px;color:var(--muted);margin:0;max-width:300px}.catalog-tools{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--line);margin-bottom:30px}.filters{display:flex;gap:25px;overflow:auto;scrollbar-width:thin}.filters button{font-size:12px;color:var(--muted);padding:17px 0;white-space:nowrap;border-bottom:2px solid transparent}.filters button[aria-pressed=true]{color:var(--text);border-bottom-color:var(--accent)}.search{display:flex;align-items:center;gap:10px;border:0;padding-left:14px;min-width:170px}.search input{border:0;background:none;color:var(--text);outline-offset:3px;width:175px;padding:12px 0;font-size:12px}.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}.product-card{min-width:0}.product-visual{position:relative;display:block;overflow:hidden;aspect-ratio:16/9;background:#242a25}.product-visual .media-frame{width:100%;height:100%;border:0}.product-visual .media-frame canvas,.product-visual .media-frame img{transition:transform .4s;object-fit:cover}.product-visual:hover .media-frame canvas,.product-visual:hover .media-frame img{transform:scale(1.025)}.media-tag{position:absolute;left:12px;top:12px;background:#101510d9;color:#e8ece4;border:1px solid #b1b9a84d;padding:4px 8px;font-size:9px;letter-spacing:.7px;pointer-events:none}.art-action{position:absolute;bottom:14px;right:14px;padding:9px 13px;background:#131915cf;border:1px solid #f5f5ee80;display:flex;gap:9px;align-items:center;font-size:10px}.product-info{padding:18px 0 0}.product-meta{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:var(--muted);margin-bottom:7px}.product-info h3{font-size:23px;font-weight:500;letter-spacing:-.65px;margin:0 0 8px}.product-info p{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.65}.product-bottom{border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding-top:13px;font-size:11px;gap:12px}.product-bottom a:hover{color:var(--accent)}.price-copy{font-size:12px}.price-copy small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.empty-state{padding:40px;border:1px solid var(--line);color:var(--muted)}.catalog-note{font-size:10px;color:var(--muted);margin-top:26px;line-height:1.7}.showcases{border-block:1px solid var(--line);background:#171918}.showcase-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px}.showcase-item{text-align:left;padding:0;min-width:0}.showcase-image{position:relative;aspect-ratio:16/10;overflow:hidden;background:#262c26}.showcase-image .media-frame{height:100%;width:100%}.showcase-item strong{display:block;font-size:15px;font-weight:500;margin:12px 0 3px}.showcase-item small{color:var(--muted);font-size:11px}.play-dot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:45px;height:45px;display:grid;place-items:center;border:1px solid #e1e5d7;background:#11191188;border-radius:50%}.aircraft-section{background:#e9e8e1;color:#20221f}.aircraft-section .kicker{color:#646a60}.aircraft-section .section-head{align-items:flex-start}.flyms{font-size:33px;letter-spacing:-2px;font-style:italic;font-weight:700}.aircraft-section p{color:#62665d;font-size:13px;max-width:440px}.aircraft-list{border-top:1px solid #bebfb4}.aircraft-row{display:grid;grid-template-columns:1fr 1.4fr auto;gap:20px;align-items:center;border-bottom:1px solid #bebfb4;padding:32px 0}.aircraft-row h3{font-size:34px;font-weight:500;letter-spacing:-1.3px;margin:0 0 4px}.aircraft-row small{font-size:11px;color:#64695e}.aircraft-row p{margin:0;font-size:13px}.aircraft-row .text-link{font-size:12px;white-space:nowrap}.aircraft-row.with-media{grid-template-columns:280px 1fr auto}.aircraft-row .media-frame{aspect-ratio:16/9}.media-note{font-size:10px!important;margin-top:20px!important;max-width:100%!important}.support-section{padding-block:44px;border-bottom:1px solid var(--line)}.support-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}.support-inner h2{font-size:25px;font-weight:500;letter-spacing:-.8px;margin:0 0 6px}.support-inner p{font-size:13px;color:var(--muted);margin:0}.footer{padding-block:33px}.footer-top{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer-links{display:flex;gap:25px;font-size:11px;color:var(--muted)}.footer-bottom{font-size:10px;color:#93998f;display:flex;justify-content:space-between;gap:25px;border-top:1px solid var(--line);margin-top:29px;padding-top:20px}.footer-disclaimer{font-size:9px;color:#83897f;margin-bottom:0}.media-frame{position:relative;overflow:hidden;background:#242a26;aspect-ratio:16/9;isolation:isolate}.media-frame>img,.media-frame>canvas,.media-frame>video{width:100%;height:100%;object-fit:contain;position:absolute;inset:0}.media-frame>canvas{z-index:1;pointer-events:none}.media-frame.ready .media-fallback{display:none}.media-frame>.motion-img{visibility:hidden}.media-frame.playing>.motion-img{visibility:visible;z-index:2}.media-frame.playing>canvas{visibility:hidden}.media-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:25px;color:#acb6a8;text-align:center;font-size:12px;gap:8px;background:#222a23}.media-fallback small{font-size:10px;color:#838f7e}.hero .media-fallback{align-items:flex-end;justify-content:flex-start;padding:26px 48px;font-size:11px}.media-frame.failed .media-fallback{display:flex}.media-frame.failed img,.media-frame.failed canvas{display:none}.breadcrumb{display:flex;gap:9px;font-size:11px;color:var(--muted);padding-block:28px}.breadcrumb a:hover{color:var(--text)}.product-page{padding-bottom:70px}.product-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:44px;align-items:start}.gallery-stage{position:relative;background:#202820}.gallery-stage .media-frame{aspect-ratio:16/10}.gallery-stage .gallery-play{position:absolute;inset:0;display:grid;place-items:center;background:none}.gallery-play>span{display:flex;gap:12px;align-items:center;background:#101a12dd;padding:15px 22px;border:1px solid #e4ecdc80;font-size:12px}.gallery-controls{display:flex;justify-content:space-between;align-items:center;margin:11px 0 17px;gap:12px;font-size:11px;color:var(--muted)}.gallery-controls .control-group{display:flex;gap:8px;align-items:center}.icon-button{border:1px solid #4c5648;min-width:37px;min-height:36px;display:inline-flex;justify-content:center;align-items:center;padding:8px}.gallery-thumbs{display:flex;gap:9px;overflow:auto;scrollbar-width:thin;padding-bottom:7px}.gallery-thumb{position:relative;flex-shrink:0;width:106px;aspect-ratio:16/10;padding:0;border:1px solid transparent;opacity:.65}.gallery-thumb[aria-pressed=true]{border-color:var(--accent);opacity:1}.gallery-thumb .media-frame{height:100%;width:100%}.gallery-thumb .media-fallback{font-size:8px;padding:6px}.gallery-thumb .media-fallback small{display:none}.gallery-thumb .clip-mark{position:absolute;left:5px;bottom:5px;padding:2px 4px;background:#10170fe0;font-size:8px;z-index:3}.gallery-caption{font-size:11px;color:var(--muted);margin-top:12px}.buy-panel{padding-top:3px;position:sticky;top:111px}.buy-panel h1{font-size:40px;line-height:1.1;font-weight:500;letter-spacing:-1.8px;margin:13px 0 18px}.buy-panel .intro{font-size:13px;line-height:1.8;color:#b5bdb0;margin-bottom:22px}.compat{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px}.compat span{border:1px solid var(--line);font-size:10px;padding:5px 8px}.purchase-block{padding-block:21px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.purchase-block label{font-size:11px;display:block;margin-bottom:8px}.purchase-block select{background:#1a2019;color:var(--text);border:1px solid #53614d;padding:11px;width:100%;font-size:12px;margin-bottom:18px}.purchase-price{font-size:24px;letter-spacing:-.6px;margin-bottom:16px}.purchase-price small{display:block;font-size:11px;letter-spacing:0;color:var(--muted);margin-top:5px}.purchase-actions{display:flex;gap:9px;flex-wrap:wrap}.purchase-actions>.button{flex:1}.purchase-help{font-size:10px;color:var(--muted);line-height:1.7;margin:15px 0 0}.panel-links{display:flex;gap:22px;flex-wrap:wrap;font-size:11px;margin-top:19px}.product-tabs{display:flex;gap:28px;border-bottom:1px solid var(--line);margin-top:58px;font-size:12px}.product-tabs a{padding:15px 0}.product-tabs a:first-child{border-bottom:1px solid var(--accent)}.product-content-row{display:grid;grid-template-columns:1fr 2fr;gap:55px;padding-block:35px;border-bottom:1px solid var(--line)}.product-content-row h2{font-size:22px;font-weight:500;letter-spacing:-.6px;margin:0}.product-content-row p{font-size:13px;color:#b9c1b3;line-height:1.85;margin:0}.feature-list{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:20px 30px}.feature-list li{font-size:13px;border-left:2px solid #778f64;padding-left:13px;line-height:1.6}.included-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}.included-grid h3{font-size:12px;font-weight:500;margin:0 0 10px}.included-grid ul{margin:0;padding-left:17px;font-size:12px;color:#b2bba9;line-height:1.8}.included-grid li{margin-bottom:6px}.aircraft-empty{padding:55px 30px;border:1px solid var(--line);min-height:300px;display:flex;flex-direction:column;justify-content:center;background:#191e19}.aircraft-empty h2{font-size:25px;font-weight:400;letter-spacing:-.8px;max-width:310px;line-height:1.3;margin:0 0 14px}.aircraft-empty p{color:var(--muted);font-size:12px;max-width:380px;margin:0}.aircraft-empty small{margin-top:35px;color:#8b9685;font-size:10px}.back-collection{margin-top:30px;font-size:12px;display:inline-flex;gap:10px}.viewer{width:min(1200px,95vw);padding:0;background:#101410;border:1px solid #64745a;border-radius:0;max-height:95dvh;color:var(--text)}dialog::backdrop{background:#050904e8}.viewer-head{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;gap:12px;font-size:12px}.viewer .media-frame{max-height:75dvh;aspect-ratio:16/9}.viewer iframe{width:100%;aspect-ratio:16/9;display:block;border:0;background:black}.viewer video{max-height:75dvh;width:100%;background:black}.viewer-foot{padding:13px 20px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);gap:20px}.viewer-foot button{border:1px solid var(--line);padding:9px 13px;min-height:36px}.cart-dialog{width:min(450px,100vw);max-height:100dvh;height:100dvh;margin:0 0 0 auto;padding:0;background:#151914;color:var(--text);border:0;border-left:1px solid #596650;border-radius:0;overflow:auto}.cart-head{padding:27px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.cart-head h2{font-size:27px;font-weight:500;letter-spacing:-.8px;margin:5px 0}.cart-item{margin:0 24px;padding:21px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:15px}.cart-item h3{font-size:14px;font-weight:500;margin:0 0 5px}.cart-item p{font-size:11px;color:var(--muted);margin:0;line-height:1.8}.cart-empty{padding:28px 24px;color:var(--muted);font-size:13px}.cart-foot{padding:24px}.cart-foot p{font-size:11px;line-height:1.8;color:var(--muted)}.cart-foot .button{width:100%}.cart-foot>a{display:block;text-align:center;margin-top:16px;font-size:11px}#checkout-stage{padding:0 24px}#checkout-stage:empty{padding:0}#checkout-stage p{font-size:12px;line-height:1.8;border:1px solid #455839;background:#202e1a;padding:13px;margin-top:22px}#checkout-stage .error{border-color:#95524c;background:#341e1c}#checkout-stage .button{width:100%;margin-bottom:8px}.basket-total{padding:17px;border:1px solid var(--line);font-size:12px;margin-bottom:18px}.basket-total strong{display:block;font-size:25px}.checkout-ready-link{font-size:11px;display:block;padding:14px 0;text-align:center}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#e4edda;color:#1b2513;font-size:12px;padding:14px 22px;z-index:50;max-width:90vw;border:1px solid #98a68c;opacity:0;pointer-events:none}.toast.show{opacity:1}.noscript{padding:20px;background:#d8e4c6;color:#15210c}.preview-note{position:fixed;bottom:12px;left:12px;z-index:20;background:#171d14e8;border:1px solid #718363;color:#dfe9d4;padding:7px 11px;font-size:10px;max-width:65vw}.privacy p{color:var(--muted);font-size:13px;line-height:1.9;max-width:740px}.privacy h1{font-size:37px;font-weight:500;letter-spacing:-1px}
+@media(min-width:1600px){.hero .wrap{padding-top:172px;padding-bottom:65px}.hero{min-height:650px}}
+@media(max-width:1100px){.wrap{padding-inline:30px}.header-inner{gap:25px}.nav{gap:19px}.brand{font-size:21px}.feature-choice{gap:10px;padding-inline:12px}.feature-choice .mini-media{width:53px}.feature-choice strong{font-size:11px}.hero .wrap{padding-top:110px}.product-layout{gap:27px;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr)}.buy-panel h1{font-size:33px}.filters{gap:20px}.aircraft-row.with-media{grid-template-columns:200px 1fr auto}}
+@media(max-width:800px){.site-header{height:70px}.wrap{padding-inline:23px}.nav{display:none}.header-actions{margin-left:auto;gap:15px}.menu-toggle{display:block}.bag-button{padding-left:17px}.mobile-nav{top:70px}.hero{min-height:515px}.hero .wrap{padding-top:111px;padding-bottom:34px}.hero h1{font-size:50px;max-width:500px}.hero-copy{font-size:14px;max-width:380px}.hero-bottom{margin-top:53px}.hero:after{background:linear-gradient(90deg,#0a0e0de0,#0a0e0d5c),linear-gradient(0deg,#0a0e0d88,transparent)}.hero .media-fallback{padding:24px}.featured-inner{grid-template-columns:repeat(5,190px);overflow:auto;scrollbar-width:thin}.feature-choice{padding:15px 13px}.feature-choice:first-child{padding-left:0}.feature-choice .mini-media{width:55px}.section{padding-block:58px}.section-head h2{font-size:30px}.section-head>p{max-width:220px;font-size:12px}.catalog-tools{flex-wrap:wrap;gap:0;padding-bottom:8px}.filters{width:100%;justify-content:space-between;gap:16px}.search{padding:0;width:100%}.search input{width:100%}.product-grid{gap:30px 21px}.product-info h3{font-size:21px}.product-info p{font-size:12px}.product-meta{font-size:9px}.showcase-grid{grid-template-columns:1fr 1fr}.showcase-item:first-child{grid-column:1/-1}.showcase-item:first-child .showcase-image{aspect-ratio:21/9}.aircraft-row{grid-template-columns:1fr auto;gap:15px}.aircraft-row p{grid-column:1;grid-row:2}.aircraft-row>.text-link{grid-column:2;grid-row:1/3}.aircraft-row h3{font-size:30px}.aircraft-row.with-media{grid-template-columns:150px 1fr}.aircraft-row.with-media>.text-link{grid-column:2;grid-row:2}.aircraft-row.with-media>.media-frame{grid-row:1/3}.aircraft-row.with-media p{display:none}.product-layout{grid-template-columns:1fr;gap:27px}.buy-panel{position:static}.buy-panel h1{font-size:35px}.gallery-stage .media-frame{aspect-ratio:16/9}.buy-panel .intro{max-width:570px}.buy-panel .purchase-block{max-width:100%}.purchase-actions{max-width:100%}.purchase-actions>.button{flex:1}.product-tabs{margin-top:39px}.product-content-row{grid-template-columns:1fr;gap:20px;padding-block:29px}.product-content-row h2{font-size:21px}.footer-top{align-items:flex-start}.footer-links{flex-wrap:wrap;gap:12px 20px;justify-content:flex-end;max-width:250px}.support-inner h2{font-size:22px}.support-inner p{font-size:12px;max-width:330px}.support-inner .button{white-space:nowrap}}
+@media(max-width:520px){.wrap{padding-inline:19px}.brand{font-size:20px;gap:8px}.brand img{width:27px;height:27px}.header-inner{gap:13px}.bag-button{padding-left:11px;gap:7px}.header-actions{gap:6px}.hero h1{font-size:43px;letter-spacing:-2px}.hero .wrap{padding-top:95px}.hero-copy{max-width:310px}.hero-bottom>span{font-size:8px;letter-spacing:.8px}.hero-motion{font-size:10px;padding:8px}.hero .button{font-size:11px;min-height:44px;padding:12px 14px;gap:14px}.hero{min-height:505px}.hero .media-fallback{padding:16px;font-size:9px}.section-head{flex-direction:column;align-items:flex-start;gap:14px}.section-head>p{max-width:300px}.section-head h2{font-size:31px}.filters{justify-content:flex-start;gap:23px}.filters button{font-size:11px}.product-grid{grid-template-columns:1fr;gap:32px}.product-info h3{font-size:23px}.product-info p{font-size:13px}.product-meta{font-size:10px}.product-visual{aspect-ratio:16/10}.showcase-grid{gap:17px}.showcase-item strong{font-size:13px}.showcase-item small{font-size:10px}.showcase-item:first-child .showcase-image{aspect-ratio:16/10}.play-dot{width:36px;height:36px}.aircraft-section .section-head{flex-direction:row;gap:20px}.flyms{font-size:27px}.aircraft-row h3{font-size:28px}.aircraft-row p{font-size:12px}.aircraft-row>.text-link{font-size:11px}.aircraft-row.with-media{grid-template-columns:1fr}.aircraft-row.with-media>.media-frame{grid-row:1;grid-column:1}.aircraft-row.with-media>.text-link{grid-column:1;grid-row:3;justify-self:start}.support-inner{flex-direction:column;align-items:flex-start;gap:20px}.footer-top{flex-direction:column;gap:25px}.footer-links{justify-content:flex-start;max-width:none;gap:20px}.footer-bottom{flex-direction:column;gap:7px;font-size:9px}.feature-list,.included-grid{grid-template-columns:1fr;gap:18px}.feature-list li{font-size:12px}.gallery-thumb{width:85px}.gallery-caption{font-size:10px}.gallery-controls{font-size:10px}.gallery-controls .control-group{gap:5px}.buy-panel h1{font-size:35px}.product-tabs{gap:21px;font-size:11px}.breadcrumb{font-size:10px}.hero-kicker{font-size:9px}.viewer-foot{gap:10px;padding-inline:12px}.viewer-head{padding-inline:12px}.viewer-foot>span{font-size:10px}.viewer-foot button{padding-inline:10px}.media-tag{font-size:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.product-visual:hover .media-frame canvas,.product-visual:hover .media-frame img{transform:none}}
+.product-layout>*{min-width:0}.gallery-controls{flex-wrap:wrap}.gallery-controls>.control-group{margin-left:auto}.gallery-controls>span{min-width:0;overflow-wrap:anywhere}.media-frame{min-width:0}.product-content-row>div{min-width:0}
+.mini-media .media-fallback small{display:none}.purchase-actions #add-to-bag{flex:0 0 48px;padding:12px}.gallery-enlarge{position:absolute;inset:0;width:100%;height:100%;display:flex;justify-content:flex-end;align-items:flex-end;padding:16px;background:transparent}.gallery-enlarge>span{padding:9px;background:#101910d9;border:1px solid #a9b99a;display:grid;place-items:center}
+</style><style>/* V3: restrained studio typography, owner utilities and deliberate interaction motion. */
+:root{--font-ui:'DM Sans',Arial,Helvetica,sans-serif;--font-display:'Barlow Condensed','Arial Narrow',Arial,sans-serif;--ease:cubic-bezier(.2,.75,.25,1);--accent:#d9efaa;--owner-line:#3b4438}
+body{font-family:var(--font-ui);font-weight:400;font-size:15px;line-height:1.65;text-rendering:optimizeLegibility}
+button,input,select,textarea{font-family:var(--font-ui)}
+.hero h1,.buy-panel h1,.section-head h2,.aircraft-row h3,.owner-dialog h2,.cart-head h2,.support-inner h2{font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}
+.hero h1{font-size:clamp(49px,6vw,88px);line-height:1.01;max-width:760px;text-wrap:balance}
+.hero-copy{font-size:15px;max-width:450px;line-height:1.8}.hero .wrap{padding-top:125px}
+.buy-panel h1{font-size:48px;line-height:1.08}.section-head h2{font-size:43px;line-height:1.08}.aircraft-row h3{font-size:41px}
+.product-info h3{font-family:var(--font-ui);font-size:24px;font-weight:600;line-height:1.23;letter-spacing:-.65px}
+.brand{font-family:var(--font-ui);font-weight:700;letter-spacing:-1.1px}.kicker,.hero-kicker{font-family:var(--font-ui);font-weight:600;letter-spacing:1.55px;font-size:10px}
+.button{font-weight:600;letter-spacing:.1px;border-radius:3px;transition:background-color .18s,color .18s,border-color .18s,transform .18s var(--ease)}
+.button .icon,.text-link .icon,.art-action .icon{transition:transform .2s var(--ease)}
+.button:hover .icon,.text-link:hover .icon,.product-visual:hover .art-action .icon{transform:translateX(3px)}
+.button:active{transform:translateY(1px)}
+.nav a{position:relative;padding-block:8px}.nav a:after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .22s var(--ease)}
+.nav a:hover:after,.nav a:focus-visible:after{transform:scaleX(1)}
+.site-header{transition:border-color .2s,box-shadow .2s}.site-header.is-scrolled{box-shadow:0 5px 25px #06080630;border-bottom-color:#56604b}
+.reading-progress{height:2px;position:absolute;left:0;right:0;bottom:-1px;overflow:hidden;pointer-events:none}
+.reading-progress i{display:block;width:100%;height:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
+.quick-search{display:flex;align-items:center;gap:9px;min-width:38px;min-height:44px;padding:8px;color:#c5ccbe}.quick-search kbd{font-size:9px;color:#a3af97;border:1px solid #4c5745;padding:2px 4px;border-radius:3px;font-family:var(--font-ui)}
+.header-actions{gap:12px}.header-inner{gap:30px}.nav{gap:24px}.bag-button{padding-left:18px;min-height:44px}.bag-count{transition:background .2s,color .2s}
+.motion-toggle{color:var(--muted);font-size:11px;padding:3px 0;border-bottom:1px solid #78856a}.motion-toggle:before{content:'';display:inline-block;width:5px;height:5px;border:1px solid #cfe2b8;border-radius:50%;margin-right:7px;background:var(--accent)}
+.motion-toggle[aria-pressed=true]:before{background:transparent}
+.product-visual .media-frame canvas,.product-visual .media-frame img{transition:transform .5s var(--ease),opacity .3s}.product-visual:hover .media-frame canvas,.product-visual:hover .media-frame img{transform:scale(1.018)}
+.art-action{transition:background-color .2s,border-color .2s;backdrop-filter:blur(5px)}.product-visual:hover .art-action{background:#18210eef;border-color:var(--accent)}
+.feature-choice{transition:border-color .24s,background-color .24s}.feature-choice:hover{background:#21271d}.feature-choice[aria-pressed=true]{background:#20251d}.gallery-thumb{transition:opacity .2s,border-color .2s}.gallery-thumb:hover{opacity:1}
+.owner-toolbar{display:flex;align-items:center;gap:25px;border:1px solid var(--owner-line);background:#1b2119;padding:18px 20px;margin:0 0 17px;border-left:3px solid var(--accent)}
+.owner-profile{display:flex;gap:13px;align-items:center;min-width:220px}.owner-profile-icon{font-size:29px;line-height:1;color:#c7d7b7;border:1px solid #4a5640;width:38px;height:38px;display:grid;place-items:center}
+.owner-profile label{display:block;font-size:9px;letter-spacing:1.5px;color:#9dab8e;font-weight:600}.owner-profile select{border:0;color:#eff2e9;background:#1b2119;font-size:14px;font-weight:600;padding:4px 26px 4px 0;min-height:30px;cursor:pointer;max-width:210px}
+.owner-toolbar-note{font-size:12px;color:#c1cbb7;line-height:1.6}.owner-toolbar-note small{display:block;font-size:10px;color:#929e87;margin-top:2px}
+.demo-trigger{font-size:12px;white-space:nowrap;margin-left:auto;display:flex;align-items:center;gap:14px;padding:10px 0;min-height:44px}
+.demo-trigger:hover{color:var(--accent)}.owner-results-line{display:flex;justify-content:space-between;align-items:center;margin:0 0 9px;gap:15px;color:#98a28d;font-size:11px}.owner-results-line .text-link{font-size:10px;border-bottom:0;color:#c0c9b5;padding:7px 0}.owner-results-line kbd{font:9px var(--font-ui);border:1px solid #4c5841;padding:1px 5px;border-radius:2px}
+.catalog-tools{margin-bottom:25px}.filters button{position:relative;transition:color .2s,border-color .2s}.filters button:hover{color:var(--accent)}
+.owner-card-strip{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:10px;margin-top:9px;padding:4px 0 10px}
+.support-status{font-size:11px;line-height:1.7;color:#aebda0}.support-status.match{color:#d0e9ac}.support-status.unknown{color:#dcc993}.support-status.neutral{color:#9da897}
+.compare-toggle{display:inline-flex;gap:7px;align-items:center;font-size:11px;padding:8px 0 8px 10px;min-height:40px;color:#c3cbbb;white-space:nowrap}
+.compare-check{width:16px;height:16px;border:1px solid #5e6b52;display:grid;place-items:center;line-height:1;font-size:12px;transition:background .18s,border-color .18s,color .18s}
+.compare-toggle[aria-pressed=true] .compare-check{background:var(--accent);color:#18220d;border-color:var(--accent)}.compare-toggle:hover{color:var(--accent)}
+.owner-product-tools{border-top:1px solid var(--owner-line);padding-top:14px;margin-top:-7px;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;align-items:center}.owner-product-tools label{font-size:11px;color:#9fab95}.owner-product-tools select{justify-self:end;background:#20271c;color:#ecf2e3;font-size:11px;border:1px solid #515f44;padding:8px;max-width:180px;min-height:36px}
+.owner-product-tools p{grid-column:1/-1;margin:5px 0 0;font-weight:500}.owner-product-tools small{grid-column:1/-1;color:#909d84;font-size:10px}
+.owner-detail-actions{display:flex;align-items:center;justify-content:space-between;margin:5px 0 19px;gap:12px}.owner-detail-actions .compare-toggle{padding-left:0}.owner-detail-actions .text-link{font-size:10px}
+#owner-technical{grid-column:2}#requirements{row-gap:24px}.owner-specs{margin:0}.owner-specs>div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:13px 0;border-top:1px solid var(--line);font-size:12px;line-height:1.8}.owner-specs dt{color:#95a388}.owner-specs dd{margin:0;color:#cbd5c1}.owner-specs code{display:inline-block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;background:#232c1d;border:1px solid #3d4d30;padding:2px 6px;margin:2px 4px 2px 0}
+.owner-fine{font-size:10px!important;line-height:1.8!important;color:#99a28f!important;margin:12px 0 0!important}.owner-fine a{color:#cfdbc2;text-decoration:underline;text-underline-offset:3px}
+.install-checklist{grid-column:2;background:#1c2318;border:1px solid #3b4930;padding:21px}.checklist-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:15px}.checklist-heading h3{font-weight:500;font-size:16px;margin:0}.checklist-heading>span{font-size:10px;color:#bacda6}
+#checklist-progress{width:100%;height:3px;margin-bottom:12px;border:0;display:block;background:#38412e;accent-color:var(--accent)}#checklist-progress::-webkit-progress-bar{background:#38412e}#checklist-progress::-webkit-progress-value{background:var(--accent);transition:width .3s var(--ease)}#checklist-progress::-moz-progress-bar{background:var(--accent)}
+.checklist-item{display:flex;align-items:flex-start;gap:11px;font-size:12px;line-height:1.65;cursor:pointer;padding:9px 0}.checklist-item input{width:17px;height:17px;accent-color:var(--accent);margin-top:2px;flex-shrink:0}.checklist-item:has(input:checked) span{color:#dcecc9}.install-checklist .text-link{font-size:11px;margin-top:17px}
+.owner-dialog{padding:0;border:1px solid #566447;background:#151b12;color:var(--text);border-radius:7px;max-height:90dvh;width:min(630px,94vw);box-shadow:0 30px 100px #0008}
+.owner-dialog::backdrop{background:#050904da;backdrop-filter:blur(5px)}
+.owner-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:22px 25px;border-bottom:1px solid #38442e}.owner-dialog h2{font-size:35px;line-height:1.1;margin:7px 0 0}.owner-dialog .kicker{font-size:9px}.owner-dialog .icon-button{min-width:40px;min-height:40px;font-size:22px}
+.owner-dialog-body{padding:23px 25px}.owner-dialog-body>p{font-size:13px;color:#b6c1aa;line-height:1.8;margin:0 0 20px}.owner-dialog-body .text-link{margin-top:21px;font-size:11px}
+.command-dialog{margin:12vh auto auto;width:min(660px,94vw)}.command-input{display:flex;align-items:center;gap:12px;padding:14px 25px;border-bottom:1px solid #34452b}.command-input input{border:0;background:transparent;color:white;font-size:16px;width:100%;padding:10px 0;outline-offset:2px}
+.command-count{font-size:10px;color:#93a385;padding:0 25px;margin:14px 0 8px}.command-result{display:grid;grid-template-columns:93px 1fr 18px;gap:15px;padding:15px 25px;align-items:center;transition:background-color .18s}.command-result:hover,.command-result:focus-visible{background:#26331d}.command-type{font:10px ui-monospace,SFMono-Regular,Consolas,monospace;color:#a4c781}.command-result strong{display:block;font-size:14px;font-weight:500;line-height:1.4}.command-result small{display:block;font-size:11px;color:#9dab91;margin-top:4px;line-height:1.6}.command-foot{display:flex;justify-content:space-between;gap:15px;font-size:10px;padding:13px 25px;border-top:1px solid #33402a;color:#99ab89}.command-foot kbd{font:10px var(--font-ui)}.command-empty{padding:25px;font-size:13px;color:#9dab91}#command-results{max-height:53dvh;overflow-y:auto}
+.compare-dialog{width:min(1100px,96vw)}.compare-note{font-size:12px;padding:0 25px;color:#a7b499;line-height:1.8;margin:20px 0}.compare-scroll{overflow:auto;max-height:58dvh;margin:0 25px;scrollbar-width:thin}.compare-table{width:100%;border-collapse:collapse;font-size:12px;line-height:1.7;table-layout:fixed;min-width:590px}.compare-table th,.compare-table td{padding:17px 18px;vertical-align:top;border-bottom:1px solid #39462e;text-align:left;overflow-wrap:anywhere}.compare-table th:first-child{width:170px;color:#8d9f7d;font-weight:400;padding-left:0}.compare-table thead th{background:#1a2314}.compare-table thead small{display:block;color:#acbd98;font-size:9px;letter-spacing:1px}.compare-table thead strong{display:block;font-family:var(--font-display);font-size:26px;line-height:1.1;font-weight:600;margin:7px 0}.compare-table td{color:#c4d0b8;border-left:1px solid #303d26}.comparison-remove{padding:6px 0;margin-top:8px;font-size:10px;color:#95a485}.compare-table a{font-size:11px}.compare-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:19px 25px;font-size:10px;color:#a2b68b}.compare-bottom .text-link{font-size:11px}
+.compare-tray{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:23;background:#202c18f5;border:1px solid #708956;border-radius:5px;padding:10px 13px 10px 19px;display:flex;align-items:center;gap:17px;max-width:calc(100vw - 32px);box-shadow:0 14px 45px #0007;backdrop-filter:blur(10px)}
+.tray-label{font-size:10px;color:#96ae7e;white-space:nowrap}.compare-tray #compare-tray-items{font-size:11px;color:#d7e9c6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:360px}.compare-tray .button{min-height:40px;padding:10px 14px;gap:10px;white-space:nowrap;font-size:11px}.tray-clear{min-width:34px;min-height:40px;font-size:20px}.has-owner-tray .footer{padding-bottom:105px}
+.owner-buy-dock{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:22;background:#20291bfa;border:1px solid #6d805b;max-width:calc(100vw - 32px);width:530px;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:13px 16px;border-radius:5px;box-shadow:0 15px 40px #0007}.owner-buy-dock strong{display:block;font-size:13px;font-weight:500}.owner-buy-dock small{font-size:10px;color:#a1b28c;display:block;margin-top:4px}.owner-buy-dock .button{white-space:nowrap;font-size:11px;min-height:43px}
+.demo-command{display:block;padding:18px;border:1px solid #425a2c;background:#11180c;font-size:15px;color:#d9efaa;overflow-wrap:anywhere;margin-bottom:20px;white-space:pre-wrap}.demo-dialog .button{width:100%}.copy-dialog textarea{resize:vertical;min-height:240px;max-height:48dvh;width:100%;background:#0f170a;color:#e0edce;font:12px/1.8 ui-monospace,Consolas,monospace;border:1px solid #51683b;padding:15px;margin-bottom:18px}.mobile-demo{display:block;padding:14px 0;font-size:13px;color:var(--accent)}
+.toast{border-radius:4px;transition:opacity .16s;bottom:95px}.remove-item{min-width:40px;min-height:40px;font-size:22px}.viewer-foot button{min-width:40px;min-height:40px}.filters button{min-height:44px}.back-collection{min-height:44px;align-items:center}.footer-links button{min-height:32px}
+@media(max-width:1100px){.header-inner{gap:20px}.nav{gap:16px}.header-actions{gap:8px}.quick-search kbd{display:none}.owner-toolbar{gap:18px;padding:15px 17px}.owner-profile{min-width:200px}.owner-toolbar-note{font-size:11px}.buy-panel h1{font-size:42px}.owner-specs>div{grid-template-columns:120px 1fr;gap:18px}.hero h1{font-size:72px}}
+@media(max-width:800px){.hero h1{font-size:64px;max-width:540px}.hero .wrap{padding-top:100px}.section-head h2{font-size:39px}.owner-toolbar{flex-wrap:wrap;gap:10px 20px}.owner-toolbar-note{flex:1;min-width:180px}.demo-trigger{margin-left:0;font-size:11px}.owner-profile{min-width:185px}.owner-specs>div{grid-template-columns:145px 1fr}#owner-technical,.install-checklist{grid-column:1}.header-actions{gap:10px}.buy-panel h1{font-size:43px}.owner-product-tools{max-width:100%}.owner-dialog h2{font-size:33px}.tray-label{display:none}.owner-detail-actions{justify-content:flex-start;gap:30px}.support-inner h2{font-size:29px}}
+@media(max-width:520px){.hero h1{font-size:53px;max-width:355px;letter-spacing:-.02em}.hero .wrap{padding-top:94px}.hero-copy{font-size:14px;line-height:1.8}.section-head h2{font-size:36px}.brand{font-size:19px}.brand img{width:26px;height:26px}.header-actions{gap:3px}.header-inner{gap:7px}.quick-search{padding:6px;min-width:34px}.bag-button{border:0;padding-left:6px;gap:6px;font-size:11px}.menu-toggle{padding:7px}.owner-toolbar{padding:14px;gap:11px}.owner-profile{min-width:0;flex:1}.owner-profile select{font-size:13px;max-width:166px;padding-right:18px}.owner-profile-icon{width:31px;height:31px;font-size:25px}.owner-profile label{font-size:8px}.owner-toolbar-note{order:3;flex-basis:100%;font-size:11px;border-top:1px solid #38462d;padding-top:10px}.owner-toolbar-note small{font-size:10px}.demo-trigger{font-size:10px;gap:7px}.demo-trigger .icon{width:14px}.owner-results-line{font-size:10px;gap:8px}.owner-results-line kbd{display:none}.owner-results-line .text-link{font-size:10px}.product-info h3{font-size:23px}.owner-card-strip{margin-top:7px}.owner-dialog-head{padding:19px}.owner-dialog h2{font-size:29px}.owner-dialog-body{padding:19px}.owner-dialog-head .kicker{font-size:8px;letter-spacing:1px}.command-input{padding:10px 19px}.command-input input{font-size:14px}.command-count{padding-inline:19px}.command-result{grid-template-columns:1fr 18px;padding:13px 19px;gap:3px 15px}.command-type{grid-column:1;grid-row:1;font-size:9px}.command-result>span:nth-child(2){grid-column:1;grid-row:2}.command-result>.icon{grid-column:2;grid-row:1/3}.command-result strong{font-size:13px}.command-result small{font-size:10px}.command-foot{padding-inline:19px;font-size:9px}.command-dialog{margin-top:7vh}.compare-note{padding-inline:18px;font-size:11px}.compare-scroll{margin:0 18px}.compare-bottom{padding:17px 18px;align-items:flex-start;flex-wrap:wrap}.compare-table{min-width:620px}.compare-table th,.compare-table td{padding:13px}.compare-table th:first-child{width:140px}.compare-tray{gap:9px;bottom:12px;padding:8px 9px 8px 13px;max-width:calc(100vw - 20px);width:calc(100vw - 20px)}.compare-tray #compare-tray-items{font-size:10px;flex:1}.compare-tray .button{font-size:10px;padding:10px;gap:7px}.tray-clear{min-width:27px}.owner-buy-dock{padding:11px 13px;max-width:calc(100vw - 20px);bottom:12px;gap:10px}.owner-buy-dock strong{font-size:12px}.owner-buy-dock .button{font-size:10px;padding:11px 13px;gap:7px}.owner-buy-dock small{font-size:9px}.owner-specs>div{grid-template-columns:1fr;gap:4px}.owner-specs dt{font-size:10px}.owner-specs dd{font-size:12px}.install-checklist{padding:17px}.checklist-item{font-size:11px}.owner-product-tools select{max-width:175px}.owner-detail-actions{justify-content:space-between;gap:12px}.owner-detail-actions .text-link{font-size:10px}.owner-card-strip .support-status{font-size:10px}.compare-toggle{font-size:10px}.aircraft-row h3{font-size:37px}.footer-links{gap:15px}.demo-command{font-size:12px}.hero .hero-bottom>span{letter-spacing:.5px}}
+@media(max-width:350px){.brand{font-size:17px;gap:5px}.brand img{width:23px;height:23px}.bag-button>span:not(.bag-count){display:none}.hero h1{font-size:48px}.owner-profile-icon{display:none}.demo-trigger{font-size:9px}.owner-profile select{max-width:156px}.owner-toolbar{gap:8px}.compare-tray #compare-tray-items{max-width:98px}}
+/* Never hide content pending an animation. Device preference always wins. */
+html[data-motion=reduce]{scroll-behavior:auto}html[data-motion=reduce] *,html[data-motion=reduce] *:before,html[data-motion=reduce] *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html[data-motion=reduce] .product-visual:hover img,html[data-motion=reduce] .product-visual:hover canvas,html[data-motion=reduce] .button:hover .icon,html[data-motion=reduce] .text-link:hover .icon,html[data-motion=reduce] .product-visual:hover .art-action .icon,html[data-motion=reduce] .button:active{transform:none!important}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.product-visual:hover img,.product-visual:hover canvas,.button:hover .icon,.text-link:hover .icon,.button:active{transform:none!important}}
+/* Specificity-safe visually hidden single-option select: never creates page overflow. */
+.purchase-block select.sr-only{width:1px;min-width:0;max-width:1px;height:1px;min-height:0;padding:0;border:0;overflow:hidden;clip-path:inset(50%)}
+</style></head>
+<body data-page="home"><main id="main"><h1>MikeScripts</h1><p>FiveM scripts and custom aircraft.</p></main><noscript><p><a href="https://mikescripts.tebex.io">Browse MikeScripts on Tebex</a>. Enable JavaScript to use the galleries.</p></noscript><script>window.MS_PREVIEW=true;</script><script>window.MS_LOGO = 'data:image/webp;base64,UklGRv4RAABXRUJQVlA4WAoAAAAQAAAAYwAAYwAAQUxQSMMFAAABoIVtkyHJytEe27Zt27Zt27Zt27Z5tbZt28qMjOfpzvgjMuvwLiIguG0jSVJSU6mr16k+sU9w/22tofEvTMtqu5x+24uf/dq6fYfWv37+0h2n77pq81+LBba65N1ukyNrNrnrOxds1vxX6dnjse7zuGaRFEtSndPxgd1aqmedm7uQMtcwldpfsWq1bPPqZNCT1THumU2qY/N3ZzNTEWOe/vI61bD8o9NxFEJIjmQPJty1ZAWc2B9FIUUfU5QwdzusNCu9CWeEulnQxTC9uExR9hmArzBUcj1yt+0KcvVsJlPJAHVOObfYzf6CdhXLyILJ4/2NRVj8U/1OTIoNk0d+bYECLPWD2iuu25L+wcLZLPkzk4KYanY9iLE26+MFM1noaz1WdygEM9D4tbwFDa+wMiMg8ZhgCwIcvDeLG9TbUQ4RIBGBMXo8M4MD56OC1Ab9pKSIdUbnGduZWXUIG7LQEFoMEOnedSnrpA+VRyNUbUs4FZHjTxs5yfBoNBwRIvdSKNE9zj/AxDIDuUhRtguJQcpA1X1RC4+wJQlCYuVOGbbNe5Sm4rcZWH9aNEFJvxbXs4E61JQQ41fVecVUB1hjq4F2Ugf5wyobz1Rr7zXJdkOSgDrJpDU0nkRrkFwK8Ar32r7CzTIg/XaFFccgItwt2xVO5YyHLIm5mPW3BSmlVJSKishPhjT+AdDSqShGfAnZcFYkg6OoeAHqePJqiMsYb7NBQ/kSQHU64ntGukwXhA/eF+2FfAJYdnQ2NStUDLfmkMUku4NrsJ6DSWtaSoE9+m0kV7HUZSEt5sj+zEHVuZJ3mNCPLYE86uv0JBHPy7uyHcCYRCg9WtPuAb/LT9KRcqZ5o/JK7lXDAxZOWXem7AaYkinaAZm0SsqOcmWx2zsUmQ4+JzZLOQS1fUoIVK1BePeUk+GIbFQ7hM8CH5JyNpOlYfEQquHYlAsUghSYDbrPQ1C3G3NyyiVKI5DVg4Llk8LqfKr4KYL+yrdhbByXcqrWULJRsJ1qcaQMDhIHsk5R8dVMibRDyk4xWrcM7lI+wQrPXE98/s5iVVVMHV2ygFjkWYkZvYx4Fo9SwSrEkJeN4nRp1t8pWkOxXKCmoPApeDdm4b0HFK0lt0iuBHhEogD+iL+iXiFkeOhgIu8v2UV5qcCiNTM+GixJy3riSpKlR6HKayKVSs3Hm7L0Gn80OGnf6B8rqXovtXpxSO8t+RqU4JFbHeAiANiVlCQnuS7Bm1LxulACn3WItaYyQpMu1sGzJjSgc55qEfMw3KHFOdzELhQkIohqkNBOMg0hjAxikkhynYOcDAmYQBKCeAvBAk9ZA7NYf+AAcWZ18F6i81/PN+j1m+q/YNUqUYy04ytYHsmnlugCzyFInL+DxnIj6p5123s5NS3SLC9hVH/R4DS7BgMj0i9vSqMQzBGo527nVJbojxzGmgyfbC1eSyQ2m3T4LWewUzgaML466m5QVBeilQlrWWj6AVZBr+Q26bLqWoArXO1MtulUpqgdQM00FQNAI2JvcfnT+s/ly7VhZTeVIU2EcK1M2swZafoUeIyklGS6/eoVCiCRz3FmW6Ev2yAUk8HTSouJX3QZtt0UOBjRpuV+9Roubv5jEZdjx8xl/VYQZ74o3HMVl2cXkXClYZ9khAdv5HLtKuaohqCPbAS9DN/SuXyXYRTKgwTIyDsKD9nKlbBz5qiD8KToCQUd7rqBK2OHjVVcjfIkRf5pZVfKtuzAUcdcCMP87MKunC3xChveMEaIcO/401xZO34oRz0TkY7ZmL/f0JW2VV+cXwsKGvPw85tdBbb3n1wuYJ72xCquGms6rjUzl4mmv7qpq85aDv1ubvZ0Zh75+IauYtvy/l5sXx6ZecYv563g/gK28J4PtpvOdYsRrU1s1FeXbeD+Mta47nEP/9hn4jyWFmeMaP/eNbsv6/5ytuDKW+x74nlXXHfNZWcesfO6SzW4/2/mAABWUDggFAwAAHAtAJ0BKmQAZAA+bSySRaQioZbbDrRABsS2AGXQhn2MnJUMtCX0u5NUn5fzk3qG/SfsC/qz0o/MP+1n7Ye9p+M3ui/uXqAf0b/idY56DHlqft18Fv7k/uT8B/6/f/b2AP//6gHCs/2nq1eGPkF9Xy66Vv875o+AfAC9j/4zf3wAfV3iZ+u+tXeRewB+mfQJ/6v8t59PpP/0f6D4Dv5z/Zf+z2D/2h9m79m3NXNNq6caUDowJRYlFznpTaxUb2CvXwK/PUYGVFuuDlcnkxBp36Py8p3xnNNDp9VW00KdrMahakw/92fJyq7Nd/b7TIhl820EmlXKh9SeIDb7y9gAN1PnrgD2nFvobBCCt20wQMj2mjrGvuGSuGeQMsMNjPnU/RHhqAYG7ZERN9TmfmpE79I2gq1DtSyFhFfNk+BXMPp8wTlPln96is8G+jkpJEzbtNBPlQNb4piaYNeQO6sI2ak+Ve2FNv//RBzNDv4X+Om8PUFeAAD+/qU668PTK3amZeciD88gn93sPRS2jaR9Jua+fLr7+yPl2499CMgEbn2HwE6suo2uZ+E8F1j/r+KjBV2ykbEvp+Y+ODXjnTTYKkNL3zCsj6xvojzodW9rBbgh9FRT3/7LWZMfpssVgskWiz/sK5+/KrVF9w/zSkJFDdaYh/QxVjKlM/+/M7Wr5fWjgSDf4EIFdmtFMILbze3EQy1VgHNb8SjcIr52n2SgHS9BnnAQ4XLxGqgZ6VWjm/mCEvM5V41C6BH1xQq7ywjkzjEBJ4qvI9kUJwbL3/snmzGJr0obhVG8SL/u6T0SwInZjPP7MUgjYhIxCFyUpIXG7LSbV7ivdh9f9D7Nw4cBWoMWtYo6VyXhYfJfdp61bEje/goXM4tqGRCjxlmI1VlmieBrPR2HVswbu1pXE0Mr/AuoXSKQJy1XYCdhg/6jDTr3MrXO08AgdcqYaw+8RoVxbF1STznKwlAPGck2irSNNVqlVgJPLwDCeIeuhu2IDs/Zyeej5mensw4MgH7qrkqniH1T5tX+wtLqpRu14vL8hN+JYVh8GVagK/vvXAQYM6nFnWuzYhqbZ4Xx2ZqBw9624bblqd0Js07c+OjljzDGv/lOAbjbJmo+7wqpd57aSFlQBrxKdJh4asWsVzm+gaAetP8zN1u8qdNL8pd0xnKhdhCNy42FbcjSXJIBQ3fp7tqmQxdrYOv4KDKtxyVCxWuTBn8NzXVC77CCPpYgyYGzSMRT6kyxM5lMn4maFsQH3WbypWGM+FvdmTTp9PK888Fue6XPto1pQbxi8IzW8QRQQVFjbik3YEvW571ZdDt02p9IFC1IxaVPIvAVJU6vWL2BjBJn5cAgXNR1UOUtehaFXdkqAy+SFFJ9qCu3d5XvTbCVZi6boXpWRl37dIedOVM29eG4uF/6HQh3rVCF+C5kqHoVEj+C78DKKXfoGioMOVASGkCYCEctolPseRxaSgYHMX0TpEg9pzCNvTABCpr8cXQAt/hcRaSH2Je5uPOGyWDqbxikKX9FUsmGMsuUiAVHP1yFrPt3vOyCdX4l+BZax/gYfJfS7cyujCR8Xi8CvydzCYe3HTs37UHS1+rB3hBgev0CnG6w/6P/jgXyR9Hcd3VePUn9w07G8ver/Kw/C+iTj0ywMw4GjkOlmYV4hRNg0B96LxieBqwRFd58eKa/yew8KBhYzsKobzgHa61oaT/UAWGphzytlwI9uXMdrbW+STO1y4w4vyWhtM1/LF/4582OptcEvhYNepMIxoVH6TonLe22EdnH63vv9HbMnVQKo5ENto2hAXmd2p928RB+3bJdpbds28J6/9EgW27iYVdPEPRnEhPP0kp3wumzCv4cJgjWJEfs+/ylFr8fDxU7rd975t374b1/BIfWDoXxSb8qH5+rFzwIj8a2Xm2Lnnp/6hiFcIyF0gQmsMguxktShSdqPXsX6SHpm/dmVeIJRLbY65pb4ZcAXcY8p06yctObXynDWSMNC0+3a2tQN0ruzMn/5QIDtrcMYUaKV2XrKNNel7akOGpkf6z08FAHMUDm9qm7rbvssOll6fjlBIeWwLjfW23JEZ8d+Mh+t/xewfdrlIRqF7nt4peUDkZ+W29zR+ht7Ey4XxneCNoC8dTAdpB7HKt1qsFddLqodapHboHiftiE1N4wYrHjKoFtHE1C9j9MOcDObyAveLnYJvrP2kPOrJKIGFTBevjfXEBZcJwA5xo7//2gpiCc2i9XGoLRVzd/WktReKKOLWC19BXz0WIFp13VfQOiJ4rESoHwyxvbmMOqiS1R2mw1X7cIYrYe6mEfkJ603NPB84LNlTHvyW50n6SsdakkFegpzlCNkGNAd28GQZb8icoST9Oj2oa/FCOtYmtT5GCc7wf9pyFymm+vGpWloIickto8QHRumE1VT6UR0myxq4rkHMbP3EFWUy/3xAqAFnySw7yzMpixDFpqtkcx3pkU31Lzcdh/lapj5xNUH8HTdVwnTWsYbg+FnWC82kfptGyRb/azeVInpEA3E4rilUDouE0/DVgE3wCrEZAhXk5GX62MlEqxH65AFkcHQJmw973N82DtefJDjTrbBwFrD0N3pOnvHEezDmYqNeYCfuaBHnwfQbopjuUEBrTCRscwB6tcvH90EOzw0LBQkHSuyuSkam95+/uZRIc8G88nkiGg6G2tEeRAM90iCUukOIHESJWl3gE2XzZKs8wgZ/Iw4p+CpAaae2oI+iO0jgYwNnFt+EzJFx2pckNJrRDOkS9icUtRWnRTmNE7dTirmYVXidgOdYNmTGHun+7QtLlbprHIgZjlTYwBwYzzXduqQvr3hPf6qnVGtRM1z7w4yYFKiijv/sD3f+wGvKw42dRsUGhbybu6/+gv//50MrMrc9+Ii3UUaKsDeFrXgdJYX21hRI/CVTI/gaoJyFzTWg1seBLXlhZ7A7DWrc8xYsf+RruL/2OEI3/7v71v4DiCRTLLcV14Of9DxdW3zLwTQ7mABBeIwMwcI7u83WR6h1cP1emYoKz3VICah+Pi//XX4r3zFJIXiKpve1O5gw0n1h2qMoNeFZsPg7RNNKN9FfdwEBo6+pkG8SqWKUqOCrL9hobtgOfHQiVaY2NP2RVw7Mnn4QWfVTU8eUF0SYmY40Q6ajD5zq6p/ha79vqs7fGtx9GN6lIctYika3cMc/Eh8uQbTktGylygN+Ajgmycb+4nwBiESyUc2f+mBNlN3pKrYdlNStSpb1NaqUqZrpGpSn+TPEZCkvSVkKg028AeSs8Pn3vxe6xfAPAgzqdbVX/q3n1x8++VvZvb6jEdDZvejyAxH7WAC8hq3jcniC4kBK+8Q4g3ZMVjJtj9k/uPgjSrhpxgi0DMhE9rs6cuSg1CZantHqUwzpv3X/3xQ7EFLhCnzTGV+NpQ4+aVUWDq5XZ9xoMDmmjWKRqs/kEvPXt0qSgpdYVZxE6t5VKKSmQXiPpNhWKFNzJt6n3dHhbVnOStDLjXiJjLLyFMJUce5ttAJp64gHm1zKQsJzkqZ4TEF4ggcRXa6CrEezRhvPsdsTxn7YHdlMVl55Ssd36ALkIOy7fmVvX+YQ+5jh0E5AlZUfdbeN1b4ZTsQ37Q27Eber/3UylPVrm1qkLfAah/pRXSsqASs88e6yRdh39EGbm9ENv51IfRFu6puEnCZ9L7T1fJZcjAUS7xoy1uS/SKLYU5XhwxN9TARE7Lgx1vnsW7fZ9ZGj1Tu/89TrFgcCBm4fZMXx88cae59cNluUF2Nk/ipWfT1x1WMvuU8n9iNEiaCa5jSZwUAm4z50goKwjyNJ/rCshI+o0J//NoYv5RGj8hU34zQc4R+Vx4j/Aof78c8462DDjaXHhYPkE5mL71yWFK9cBpH+lMik9PfelsIggtFaD5Ah/YlUh8s1GE6uLaHVlMu7iqjeBZuqlGJBUrVLFch2x6FNiopJ+GfLzKbL9gw+haA0Pafxp+CTfM+NmvGjBA8hPsY1BixlgyAjQa8vWc2TbHxLIrX/fbLNc5pC2udYkD62+BEkJN0ujaB44Z0mn+yP9RPhR1gOJU8EgWgJbVw2oGNqjSvnkfbKRF29J4+egMI9H4HILk+RW9r7UyU/nZndAABgi5W2lgAI/ABKYAAAAA';
+</script><script>/* Public data only. No secret keys. Edit media in media-overrides.js or use media-studio.html. */
+window.MS_CONFIG = {
+  "brand": "MikeScripts",
+  "storeUrl": "https://mikescripts.tebex.io",
+  "discordUrl": "https://discord.gg/U38VP3zgTn",
+  "publicToken": "",
+  "products": [
+    {
+      "slug": "flight",
+      "category": "aviation",
+      "code": "MS FLIGHT",
+      "name": "All-In-One Flight Simulator v4.5.0",
+      "summary": "A full aviation career system with aircraft ownership, jobs, avionics and live ATC.",
+      "description": "Turn aviation into a complete roleplay career: pilot certification, aircraft ownership and rentals, company operations, flight jobs, cockpit avionics, autopilot, autoland, live ATC and server-authoritative progression.",
+      "tags": [
+        "ESX",
+        "QBCore",
+        "Qbox"
+      ],
+      "features": [
+        "11-aircraft economy with ownership, rentals and persistent paint",
+        "Pilot training, certification, jobs, reputation and company management",
+        "HUD, ADI, GPWS, TAWS, TCAS, autopilot and autoland",
+        "ATC duty mode, flight plans, live radar and admin tooling"
+      ],
+      "requirements": "Requires oxmysql, ox_lib, ox_inventory and one supported framework: ESX Legacy, QBCore or Qbox. Optional integrations include ox_target, PolyZone and supported vehicle-key resources.",
+      "variants": [
+        {
+          "id": "7324328",
+          "label": "One-time purchase",
+          "type": "single",
+          "price": 109.99,
+          "currency": "USD"
+        },
+        {
+          "id": "7472845",
+          "label": "Monthly subscription",
+          "type": "subscription",
+          "price": 15.99,
+          "currency": "USD"
+        }
+      ],
+      "cover": "https://dunb17ur4ymx4.cloudfront.net/packages/images/740bc080dc970ad3293076e6a704241ce3e9e4ff.png",
+      "media": [
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/19923446f797aa54647be5fcfb33041961af262a.gif",
+          "label": "Flight Simulator · gameplay 01"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/25924e9723b88e882b49880ff64601f7be66e5bb.gif",
+          "label": "Flight Simulator · gameplay 02"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/d4a6a85a345036212e7cd82e5ef2211628fec3f7.gif",
+          "label": "Flight Simulator · gameplay 03"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/e7f0ade37548b864e1e92598f103ad17b55a1633.gif",
+          "label": "Flight Simulator · gameplay 04"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/c317f03ac7cfaa6d85cbf49c83f075b2db961550.gif",
+          "label": "Flight Simulator · gameplay 05"
+        },
+        {
+          "type": "youtube",
+          "url": "https://youtu.be/EXTJy9Ej5Gk",
+          "label": "Aviation video showcase",
+          "poster": "https://img.youtube.com/vi/EXTJy9Ej5Gk/hqdefault.jpg"
+        }
+      ],
+      "includes": [
+        "Flight and pilot-career resource",
+        "Cockpit displays, flight plans and ATC tools",
+        "Editable configuration, bridge and language files"
+      ],
+      "notIncluded": [
+        "MS100 MAX and MS8000 are separate aircraft projects. Check the chosen package before assuming they are bundled."
+      ],
+      "source": "https://mikescripts.tebex.io/package/7324328",
+      "sourceChecked": "2026-09-30"
+    },
+    {
+      "slug": "police",
+      "category": "police",
+      "code": "MS HELIPOL",
+      "name": "Police Helicopter System",
+      "summary": "Camera, spotlight, target tracking and rappel for air support.",
+      "description": "Operate a stabilized helicopter camera, follow a target, identify vehicle plates and coordinate a spotlight. Configurable helicopter and job permissions keep the controls with the right crew.",
+      "tags": [
+        "ESX",
+        "QBCore",
+        "Qbox",
+        "Standalone"
+      ],
+      "features": [
+        "Stabilized camera with zoom and vision modes",
+        "Replicated spotlight and target tracking",
+        "Vehicle plate identification",
+        "Rappelling with server-side permission checks"
+      ],
+      "requirements": "Supports ESX, QBCore, Qbox and standalone ACE permissions. Confirm your helicopter models and current requirements on the Tebex listing.",
+      "variants": [
+        {
+          "id": "7426329",
+          "label": "One-time purchase",
+          "type": "single",
+          "price": 20.99,
+          "currency": "USD"
+        }
+      ],
+      "cover": "https://dunb17ur4ymx4.cloudfront.net/packages/images/6d18710e3df45d8c3b3f053b0cab96e93691419f.png",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/40277f160d6f1e7039d2018b74740910c3953339.jpg",
+          "label": "Helipol · in-game view 01"
+        },
+        {
+          "type": "image",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/affab74181c1bd4f7b6f4363a37c98123d4ace20.jpg",
+          "label": "Helipol · in-game view 02"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/98838f950c4cf60125c651b82266227f6579854a.gif",
+          "label": "Helipol · gameplay 01"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/688398d9c48d5b6a53b9c305806dd0e2daf46c17.gif",
+          "label": "Helipol · gameplay 02"
+        }
+      ],
+      "includes": [
+        "Helicopter camera, spotlight and target tools",
+        "Rappel and permission configuration",
+        "Editable configuration and installation notes"
+      ],
+      "notIncluded": [
+        "This is a script. Do not assume custom helicopter models shown in media are included."
+      ],
+      "source": "https://mikescripts.tebex.io/package/7426329",
+      "sourceChecked": "2026-09-30"
+    },
+    {
+      "slug": "fire",
+      "category": "fire",
+      "code": "MS FIRE",
+      "name": "Fire & Alarm System",
+      "summary": "Working panels, alarm devices, sprinklers and firefighter inspections.",
+      "description": "Set up a building, connect its devices and give firefighters a response and inspection workflow. Alarm panels, pull stations and sprinklers are part of the resource, not just scenery.",
+      "tags": [
+        "ESX",
+        "QBCore",
+        "Qbox"
+      ],
+      "features": [
+        "Interactive alarm panels and manual pull stations",
+        "Synchronized strobes and working sprinklers",
+        "Firefighter inspections and device maintenance",
+        "In-game building and zone setup"
+      ],
+      "requirements": "The listing specifies oxmysql, ox_target and ESX, QBCore or Qbox. ox_inventory is recommended. Product artwork does not imply that the illustrated fire truck is included.",
+      "variants": [
+        {
+          "id": "7437723",
+          "label": "One-time purchase",
+          "type": "single",
+          "price": 39.99,
+          "currency": "USD"
+        }
+      ],
+      "cover": "https://dunb17ur4ymx4.cloudfront.net/packages/images/4e9440f3fb6e8f5c1f9625d7059f7d7eb36a78cd.png",
+      "media": [
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/33a08d748f7492a8a89547c4d49322dfee881edb.gif",
+          "label": "Fire system · gameplay 01"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/78c52578e1d661e464fcc84e747ae6ecdf1fbd58.gif",
+          "label": "Fire system · gameplay 02"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/10e2ff4001f2b5ab3f1e72923dc6274fd15c05f9.gif",
+          "label": "Fire system · gameplay 03"
+        },
+        {
+          "type": "clip",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/dda74e9bf86798330c0a0a35808ce12a777698f5.gif",
+          "label": "Fire system · gameplay 04"
+        }
+      ],
+      "includes": [
+        "Fire and alarm resource with bundled device props",
+        "Building setup and inspection tools",
+        "Editable configuration, bridge, languages and NUI"
+      ],
+      "notIncluded": [
+        "A fire truck is not advertised as included. The product is the alarm and firefighter system."
+      ],
+      "source": "https://mikescripts.tebex.io/package/7437723",
+      "sourceChecked": "2026-09-30"
+    },
+    {
+      "slug": "wrecker",
+      "category": "vehicles",
+      "code": "MS HWYWRK",
+      "name": "Heavy Rotator Wrecker",
+      "summary": "A rotator truck with working winches, outriggers and operator controls.",
+      "description": "Position the truck, plant its outriggers, carry a hook to the vehicle and work the recovery from the rear controls. The package includes the truck and its operating scripts.",
+      "tags": [
+        "Standalone",
+        "OneSync",
+        "ESX / QB / Qbox jobs"
+      ],
+      "features": [
+        "360° boom rotation with two-stage extension",
+        "Three winches with carryable hooks",
+        "Functional outriggers and wheel-lift",
+        "Two rear control panels and synchronized equipment"
+      ],
+      "requirements": "Requires a FiveM server with OneSync. No framework is required; ESX, QBCore and Qbox support is used for optional job permissions. Includes the vehicle and its scripts.",
+      "variants": [
+        {
+          "id": "7692812",
+          "label": "One-time purchase",
+          "type": "single",
+          "price": 49.99,
+          "currency": "USD"
+        }
+      ],
+      "cover": "https://dunb17ur4ymx4.cloudfront.net/packages/images/c9c7444cd25f58aa414cc2c130a5181cebce7445.png",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/e2c11bf6c35e9829b4d21756b02a7535e38b0592.png",
+          "label": "Wrecker · product view"
+        },
+        {
+          "type": "image",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/c9c7444cd25f58aa414cc2c130a5181cebce7445.png",
+          "label": "Wrecker · official artwork"
+        }
+      ],
+      "includes": [
+        "Custom recovery vehicle and operating scripts",
+        "Moving equipment, textures and sounds",
+        "Configuration, language file and installation README"
+      ],
+      "notIncluded": [
+        "Additional vehicles or scenery appearing in the showcase are not listed as part of the package."
+      ],
+      "source": "https://mikescripts.tebex.io/package/7692812",
+      "sourceChecked": "2026-09-30"
+    }
+  ],
+  "aircraft": [
+    {
+      "slug": "ms100",
+      "category": "aircraft",
+      "code": "MS100 MAX",
+      "name": "MS100 MAX",
+      "summary": "Passenger aircraft with a walkable cabin.",
+      "description": "A custom MikeScripts passenger aircraft for FiveM with a walkable interior.",
+      "tags": [
+        "Custom aircraft",
+        "Walkable interior"
+      ],
+      "features": [
+        "Custom MikeScripts aircraft",
+        "Walkable passenger interior"
+      ],
+      "requirements": "MS100 MAX is shown as a future MikeScripts aircraft project. No Tebex package is connected to this page yet.",
+      "cover": "",
+      "media": [],
+      "variants": [],
+      "includes": [],
+      "notIncluded": [
+        "No checkout is shown until an official Tebex package is available."
+      ],
+      "source": ""
+    },
+    {
+      "slug": "ms8000",
+      "category": "aircraft",
+      "code": "MS8000",
+      "name": "MS8000 Luxury Business Jet",
+      "summary": "Ultra-long-range luxury business jet with a fully walkable cabin.",
+      "description": "A 34-metre standalone luxury jet built for FiveM with a fully walkable cabin, animated doors, detailed exterior lighting, multiple cabin zones and performance-focused LODs.",
+      "tags": [
+        "Standalone",
+        "Walkable cabin",
+        "6 liveries",
+        "Cfx Escrow"
+      ],
+      "features": [
+        "Fully walkable club, dining, lounge, master-suite, galley and lavatory areas",
+        "Animated airstair, baggage, emergency and landing-gear doors",
+        "Navigation, strobe, beacon, logo, taxi and landing lighting",
+        "4 airframe LODs, distance-streamed interior and 6 luxury liveries"
+      ],
+      "requirements": "Standalone resource; no framework is required. Optional integrations are available with MS_FlightSim lighting and the MikeScripts ground-service fleet.",
+      "cover": "https://dunb17ur4ymx4.cloudfront.net/packages/images/0d78c287d13e9f7fe740176875792cb44dcc7a3b.png",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/5bc00e4721ccc13f72d6626736288f8b1effeb2d.jpg",
+          "label": "MS8000 exterior"
+        },
+        {
+          "type": "image",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/e7cc51f5fb2c152210a311905c7c5eda3842bb2f.jpg",
+          "label": "MS8000 exterior detail"
+        },
+        {
+          "type": "image",
+          "url": "https://dunb17ur4ymx4.cloudfront.net/packages/images/0d78c287d13e9f7fe740176875792cb44dcc7a3b.png",
+          "label": "MS8000 product showcase"
+        }
+      ],
+      "variants": [
+        {
+          "id": "7696768",
+          "label": "One-time purchase",
+          "type": "single",
+          "price": 24.99,
+          "currency": "USD"
+        }
+      ],
+      "includes": [
+        "MS8000 aircraft resource",
+        "Six luxury liveries",
+        "Walkable cabin systems and open configuration"
+      ],
+      "notIncluded": [
+        "MS Flight Simulator and MikeScripts ground-service resources are separate products; integrations are optional."
+      ],
+      "source": "https://mikescripts.tebex.io/package/7696768",
+      "sourceChecked": "2026-09-30"
+    }
+  ],
+  "heroProduct": "flight"
+};
+</script><script>/* Export a replacement from media-studio.html. Only media fields are overridden. */
+window.MS_MEDIA_OVERRIDES = {};
+</script><script>/* Owner-facing technical facts paraphrased from the official listings, 2026-09-30.
+ * These are declared capabilities, not automated server diagnostics.
+ * Never put connection credentials, license keys or private tokens here.
+ */
+window.MS_OWNER_DATA = {
+  checked: '2026-09-30',
+  demo: {command: 'connect 107.155.80.34:50986', source: 'https://mikescripts.tebex.io/package/7324328'},
+  products: {
+    flight: {
+      frameworks: ['esx', 'qbcore', 'qbox'], kind: 'Script',
+      required: ['oxmysql', 'ox_lib', 'ox_inventory'],
+      optional: ['ox_target', 'PolyZone', 'Compatible vehicle keys'],
+      editable: 'Configuration, framework bridges, translations, HUD configuration and replaceable media.',
+      protection: 'Core logic is escrow-protected.',
+      setup: 'Follow the bundled install guide, import the initial SQL, configure the pilot job and inventory integration, then start the resource after its dependencies.',
+      frameworkNote: 'ESX Legacy, QBCore and Qbox are listed. A custom core requires bridge work; standalone is not listed.',
+      use: 'Pilot careers & airport roleplay'
+    },
+    police: {
+      frameworks: ['esx', 'qbcore', 'qbox', 'standalone'], kind: 'Script',
+      required: [], optional: ['ox_lib', 'OneSync Infinity recommended'],
+      editable: 'Configuration and locale file; check the package for other editable files.',
+      protection: 'The storefront labels this package escrowed.',
+      setup: 'Configure permitted jobs or ACE permissions, helicopter models and seat access.',
+      frameworkNote: 'ESX Legacy 1.10+, QBCore, Qbox and standalone with ACE permissions are listed.',
+      use: 'Police air support'
+    },
+    fire: {
+      frameworks: ['esx', 'qbcore', 'qbox'], kind: 'Script + device props',
+      required: ['oxmysql', 'ox_target'], optional: ['ox_inventory recommended'],
+      editable: 'Configuration, English/French locales, SQL, framework bridge and NUI files.',
+      protection: 'Core client and server logic is escrow-protected.',
+      setup: 'Configure the firefighter job, import the supplied setup and place devices in your buildings.',
+      frameworkNote: 'ESX Legacy, QBCore and Qbox are listed. Standalone is not listed.',
+      use: 'Fire response & building inspections'
+    },
+    ms8000: {
+      frameworks: ['standalone'], kind: 'Custom aircraft',
+      required: [], optional: ['MS_FlightSim lighting integration', 'MikeScripts ground-service fleet'],
+      editable: 'Open configuration with ACE-gated admin commands.',
+      protection: 'Cfx Asset Escrow protects the packaged aircraft resource.',
+      setup: 'Install the streamed aircraft resource, review the open configuration and grant any desired ACE admin permissions.',
+      frameworkNote: 'Standalone; no ESX, QBCore or Qbox framework is required.',
+      use: 'Luxury aviation & private-jet roleplay'
+    },
+    wrecker: {
+      frameworks: ['esx', 'qbcore', 'qbox', 'standalone'], kind: 'Vehicle + operating scripts',
+      required: ['OneSync'], optional: ['Framework job permissions'],
+      editable: 'Configuration, language file and livery layer with UV guide.',
+      protection: 'Asset escrow; configuration and language file remain open.',
+      setup: 'Enable OneSync, choose job or ACE permissions and register the truck in your garage or admin tools.',
+      frameworkNote: 'No framework is required. ESX, QBCore and Qbox are used only for optional job permissions.',
+      use: 'Heavy recovery & roadside roleplay'
+    }
+  }
+};
+</script><script>/* Tebex Headless API only. No Checkout API credentials or private keys. */
+(function (root) {
+  'use strict';
+  const API = 'https://headless.tebex.io/api';
+  function secureURL(value, hosts) {
+    try {
+      const u = new URL(value);
+      if (u.protocol !== 'https:' || u.username || u.password) return '';
+      if (hosts && !hosts.some(h => u.hostname === h || u.hostname.endsWith('.' + h))) return '';
+      return u.href;
+    } catch { return ''; }
+  }
+  class TebexClient {
+    constructor(token, fetcher) {
+      this.token = String(token || '').trim();
+      this.fetcher = fetcher || root.fetch.bind(root);
+      if (this.token && !/^[a-z0-9]{4}-[a-z0-9]{10,100}$/i.test(this.token)) throw new Error('Use a valid Tebex public token, never a private key.');
+    }
+    get enabled() { return Boolean(this.token); }
+    async request(path, options = {}, account = true) {
+      if (!this.enabled) throw new Error('On-site checkout is not configured. Please continue on Tebex.');
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
+      try {
+        const response = await this.fetcher(API + (account ? '/accounts/' + encodeURIComponent(this.token) : '') + path, {
+          method: options.method || 'GET', signal: controller.signal, credentials: 'omit', cache: 'no-store',
+          headers: {Accept: 'application/json', ...(options.body ? {'Content-Type': 'application/json'} : {})},
+          ...(options.body ? {body: JSON.stringify(options.body)} : {})
+        });
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          const error = new Error(typeof body.detail === 'string' ? body.detail : 'Tebex could not complete this request. Please try the hosted store.');
+          error.status = response.status;
+          throw error;
+        }
+        return body;
+      } catch (error) {
+        if (error.name === 'AbortError') throw new Error('Tebex took too long to respond. Please try again or continue on Tebex.');
+        throw error;
+      } finally { clearTimeout(timer); }
+    }
+    async catalogue() { const body = await this.request('/packages'); if (!Array.isArray(body.data)) throw new Error('Tebex returned an invalid catalog.'); return body.data; }
+    async createBasket(returnBase) {
+      const u = new URL(returnBase);
+      if (u.protocol !== 'https:' && !['localhost', '127.0.0.1'].includes(u.hostname)) throw new Error('Checkout requires a secure HTTPS website.');
+      u.hash = ''; u.search = '';
+      const body = await this.request('/baskets', {method: 'POST', body: {complete_url: u.href + '#checkout-complete', cancel_url: u.href + '#checkout-cancel', complete_auto_redirect: true}});
+      const basket = body.data || body;
+      if (!basket.ident) throw new Error('Tebex did not return a valid basket.');
+      return basket;
+    }
+    async basket(ident) { const r = await this.request('/baskets/' + encodeURIComponent(ident)); return r.data || r; }
+    async auth(ident, returnUrl) {
+      const r = await this.request('/baskets/' + encodeURIComponent(ident) + '/auth?returnUrl=' + encodeURIComponent(returnUrl));
+      const options = Array.isArray(r) ? r : Array.isArray(r.data) ? r.data : null;
+      if (!options) throw new Error('Tebex returned an invalid authentication response. Please use the hosted store.');
+      const providers = options.map(o => ({name: String(o?.name || 'account'), url: secureURL(o?.url, ['tebex.io', 'cfx.re', 'fivem.net'])})).filter(o => o.url);
+      if (options.length && !providers.length) throw new Error('No trusted authentication link was returned. Please use the hosted store.');
+      return providers;
+    }
+    async addPackage(ident, id) {
+      if (!/^\d+$/.test(String(id))) throw new Error('Invalid product.');
+      return this.request('/baskets/' + encodeURIComponent(ident) + '/packages', {method: 'POST', body: {package_id: String(id), quantity: 1}}, false);
+    }
+  }
+  root.MSTebex = {TebexClient, secureURL};
+  if (typeof module !== 'undefined') module.exports = root.MSTebex;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script><script>/* Shared site chrome. Static, developer-owned markup only. */
+document.body.innerHTML = "\u003ca class=\"skip\" href=\"#main\">Skip to content\u003c/a>\n\u003cheader class=\"site-header\">\u003cdiv class=\"wrap header-inner\">\u003ca class=\"brand\" href=\"index.html\" data-home=\"\" aria-label=\"MikeScripts home\">\u003cimg data-logo alt=\"\" width=\"32\" height=\"32\">\u003cspan>mike\u003cspan>scripts\u003c/span>\u003c/span>\u003c/a>\u003cnav class=\"nav\" aria-label=\"Main navigation\">\u003ca href=\"index.html#catalog\" data-home=\"catalog\">Scripts\u003c/a>\u003ca href=\"index.html#aircraft\" data-home=\"aircraft\">Aircraft\u003c/a>\u003ca href=\"index.html#showcases\" data-home=\"showcases\">Showcases\u003c/a>\u003ca data-discord target=\"_blank\" rel=\"noopener noreferrer\">Discord ↗\u003c/a>\u003c/nav>\u003cdiv class=\"header-actions\">\u003cbutton class=\"bag-button\" data-cart aria-label=\"Open shopping bag\">\u003csvg class=\"icon\" viewBox=\"0 0 18 18\" aria-hidden=\"true\">\u003cpath d=\"M3 5h12l1 11H2L3 5zM6 6V4a3 3 0 016 0v2\"/>\u003c/svg>\u003cspan>Bag\u003c/span>\u003cspan class=\"bag-count\">0\u003c/span>\u003c/button>\u003cbutton class=\"menu-toggle\" aria-label=\"Toggle navigation\" aria-expanded=\"false\" aria-controls=\"mobile-nav\">\u003csvg class=\"icon\" viewBox=\"0 0 18 18\" aria-hidden=\"true\">\u003cpath d=\"M2 5h14M2 13h14\"/>\u003c/svg>\u003c/button>\u003c/div>\u003c/div>\u003c/header>\n\u003cnav class=\"mobile-nav\" id=\"mobile-nav\" aria-label=\"Mobile navigation\" hidden>\u003ca href=\"index.html#catalog\" data-home=\"catalog\">Scripts\u003c/a>\u003ca href=\"index.html#aircraft\" data-home=\"aircraft\">Aircraft\u003c/a>\u003ca href=\"index.html#showcases\" data-home=\"showcases\">Showcases\u003c/a>\u003ca data-discord target=\"_blank\" rel=\"noopener noreferrer\">Discord ↗\u003c/a>\u003c/nav>\n\u003cmain id=\"main\">\u003ch1>MikeScripts\u003c/h1>\u003cp>FiveM scripts and custom aircraft.\u003c/p>\u003c/main>\n\u003csection class=\"support-section\" id=\"support\">\u003cdiv class=\"wrap support-inner\">\u003cdiv>\u003ch2>Need to check your setup?\u003c/h2>\u003cp>Ask about compatibility or package contents before you buy.\u003c/p>\u003c/div>\u003ca class=\"button\" data-discord target=\"_blank\" rel=\"noopener noreferrer\">Talk to MikeScripts \u003cspan aria-hidden=\"true\">↗\u003c/span>\u003c/a>\u003c/div>\u003c/section>\n\u003cfooter class=\"wrap footer\">\u003cdiv class=\"footer-top\">\u003ca class=\"brand\" href=\"index.html\" data-home=\"\">\u003cimg data-logo alt=\"\" width=\"32\" height=\"32\">\u003cspan>mike\u003cspan>scripts\u003c/span>\u003c/span>\u003c/a>\u003cdiv class=\"footer-links\">\u003ca href=\"index.html#catalog\" data-home=\"catalog\">Collection\u003c/a>\u003ca href=\"index.html#aircraft\" data-home=\"aircraft\">Aircraft\u003c/a>\u003ca data-store target=\"_blank\" rel=\"noopener noreferrer\">Tebex ↗\u003c/a>\u003ca href=\"privacy/\" data-privacy>Privacy\u003c/a>\u003c/div>\u003c/div>\u003cdiv class=\"footer-bottom\">\u003cspan>© \u003cspan id=\"year\">2026\u003c/span> MikeScripts. FiveM scripts & custom aircraft.\u003c/span>\u003cspan>Payments & purchase terms through Tebex.\u003c/span>\u003c/div>\u003cp class=\"footer-disclaimer\">Independent resources. Not affiliated with Rockstar Games or Take-Two Interactive.\u003c/p>\u003c/footer>\n\u003cdialog class=\"viewer\" id=\"media-dialog\" aria-labelledby=\"viewer-title\">\u003cdiv class=\"viewer-head\">\u003cspan id=\"viewer-title\">Product media\u003c/span>\u003cbutton class=\"icon-button\" data-close aria-label=\"Close media viewer\">×\u003c/button>\u003c/div>\u003cdiv id=\"media-content\">\u003c/div>\u003cdiv class=\"viewer-foot\">\u003cdiv>\u003cbutton data-viewer-step=\"-1\" aria-label=\"Previous media\">←\u003c/button> \u003cspan id=\"viewer-count\">\u003c/span> \u003cbutton data-viewer-step=\"1\" aria-label=\"Next media\">→\u003c/button>\u003c/div>\u003cbutton id=\"viewer-motion\" hidden>Stop preview\u003c/button>\u003ca id=\"viewer-original\" target=\"_blank\" rel=\"noopener noreferrer\">Open original ↗\u003c/a>\u003c/div>\u003c/dialog>\n\u003cdialog class=\"cart-dialog\" id=\"cart-dialog\" aria-labelledby=\"cart-title\">\u003cdiv class=\"cart-head\">\u003cdiv>\u003cspan class=\"kicker\">Your selection\u003c/span>\u003ch2 id=\"cart-title\">Shopping bag.\u003c/h2>\u003c/div>\u003cbutton class=\"icon-button\" data-close aria-label=\"Close shopping bag\">×\u003c/button>\u003c/div>\u003cdiv id=\"cart-items\">\u003c/div>\u003cdiv id=\"checkout-stage\" aria-live=\"polite\">\u003c/div>\u003cdiv class=\"cart-foot\">\u003cp>Final price and taxes are confirmed on Tebex. Recurring plans, when offered, are identified separately.\u003c/p>\u003cbutton class=\"button primary\" id=\"prepare-checkout\">Continue on Tebex ↗\u003c/button>\u003ca data-store target=\"_blank\" rel=\"noopener noreferrer\">Open the Tebex store ↗\u003c/a>\u003c/div>\u003c/dialog>\n\u003cdiv class=\"toast\" id=\"toast\" role=\"status\" aria-live=\"polite\">\u003c/div>\u003cnoscript>\u003cdiv class=\"noscript\">JavaScript enables the galleries and basket. \u003ca href=\"https://mikescripts.tebex.io\">Browse and buy on the MikeScripts Tebex store.\u003c/a>\u003c/div>\u003c/noscript>";
+</script><script>/* Media-first UI. Content URLs are validated; payment state lives in commerce.js. */
+(() => {
+  'use strict';
+  const cfg=window.MS_CONFIG, {secureURL}=window.MSTebex;
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const icons={arrow:'<path d="M4 9h10M10 4l5 5-5 5"/>',play:'<path d="M6 3l9 6-9 6z"/>',pause:'<path d="M6 3v12M12 3v12"/>',close:'<path d="M4 4l10 10M14 4L4 14"/>',left:'<path d="M11 4L6 9l5 5"/>',right:'<path d="M7 4l5 5-5 5"/>',expand:'<path d="M2 7V2h5M11 2h5v5M16 11v5h-5M7 16H2v-5"/>',bag:'<path d="M3 5h12l1 11H2L3 5zM6 6V4a3 3 0 016 0v2"/>',search:'<circle cx="8" cy="8" r="5"/><path d="M12 12l4 4"/>'};
+  const icon=n=>`<svg class="icon" viewBox="0 0 18 18" aria-hidden="true">${icons[n]||icons.arrow}</svg>`;
+  const categories={aviation:'Aviation',police:'Police',fire:'Fire & rescue',vehicles:'Vehicles',aircraft:'Custom aircraft'};
+  const products=[...cfg.products,...cfg.aircraft], bySlug=new Map(products.map(p=>[p.slug,p]));
+  function mediaURL(value){if(!value||typeof value!=='string')return '';if(window.MS_PREVIEW&&/^data:(?:image\/(?:png|jpeg|webp|gif|avif)|video\/(?:mp4|webm));base64,[A-Za-z0-9+/]+=*$/.test(value))return value;if(/^https:\/\//i.test(value))return secureURL(value);if(/^(?!\/|\\|.*\.\.)[a-z0-9_\-./]+\.(png|jpe?g|webp|gif|avif|mp4|webm)$/i.test(value))return value;return '';}
+  function youtubeID(value){try{const u=new URL(value);if(u.protocol!=='https:'||!['youtu.be','youtube.com','www.youtube.com'].includes(u.hostname))return '';const id=u.hostname==='youtu.be'?u.pathname.slice(1):u.searchParams.get('v')||u.pathname.split('/').pop();return /^[\w-]{11}$/.test(id||'')?id:'';}catch{return '';}}
+  for(const [slug,override] of Object.entries(window.MS_MEDIA_OVERRIDES||{})){
+    const p=bySlug.get(slug);if(!p||!override||typeof override!=='object')continue;
+    if(mediaURL(override.cover))p.cover=override.cover;
+    if(Array.isArray(override.media))p.media=override.media.filter(m=>m&&['image','clip','video','youtube'].includes(m.type)&&(m.type==='youtube'?youtubeID(m.url):mediaURL(m.url))).map(m=>({type:m.type,url:m.url,label:String(m.label||p.name),poster:mediaURL(m.poster)}));
+  }
+  let activeProduct=null, filter='all',query='',feature=cfg.heroProduct||'flight',galleryIndex=0,viewerProduct=null,viewerIndex=0;
+  let toastTimer; const live=new Map();
+  const store=secureURL(cfg.storeUrl,['tebex.io']);const discord=secureURL(cfg.discordUrl,['discord.gg','discord.com']);
+  if(!store||!discord)throw new Error('Invalid store or support URL.');
+  const packageURL=id=>`${store.replace(/\/$/,'')}/package/${encodeURIComponent(id)}`;
+  const routeURL=slug=>slug?`products/${slug}/`:'index.html';
+  function toast(text){$('#toast').textContent=text;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),4500);}
+  const configuredVariants=new Map(products.flatMap(p=>(p.variants||[]).map(v=>[String(v.id),v])));
+  function price(id){const p=live.get(String(id)),v=configuredVariants.get(String(id));const raw=p?.total_price??p?.base_price??v?.price;const currency=p?.currency??v?.currency;if(!['number','string'].includes(typeof raw)||String(raw).trim()===''||!Number.isFinite(Number(raw))||Number(raw)<0||!(/^[A-Z]{3}$/).test(currency||''))return '';try{return new Intl.NumberFormat('en-US',{style:'currency',currency,currencyDisplay:'code'}).format(Number(raw));}catch{return '';}}
+  const variantsFor=p=>(p.variants||[]).filter(v=>!v.needsConfirmation);
+  const mediaFor=p=>{const list=(p.media||[]).filter(m=>m.type==='youtube'?youtubeID(m.url):mediaURL(m.url));return list.length?list:mediaURL(p.cover)?[{type:'image',url:p.cover,label:p.name}]:[];};
+  function mediaFrame(m,opts={}){
+    if(!m)return '<div class="media-frame"><span class="media-fallback">Media not yet supplied</span></div>';
+    const type=m.type;const src=type==='youtube'?(mediaURL(m.poster)||`https://img.youtube.com/vi/${youtubeID(m.url)}/hqdefault.jpg`):mediaURL(m.url);
+    const label=esc(m.label||'MikeScripts product preview');const motion=type==='clip';
+    if(type==='video')return `<div class="media-frame" data-kind="video"><span class="media-fallback">${label}<small>Video preview</small></span><video muted playsinline loop preload="metadata" ${mediaURL(m.poster)?`poster="${esc(mediaURL(m.poster))}"`:''} src="${esc(src)}" aria-label="${label}"></video></div>`;
+    return `<div class="media-frame" data-kind="${esc(type)}"><span class="media-fallback">${label}<small>Loading preview…</small></span>${motion?`<canvas role="img" aria-label="${label}"></canvas>`:''}<img ${motion?'class="motion-img"':''} src="${esc(src)}" alt="${label}" ${opts.eager?'fetchpriority="high" loading="eager"':'loading="lazy"'} decoding="async" ${motion?'data-freeze':''}></div>`;
+  }
+  function imageLoaded(img){const f=img.closest('.media-frame');if(!f||f.classList.contains('ready'))return;if(img.hasAttribute('data-freeze')){const c=$('canvas',f);if(!c)return;try{const scale=Math.min(1,1600/img.naturalWidth);c.width=Math.max(1,Math.round(img.naturalWidth*scale));c.height=Math.max(1,Math.round(img.naturalHeight*scale));c.getContext('2d').drawImage(img,0,0,c.width,c.height);}catch{f.classList.add('failed');return;}}f.classList.add('ready');f.classList.remove('failed');}
+  document.addEventListener('load',e=>{if(e.target.tagName==='IMG')imageLoaded(e.target);},true);
+  document.addEventListener('loadeddata',e=>{if(e.target.tagName==='VIDEO')e.target.closest('.media-frame')?.classList.add('ready');},true);
+  document.addEventListener('error',e=>{const f=e.target.closest?.('.media-frame');if(!f)return;f.classList.add('failed');f.classList.remove('ready');const s=$('.media-fallback small',f);if(s)s.textContent='Preview unavailable. Open the original media or product listing.';},true);
+  function hydrate(){requestAnimationFrame(()=>$$('.media-frame img').forEach(i=>{if(i.complete&&i.naturalWidth)imageLoaded(i);}));}
+  function toggleMotion(frame,button){if(!frame)return;const playing=!frame.classList.contains('playing');frame.classList.toggle('playing',playing);const v=$('video',frame);if(v){if(playing)v.play().catch(()=>{frame.classList.remove('playing');toast('Video playback was blocked. Open the full viewer to play it.');});else v.pause();}if(button){button.setAttribute('aria-pressed',String(playing));button.innerHTML=`${icon(playing?'pause':'play')} ${playing?'Stop preview':'Play preview'}`;}}
+  function heroHTML(){const p=bySlug.get(feature)||cfg.products[0], m=mediaFor(p)[0];const fullVideo=mediaFor(p).find(x=>x.type==='youtube');return `<div class="hero-media" aria-hidden="true">${mediaFrame(m,{eager:true})}</div><div class="wrap"><div class="hero-kicker"><i></i>${esc(categories[p.category])} / ${esc(p.code)}</div><h1>${esc(p.name)}</h1><p class="hero-copy">${esc(p.summary)} Built for FiveM.</p><div class="actions"><a class="button primary" data-route="${esc(p.slug)}" href="${routeURL(p.slug)}">Explore ${esc(p.code)} ${icon('arrow')}</a><button class="button secondary" data-view="${esc(p.slug)}" data-index="${fullVideo?mediaFor(p).indexOf(fullVideo):0}">${icon(fullVideo?'play':'expand')} ${fullVideo?'Watch showcase':'View gallery'}</button></div><div class="hero-bottom"><span>MIKESCRIPTS / PRODUCT PREVIEW</span>${['clip','video'].includes(m?.type)?`<button class="hero-motion" data-hero-motion aria-pressed="false">${icon('play')} Play preview</button>`:`<a class="text-link" data-route="${esc(p.slug)}" href="${routeURL(p.slug)}">Product details ${icon('arrow')}</a>`}</div></div>`;}
+  function productCard(p){const v=variantsFor(p)[0];const m=mediaFor(p)[0]||{type:'image',url:p.cover,label:p.name};return `<article class="product-card" data-product-card="${esc(p.slug)}"><a class="product-visual" data-route="${esc(p.slug)}" href="${routeURL(p.slug)}" aria-label="Explore ${esc(p.name)}">${mediaFrame(m)}<span class="media-tag">${esc(categories[p.category])}</span><span class="art-action">View product ${icon('arrow')}</span></a><div class="product-info"><div class="product-meta"><span>${esc(p.code)}</span><span>${esc(p.tags.slice(0,3).join(' / '))}</span></div><h3><a data-route="${esc(p.slug)}" href="${routeURL(p.slug)}">${esc(p.name)}</a></h3><p>${esc(p.summary)}</p><div class="product-bottom"><span class="price-copy" data-price-for="${v?.id||''}">${esc(price(v?.id)||'Price on Tebex')}<small>${esc(v?.label||'Ask about availability')}</small></span><button data-view="${esc(p.slug)}" data-index="0">Open gallery ${icon('expand')}</button></div></div></article>`;}
+  function renderGrid(){const grid=$('#product-grid');if(!grid)return;const list=products.filter(p=>variantsFor(p).length&&(window.MSOwner?.matches(p)??true)&&(filter==='all'||p.category===filter)&&`${p.name} ${p.summary} ${p.code} ${p.tags.join(' ')}`.toLowerCase().includes(query));grid.innerHTML=list.map(productCard).join('');$('#empty-state').hidden=!!list.length;$$('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===filter)));hydrate();document.dispatchEvent(new CustomEvent('ms:grid'));}
+  function aircraftHTML(){return cfg.aircraft.map(p=>{const m=mediaFor(p)[0]||(mediaURL(p.cover)?{type:'image',url:p.cover,label:p.name}:null);return `<article class="aircraft-row ${m?'with-media':''}">${m?mediaFrame(m):''}<div><h3>${esc(p.name)}</h3><small>${p.slug==='ms100'?'Passenger aircraft':'Private jet'} / Walkable interior</small></div><p>${esc(p.summary)}</p><a class="text-link" data-route="${esc(p.slug)}" href="${routeURL(p.slug)}">Explore aircraft ${icon('arrow')}</a></article>`;}).join('');}
+  function renderHome(){activeProduct=null;document.title='MikeScripts — FiveM scripts & custom aircraft';$('#main').innerHTML=`<section class="hero" id="hero" aria-label="Featured product">${heroHTML()}</section><section class="featured-rail" aria-label="Choose a featured product"><div class="wrap featured-inner">${products.filter(p=>variantsFor(p).length).map(p=>`<button class="feature-choice" data-feature="${p.slug}" aria-pressed="${feature===p.slug}"><span class="mini-media">${mediaFrame(mediaFor(p)[0])}</span><span><small>${esc(categories[p.category])}</small><strong>${esc(p.name)}</strong></span></button>`).join('')}</div></section><section class="wrap section" id="catalog"><div class="section-head"><div><span class="kicker">The collection</span><h2>Resources for your server.</h2></div><p>Watch the gameplay. Check the requirements.<br>Choose what fits your server.</p></div><div class="catalog-tools"><div class="filters" role="group" aria-label="Filter products">${['all','aviation','aircraft','police','fire','vehicles'].map(k=>`<button data-filter="${k}" aria-pressed="${filter===k}">${k==='all'?'All products':categories[k]}</button>`).join('')}</div><label class="search">${icon('search')}<input id="search" type="search" placeholder="Search products" aria-label="Search products" value="${esc(query)}"></label></div><div class="product-grid" id="product-grid"></div><p id="empty-state" class="empty-state" hidden>No matches for this search and server profile. <button class="text-link" data-reset-filters>Reset filters</button></p><p class="catalog-note">Checkout is handled by Tebex. Final price, tax, availability and license terms are confirmed there.</p></section><section class="showcases" id="showcases"><div class="wrap section"><div class="section-head"><div><span class="kicker">In the game</span><h2>Take a closer look.</h2></div><p>Gameplay previews from the product listings.<br>Open a clip to inspect it.</p></div><div class="showcase-grid">${['flight','police','fire'].map((s,i)=>{const p=bySlug.get(s);const idx=i===0?1:Math.min(2,mediaFor(p).length-1);return `<button class="showcase-item" data-view="${s}" data-index="${idx}"><div class="showcase-image">${mediaFrame(mediaFor(p)[idx])}<span class="play-dot">${icon('play')}</span></div><strong>${esc(p.name)}</strong><small>Gameplay preview ${icon('arrow')}</small></button>`;}).join('')}</div></div></section><section class="aircraft-section" id="aircraft"><div class="wrap section"><div class="section-head"><div><span class="kicker">Custom aircraft</span><h2>The aircraft.</h2><p>MikeScripts custom aircraft with walkable interiors.<br>Explore each project separately from the scripts.</p></div><span class="flyms">FLYMS</span></div><div class="aircraft-list">${aircraftHTML()}</div><p class="media-note">Aircraft availability and package contents are confirmed with MikeScripts. Aircraft are not automatically included with the Flight Simulator.</p></div></section>`;renderGrid();rendered();}
+  function selectedMedia(){return activeProduct?mediaFor(activeProduct):[];}
+  function galleryHTML(p){const list=mediaFor(p);if(!list.length)return `<div class="aircraft-empty"><h2>${esc(p.name)}<br>Walkable interior.</h2><p>The aircraft has a dedicated gallery here. Its approved photos and walkthrough have not been added to this preview yet.</p><small>No stock aircraft or generated screenshots are being used as substitutes.</small></div>`;const m=list[galleryIndex]||list[0];return `<div class="gallery-stage">${mediaFrame(m,{eager:true})}${m.type==='youtube'||m.type==='video'?`<button class="gallery-play" data-view="${p.slug}" data-index="${galleryIndex}" aria-label="Play ${esc(m.label)}"><span>${icon('play')} Play showcase</span></button>`:`<button class="gallery-enlarge" data-view="${p.slug}" data-index="${galleryIndex}" aria-label="Enlarge ${esc(m.label)}"><span>${icon('expand')}</span></button>`}</div><div class="gallery-controls"><span>${String(galleryIndex+1).padStart(2,'0')} / ${String(list.length).padStart(2,'0')} — ${esc(m.label)}</span><div class="control-group"><button class="icon-button" data-gallery-step="-1" aria-label="Previous media">${icon('left')}</button><button class="icon-button" data-gallery-step="1" aria-label="Next media">${icon('right')}</button><button class="icon-button" data-view="${p.slug}" data-index="${galleryIndex}" aria-label="Enlarge media">${icon('expand')}</button></div></div><div class="gallery-thumbs" role="group" aria-label="Product gallery">${list.map((x,i)=>`<button class="gallery-thumb" data-gallery-index="${i}" aria-label="Show ${esc(x.label)}" aria-pressed="${i===galleryIndex}">${mediaFrame(x)}<span class="clip-mark">${x.type==='image'?'IMAGE':x.type==='youtube'?'VIDEO':'CLIP'}</span></button>`).join('')}</div><p class="gallery-caption">${esc(m.label)} · ${p.category==='aircraft'?'MikeScripts aircraft media':'Media from the official product listing'}</p>`;}
+  function renderProduct(slug){const p=bySlug.get(slug);if(!p){renderHome();toast('That product could not be found.');return;}activeProduct=p;galleryIndex=0;document.title=`${p.name} — MikeScripts`;const vv=variantsFor(p),v=vv[0];$('#main').innerHTML=`<div class="wrap product-page"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html#catalog" data-home="catalog">Collection</a><span>/</span><span>${esc(categories[p.category])}</span><span>/</span><span>${esc(p.code)}</span></nav><div class="product-layout"><section id="product-gallery" aria-label="${esc(p.name)} gallery">${galleryHTML(p)}</section><aside class="buy-panel"><span class="kicker">${esc(categories[p.category])} / ${esc(p.code)}</span><h1 tabindex="-1">${esc(p.name)}</h1><p class="intro">${esc(p.description)}</p><div class="compat">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>${v?`<div class="purchase-block"><label for="purchase-variant">Purchase option</label><select id="purchase-variant">${vv.map(v=>`<option value="${v.id}">${esc(v.label)}</option>`).join('')}</select><div class="purchase-price" id="detail-price">${esc(price(v.id)||'See current price')}<small>${esc(v.label)} · confirmed on Tebex</small></div><div class="purchase-actions"><a id="buy-now" class="button primary" data-buy="${v.id}" href="${packageURL(v.id)}" target="_blank" rel="noopener noreferrer">Buy on Tebex ${icon('arrow')}</a><button class="button" id="add-to-bag" data-add="${v.id}" aria-label="Add ${esc(p.name)} to bag">${icon('bag')}</button></div><p class="purchase-help">Payment and fulfillment are handled by Tebex. Review the package contents and current requirements before purchasing.</p></div>`:`<div class="purchase-block"><span class="kicker">Aircraft showcase</span><p class="intro">Ask about current availability and what is included. No purchase package is connected to this aircraft yet.</p><a class="button primary" href="${discord}" target="_blank" rel="noopener noreferrer">Ask about ${esc(p.name)} ${icon('arrow')}</a></div>`}<div class="panel-links">${v?`<a id="listing-link" href="${packageURL(v.id)}" target="_blank" rel="noopener noreferrer">Original listing ↗</a>`:''}<a href="${discord}" target="_blank" rel="noopener noreferrer">Ask a setup question ↗</a></div></aside></div><nav class="product-tabs" aria-label="Product information"><a href="${window.MS_PREVIEW?'':routeURL(p.slug)}#features">Features</a><a href="${window.MS_PREVIEW?'':routeURL(p.slug)}#included">Package contents</a><a href="${window.MS_PREVIEW?'':routeURL(p.slug)}#requirements">Requirements</a></nav><section class="product-content-row" id="features"><h2>What it does.</h2><ul class="feature-list">${p.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></section><section class="product-content-row" id="included"><h2>What you get.</h2><div class="included-grid"><div><h3>${p.includes.length?'Included in the listing':'Availability'}</h3>${p.includes.length?`<ul>${p.includes.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:'<p>Confirm the aircraft package directly with MikeScripts.</p>'}</div><div><h3>Before you buy</h3><ul>${p.notIncluded.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div></div></section><section class="product-content-row" id="requirements"><h2>Check your setup.</h2><div><p>${esc(p.requirements)}</p>${p.source?`<p class="catalog-note">See the <a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer"><u>original Tebex listing</u></a> for installation instructions and current terms.</p>`:''}</div></section><a class="back-collection" href="index.html#catalog" data-home="catalog">${icon('left')} Back to the collection</a></div>`;rendered();}
+  function rendered(){hydrate();document.dispatchEvent(new CustomEvent('ms:render'));}
+  function refreshPrices(){$$('[data-price-for]').forEach(e=>{const value=price(e.dataset.priceFor);if(value)e.firstChild.textContent=value;});const select=$('#purchase-variant');if(select&&activeProduct){const v=variantsFor(activeProduct).find(v=>v.id===select.value);$('#detail-price').innerHTML=`${esc(price(select.value)||'See current price')}<small>${esc(v?.label)} · confirmed on Tebex</small>`;}if(window.MSCommerce?.enabled&&$('#buy-now'))$('#buy-now').innerHTML=`Checkout with Tebex ${icon('arrow')}`;}
+  function openViewer(slug,index){const p=bySlug.get(slug);if(!p||!mediaFor(p).length)return;viewerProduct=p;viewerIndex=Math.max(0,Math.min(Number(index)||0,mediaFor(p).length-1));drawViewer();const d=$('#media-dialog');if(!d.open)d.showModal();}
+  function drawViewer(){const list=mediaFor(viewerProduct),m=list[viewerIndex];$('#viewer-title').textContent=m.label;const body=$('#media-content');if(m.type==='youtube'){body.innerHTML=`<iframe title="${esc(m.label)}" src="https://www.youtube-nocookie.com/embed/${youtubeID(m.url)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;}else if(m.type==='video'){body.innerHTML=`<video controls autoplay playsinline src="${esc(mediaURL(m.url))}" aria-label="${esc(m.label)}"></video>`;}else{body.innerHTML=mediaFrame(m,{eager:true});if(m.type==='clip')$('.media-frame',body).classList.add('playing');}$('#viewer-count').textContent=`${viewerIndex+1} / ${list.length}`;$('#viewer-original').href=m.type==='youtube'?`https://www.youtube.com/watch?v=${youtubeID(m.url)}`:new URL(mediaURL(m.url),document.baseURI).href;const toggle=$('#viewer-motion');toggle.hidden=m.type!=='clip';toggle.setAttribute('aria-pressed','true');toggle.innerHTML=`${icon('pause')} Stop preview`;hydrate();}
+  function renderPrivacy(){activeProduct=null;$('#main').innerHTML=`<section class="wrap section privacy"><span class="kicker">Website information</span><h1>Privacy & external services.</h1><p>This storefront stores your product selection, temporary Tebex basket, framework preference, comparison selection, checklist and motion preference in this browser tab. The pre-install checklist is your own planning aid, not a scan of your server. It does not contain a card-entry form or a password-entry form.</p><p>Product media is loaded from the configured media hosts, currently including Tebex’s image provider and YouTube thumbnails. Typography loads from Google Fonts (Google stylesheet and font servers) with system-font fallbacks. Those requests reveal connection information such as your IP address to those providers. YouTube’s player is loaded only when you open a video; Tebex’s checkout script is loaded when you choose integrated checkout.</p><p>Payment, account authentication, purchase terms and fulfillment are handled by Tebex and the relevant account provider. Your hosting provider may also keep connection logs. Contact MikeScripts through Discord for website questions. Payment, tax, license terms, refund eligibility and fulfillment are confirmed through Tebex and the package terms shown at checkout. Contact MikeScripts through Discord for website or purchase-support questions.</p><a class="text-link" href="index.html" data-home="">Back to MikeScripts ${icon('arrow')}</a></section>`;rendered();}
+  function previewRoute(){if(!window.MS_PREVIEW)return;const hash=location.hash;if(hash.startsWith('#/product/'))renderProduct(hash.split('/')[2]);else if(hash==='#/privacy')renderPrivacy();else if(!activeProduct||hash.startsWith('#/')||hash==='#catalog'||hash==='#aircraft'||hash==='#showcases')renderHome();if(['#catalog','#aircraft','#showcases'].includes(hash))requestAnimationFrame(()=>$(hash)?.scrollIntoView());}
+  document.addEventListener('click',e=>{const b=e.target.closest('a,button');if(!b)return;
+    if(b.classList.contains('skip')){e.preventDefault();$('#main').setAttribute('tabindex','-1');$('#main').focus();$('#main').scrollIntoView();}
+    else if(b.hasAttribute('data-feature')){feature=b.dataset.feature;$('#hero').innerHTML=heroHTML();$$('[data-feature]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.feature===feature)));hydrate();document.dispatchEvent(new CustomEvent('ms:feature'));}
+    else if(b.hasAttribute('data-reset-filters')){filter='all';query='';if($('#search'))$('#search').value='';window.MSOwner?.resetFramework();renderGrid();}
+    else if(b.hasAttribute('data-hero-motion'))toggleMotion($('#hero .media-frame'),b);
+    else if(b.hasAttribute('data-filter')){filter=b.dataset.filter;renderGrid();}
+    else if(b.hasAttribute('data-view'))openViewer(b.dataset.view,b.dataset.index);
+    else if(b.hasAttribute('data-gallery-step')||b.hasAttribute('data-gallery-index')){const n=selectedMedia().length;galleryIndex=b.hasAttribute('data-gallery-index')?Number(b.dataset.galleryIndex):(galleryIndex+Number(b.dataset.galleryStep)+n)%n;$('#product-gallery').innerHTML=galleryHTML(activeProduct);hydrate();document.dispatchEvent(new CustomEvent('ms:gallery'));}
+    else if(b.hasAttribute('data-viewer-step')){const n=mediaFor(viewerProduct).length;viewerIndex=(viewerIndex+Number(b.dataset.viewerStep)+n)%n;drawViewer();}
+    else if(b.id==='viewer-motion')toggleMotion($('#media-content .media-frame'),b);
+    else if(b.hasAttribute('data-close'))b.closest('dialog').close();
+    else if(b.classList.contains('menu-toggle')){const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));$('#mobile-nav').hidden=!open;}
+    if(b.tagName==='A'&&window.MS_PREVIEW){if(b.hasAttribute('data-route')){e.preventDefault();location.hash='#/product/'+b.dataset.route;window.scrollTo(0,0);}else if(b.hasAttribute('data-home')){e.preventDefault();activeProduct=null;location.hash=b.dataset.home?'#'+b.dataset.home:'#/';previewRoute();window.scrollTo(0,0);}else if(b.hasAttribute('data-privacy')){e.preventDefault();location.hash='#/privacy';window.scrollTo(0,0);}}
+    if(b.tagName==='A'&&b.closest('#mobile-nav')){$('#mobile-nav').hidden=true;$('.menu-toggle').setAttribute('aria-expanded','false');}
+  });
+  document.addEventListener('input',e=>{if(e.target.id==='search'){query=e.target.value.toLowerCase().trim();renderGrid();}});
+  document.addEventListener('change',e=>{if(e.target.id==='purchase-variant'){const id=e.target.value;$('#buy-now').dataset.buy=id;$('#buy-now').href=packageURL(id);$('#add-to-bag').dataset.add=id;$('#listing-link').href=packageURL(id);refreshPrices();}});
+  document.addEventListener('keydown',e=>{if($('#media-dialog').open&&['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const n=mediaFor(viewerProduct).length;viewerIndex=(viewerIndex+(e.key==='ArrowRight'?1:-1)+n)%n;drawViewer();}if(e.key==='Escape'){$('#mobile-nav').hidden=true;$('.menu-toggle').setAttribute('aria-expanded','false');}});
+  $('#media-dialog').addEventListener('close',()=>$('#media-content').replaceChildren());
+  $$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){$$('video').forEach(v=>v.pause());$$('.media-frame.playing').forEach(f=>f.classList.remove('playing'));$$('[data-hero-motion],#viewer-motion').forEach(b=>{b.setAttribute('aria-pressed','false');b.innerHTML=`${icon('play')} Play preview`;});}});
+  $$('[data-discord]').forEach(a=>a.href=discord);$$('[data-store]').forEach(a=>a.href=store);$$('[data-logo]').forEach(i=>{if(window.MS_LOGO)i.src=window.MS_LOGO;else i.hidden=true;});$('#year').textContent=new Date().getFullYear();
+  window.MS_UI={products,bySlug,variantsFor,esc,price,live,packageURL,toast,icon,refreshPrices,store,discord,refreshCatalog:renderGrid,active:()=>activeProduct,openViewer,mediaFor};
+  document.addEventListener('ms:prices',refreshPrices);document.addEventListener('ms:render',refreshPrices);
+  if(window.MS_PREVIEW){previewRoute();addEventListener('hashchange',previewRoute);}else{const page=document.body.dataset.page;if(page==='privacy')renderPrivacy();else if(bySlug.has(page))renderProduct(page);else renderHome();}
+})();
+</script><script>/* Basket/auth/checkout kept separate from the presentation. Never grants entitlements. */
+(() => {
+  'use strict';
+  const cfg=window.MS_CONFIG,ui=window.MS_UI;
+  const {TebexClient,secureURL}=window.MSTebex;
+  const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const escape=ui.esc,priceText=id=>ui.price(id)||null,packageURL=ui.packageURL,toast=ui.toast;
+  const variants=new Map(ui.products.flatMap(p=>ui.variantsFor(p).map(v=>[String(v.id),{product:p,variant:v}])));
+  const storageKey='ms-storefront-v2';
+  const openDialog=d=>{if(!d.open)d.showModal();};
+  let saved={};try{saved=JSON.parse(sessionStorage.getItem(storageKey)||'{}')||{};}catch{}
+  const state={cart:[],session:null,ready:null,busy:false};
+  for(const raw of Array.isArray(saved.cart)?saved.cart:[]){const id=String(raw),item=variants.get(id);if(item&&!state.cart.some(x=>variants.get(x).product.slug===item.product.slug))state.cart.push(id);}
+  const s=saved.session;
+  if(s&&s.token===cfg.publicToken&&typeof s.ident==='string'&&Array.isArray(s.ids)&&s.ids.every(id=>variants.has(id))&&Number.isFinite(s.created)&&s.created<=Date.now()&&Date.now()-s.created<1800000)state.session=s;
+  function persist(required=false){try{sessionStorage.setItem(storageKey,JSON.stringify({cart:state.cart,session:state.session}));return true;}catch{if(required)throw new Error('Your browser blocked the temporary checkout session. Use the hosted Tebex store.');return false;}}
+  let client;try{client=new TebexClient(cfg.publicToken);}catch(e){console.warn(e.message);client=new TebexClient('');}
+  function invalidateCheckout() { state.ready = null; state.session = null; $('#checkout-stage').replaceChildren(); persist(); }
+  function addToBag(id) {
+    const item = variants.get(String(id)); if (!item) return;
+    if (state.busy) return toast('Please wait for the checkout request to finish.');
+    state.cart = state.cart.filter(other => variants.get(other).product.slug !== item.product.slug);
+    state.cart.push(String(id)); invalidateCheckout(); renderCart(); openDialog($('#cart-dialog')); toast('Added to your bag.');
+  }
+  function renderCart() {
+    $$('.bag-count').forEach(e => e.textContent = state.cart.length);
+    $('#cart-items').innerHTML = state.cart.length ? state.cart.map(id => {const {product:p,variant:v} = variants.get(id); return `<div class="cart-item"><div><h3>${escape(p.name)}</h3><p>${escape(v.label)}<br>${escape(priceText(id) || 'Price confirmed on Tebex')}</p></div><button class="remove-item" data-remove="${escape(id)}" aria-label="Remove ${escape(p.name)}" ${state.busy ? 'disabled' : ''}>×</button></div>`;}).join('') : '<p class="cart-empty">Your bag is empty.<br>Browse the collection to add a product.</p>';
+    $('#prepare-checkout').disabled = !state.cart.length || state.busy;
+    $('#prepare-checkout').textContent = state.busy ? 'Preparing secure checkout…' : client.enabled ? 'Continue to checkout ↗' : 'Continue on Tebex ↗';
+  }
+  function stageMessage(text, kind='notice') { $('#checkout-stage').innerHTML = `<p class="${escape(kind)}">${escape(text)}</p>`; }
+  function fallbackLinks() {
+    stageMessage('Purchases currently finish on the hosted Tebex store. Open the product below to review its price and buy it. This local bag is not automatically transferred without the store connection.');
+    state.cart.forEach(id => { const a = document.createElement('a'); a.className='button'; a.href=packageURL(id); a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=variants.get(id).product.name + ' ↗'; $('#checkout-stage').append(a); });
+  }
+  const sameIDs = (a,b) => [...a].sort().join(',') === [...b].sort().join(',');
+  function validateBasket(basket, requested, exact=false) {
+    if (!Array.isArray(basket.packages)) throw new Error('Tebex returned an invalid basket. Please use the hosted store.');
+    const seen = new Set();
+    for (const p of basket.packages) {
+      const id=String(p.id);
+      if (!requested.includes(id) || seen.has(id) || Number(p.in_basket?.quantity) !== 1) throw new Error('The Tebex basket no longer matches your selection. Change your bag to start a fresh checkout.');
+      seen.add(id);
+    }
+    if (exact && !sameIDs([...seen],requested)) throw new Error('Some products could not be added. No checkout was opened. Please retry or use Tebex.');
+    return seen;
+  }
+  async function prepareCheckout() {
+    if (state.busy || !state.cart.length) return;
+    if (!client.enabled) { fallbackLinks(); return; }
+    state.busy=true; state.ready=null; renderCart(); stageMessage('Connecting to Tebex. No payment is taken until you complete its checkout.');
+    try {
+      const ids=[...state.cart];
+      let basket;
+      if (state.session && sameIDs(state.session.ids,ids) && Date.now()-state.session.created < 1800000) basket=await client.basket(state.session.ident);
+      else {
+        basket=await client.createBasket(location.href);
+        state.session={ident:basket.ident,ids,created:Date.now(),token:cfg.publicToken}; persist(true);
+      }
+      if (basket.complete === true) { state.session=null; persist(); throw new Error('This basket is already complete. Click again to create a new checkout.'); }
+      if (!basket.username_id && !basket.username) {
+        const back=new URL(location.href);back.search='';back.hash='checkout-auth';
+        const providers=await client.auth(state.session.ident,back.href);
+        if (providers.length) {
+          persist(true); stageMessage('Sign in through the official provider to associate your purchase with the right account. You will return here to continue.');
+          for (const provider of providers) { const a=document.createElement('a');a.className='button primary';a.href=provider.url;a.textContent='Continue with '+provider.name+' ↗';$('#checkout-stage').append(a); }
+          return;
+        }
+      }
+      const existing=validateBasket(basket,ids);
+      for (const id of ids) if (!existing.has(id)) await client.addPackage(state.session.ident,id);
+      basket=await client.basket(state.session.ident);
+      validateBasket(basket,ids,true);
+      const checkout=secureURL(basket.links?.checkout,['tebex.io']);
+      if (!checkout) throw new Error('Tebex did not return a trusted checkout link. Please use the hosted store.');
+      state.ready={ident:state.session.ident,url:checkout};
+      stageMessage('Your Tebex basket is ready. Review the purchase options below, then open the secure payment window.');
+      if (Number.isFinite(Number(basket.total_price)) && /^[A-Z]{3}$/.test(basket.currency || '')) {
+        const total=new Intl.NumberFormat('en-US',{style:'currency',currency:basket.currency,currencyDisplay:'code'}).format(Number(basket.total_price));
+        const box=document.createElement('div');box.className='basket-total';box.innerHTML='Tebex total due now<strong>'+escape(total)+'</strong>Confirm tax, discounts and recurring terms at checkout.';$('#checkout-stage').append(box);
+      }
+      const button=document.createElement('button');button.className='button primary';button.id='launch-checkout';button.textContent='Loading secure payment window…';button.disabled=true;$('#checkout-stage').append(button);
+      const a=document.createElement('a');a.href=checkout;a.target='_blank';a.rel='noopener noreferrer';a.className='checkout-ready-link';a.textContent='Or open this basket directly on Tebex ↗';$('#checkout-stage').append(a);
+      // Load the payment SDK only after an explicit checkout action. A second click
+      // launches it synchronously, retaining the browser's popup permission.
+      loadCheckoutSDK().then(() => { if (state.ready?.ident === basket.ident && button.isConnected) {button.disabled=false;button.textContent='Open secure payment ↗';} }).catch(() => {if (button.isConnected) button.remove();});
+    } catch(e) {
+      if ([404,410].includes(e.status)) {state.session=null;persist();}
+      stageMessage(e.message || 'Checkout could not be prepared. Please use the Tebex store.', 'error');
+    } finally { state.busy=false;renderCart(); }
+  }
+  let sdkPromise;
+  function loadCheckoutSDK() {
+    if (window.Tebex?.checkout) return Promise.resolve();
+    if (sdkPromise) return sdkPromise;
+    sdkPromise=new Promise((resolve,reject) => {
+      const script=document.createElement('script');script.src='https://js.tebex.io/v/1.js';script.async=true;
+      const timeout=setTimeout(() => {script.remove();sdkPromise=null;reject(new Error('Checkout SDK unavailable.'));},12000);
+      script.onload=() => {clearTimeout(timeout);if(window.Tebex?.checkout) resolve();else {sdkPromise=null;reject(new Error('Checkout SDK unavailable.'));}};
+      script.onerror=() => {clearTimeout(timeout);script.remove();sdkPromise=null;reject(new Error('Checkout SDK unavailable.'));};
+      document.head.append(script);
+    });
+    return sdkPromise;
+  }
+  async function handleReturn() {
+    if (location.hash === '#checkout-auth') {
+      openDialog($('#cart-dialog'));
+      if (!state.session) return stageMessage('The temporary checkout session is missing or expired. Start checkout again.');
+      await prepareCheckout(); // API response, never the URL, establishes authentication.
+    } else if (location.hash === '#checkout-cancel') {
+      openDialog($('#cart-dialog'));stageMessage('You returned from checkout. Your selection is still in your bag; review your Tebex receipt before trying again.');
+    } else if (location.hash === '#checkout-complete') {
+      openDialog($('#cart-dialog'));
+      if (!client.enabled || !state.session) return stageMessage('Check your Tebex receipt for payment and delivery confirmation. This page cannot verify an order without its original basket.');
+      stageMessage('Checking your basket status with Tebex…');
+      try {
+        const basket=await client.basket(state.session.ident);
+        if (basket.complete === true) { state.cart=[];state.session=null;state.ready=null;persist();renderCart();stageMessage('Tebex reports this checkout is complete. Check your Tebex receipt and account for delivery details.'); }
+        else stageMessage('Payment has not been confirmed for this basket. Check Tebex before attempting another purchase.');
+      } catch {stageMessage('Payment status could not be verified. Check your Tebex receipt before trying again.');}
+    }
+  }
 
-  <button class="topbtn" id="topBtn" aria-label="Back to top">↑</button>
-
-  <main class="page active" id="page-home" data-accent="#f4f6f7">
-    <header class="hero">
-      <div class="grid"></div><div class="hero-orb"></div><div class="ghost">MS</div>
-      <div class="hero-copy">
-        <div class="kicker">MIKESCRIPTS / FIVEM SIMULATION SYSTEMS</div>
-        <h1><span>THREE</span><span class="outline">WORLDS.</span><span>ONE BRAND.</span></h1>
-        <p>MS Scripts builds deep simulation ecosystems for FiveM — from airports, to the roadside, to emergency scenes.</p>
-        <div class="pills"><span>Aviation</span><span>Policing</span><span>Fire & Rescue</span><span>Long-term Development</span></div>
-      </div>
-      <div class="scrollcue">SCROLL TO ENTER THE ECOSYSTEM ↓</div>
-    </header>
-
-    <section class="marquee"><div class="marquee-track"><b>FLY IT</b><i>•</i><b>ENFORCE IT</b><i>•</i><b>RESPOND TO IT</b><i>•</i><b>FLY IT</b><i>•</i><b>ENFORCE IT</b><i>•</i><b>RESPOND TO IT</b><i>•</i></div></section>
-
-    <section class="manifesto">
-      <div class="mega reveal">NOT RANDOM</div>
-      <div class="mega outline reveal">SCRIPTS.</div>
-      <div class="mega reveal">FULL <em>WORLDS.</em></div>
-      <p class="reveal">Every MS ecosystem is designed to become a major layer of a server. Jobs, vehicles, tools, progression, UI, administration and multiplayer systems connect instead of existing as isolated mechanics.</p>
-    </section>
-
-    <section class="section">
-      <div class="section-head reveal"><div class="kicker">CHOOSE YOUR WORLD</div><h2>Three ecosystems.<br>Built to keep growing.</h2></div>
-      <div class="world-grid">
-        <article class="world flight reveal" data-page="flight"><div class="label">01 / MS FLIGHT</div><h3>Own the airport.</h3><p>Pilots, cockpit systems, ATC, AI traffic, private companies, airport deployment and the full ground turnaround.</p><div class="world-orb"></div><button>Enter Aviation</button></article>
-        <article class="world police reveal" data-page="police"><div class="label">02 / MS POLICE</div><h3>Own the roadside.</h3><p>Traffic enforcement, LiDAR/radar, evidence, officer equipment and expandable police technology.</p><div class="world-orb"></div><button>Enter Policing</button></article>
-        <article class="world fire reveal" data-page="fire"><div class="label">03 / MS FIRE</div><h3>Own the scene.</h3><p>Fire incidents, apparatus, rescue, equipment and future specialist response systems.</p><div class="world-orb"></div><button>Enter Fire & Rescue</button></article>
-      </div>
-    </section>
-
-    <section class="callout"><h2><span class="outline">SIMULATION</span><span class="accent">WITHOUT</span><span>SHORTCUTS.</span></h2></section>
-
-    <section class="horizontal" data-reel>
-      <div class="horizontal-sticky">
-        <div class="reel-head"><div class="kicker">THE MS PHILOSOPHY</div><h2>Every system connects.</h2></div>
-        <div class="reel-track">
-          <article class="reel-card"><small>01 / DEEP GAMEPLAY</small><div class="shape"></div><h3>More than one button.</h3><p>Jobs become full workflows.</p></article>
-          <article class="reel-card"><small>02 / MULTIPLAYER</small><div class="shape"></div><h3>Players depend on players.</h3><p>Roles interact instead of existing alone.</p></article>
-          <article class="reel-card"><small>03 / PROGRESSION</small><div class="shape"></div><h3>Reasons to come back.</h3><p>Careers, ownership and long-term goals.</p></article>
-          <article class="reel-card"><small>04 / ADMIN TOOLS</small><div class="shape"></div><h3>Built for server owners.</h3><p>Configurable systems designed to expand.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="subscriptions">
-      <div class="section-head reveal"><div class="kicker">THREE SUBSCRIPTIONS</div><h2>Pick the world<br>your server needs.</h2></div>
-      <div class="sub-grid">
-        <article class="sub flight reveal"><div class="label">MS FLIGHT</div><h3>Aviation</h3><p>The complete aviation and airport ecosystem.</p><div class="price">$24.99 <small>/ MONTH</small></div><button data-page="flight">Explore Flight</button></article>
-        <article class="sub police reveal"><div class="label">MS POLICE</div><h3>Policing</h3><p>Traffic enforcement and expandable policing systems.</p><div class="price">TBD <small>/ MONTH</small></div><button data-page="police">Explore Police</button></article>
-        <article class="sub fire reveal"><div class="label">MS FIRE</div><h3>Fire & Rescue</h3><p>Fire, rescue and emergency-response systems.</p><div class="price">TBD <small>/ MONTH</small></div><button data-page="fire">Explore Fire</button></article>
-      </div>
-    </section>
-  </main>
-
-  <main class="page" id="page-flight" data-accent="#55f59d">
-    <header class="hero"><div class="grid"></div><div class="hero-orb"></div><div class="ghost">FLY</div><div class="hero-copy"><div class="kicker">MS FLIGHT / COMPLETE AVIATION ECOSYSTEM</div><h1><span>RUN</span><span class="outline">THE</span><span>AIRPORT.</span></h1><p>Fly it. Own it. Control it. Build it. Service it. One connected aviation world.</p><div class="pills"><span>Glass Cockpit</span><span>Autopilot + Autoland</span><span>AI Traffic</span><span>ATC Radar</span><span>Private Companies</span><span>Airport Builder</span><span>Ground Services</span></div></div><div class="scrollcue">SCROLL TO OPERATE ↓</div></header>
-    <section class="marquee"><div class="marquee-track"><b>FLY IT</b><i>•</i><b>OWN IT</b><i>•</i><b>CONTROL IT</b><i>•</i><b>BUILD IT</b><i>•</i><b>SERVICE IT</b><i>•</i><b>FLY IT</b><i>•</i><b>OWN IT</b><i>•</i><b>CONTROL IT</b><i>•</i></div></section>
-    <section class="manifesto"><div class="mega reveal">NOT A</div><div class="mega outline reveal">FLIGHT JOB.</div><div class="mega reveal">AN <em>AVIATION WORLD.</em></div><p class="reveal">Cockpit systems, pilot careers, private companies, ATC, AI traffic, airport deployment and the complete ground turnaround connect into one ecosystem.</p></section>
-    <section class="story" data-story>
-      <div class="story-sticky">
-        <div class="story-bg active"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div>
-        <div class="story-copy">
-          <article class="story-text active"><div class="kicker">01 / GLASS COCKPIT</div><h3>A cockpit that works.</h3><p>Digital flight displays, navigation and live aircraft data make the cockpit an actual gameplay space.</p></article>
-          <article class="story-text"><div class="kicker">02 / AUTOPILOT + AUTOLAND</div><h3>Let the aircraft fly.</h3><p>Automated flight control, route management and assisted landing systems deepen the experience.</p></article>
-          <article class="story-text"><div class="kicker">03 / AI TRAFFIC</div><h3>The sky stays alive.</h3><p>AI aircraft populate airports and airspace even when player counts are lower.</p></article>
-          <article class="story-text"><div class="kicker">04 / PRIVATE COMPANIES</div><h3>Build an aviation business.</h3><p>Create a company, customize it, own aircraft and grow a fleet.</p></article>
-          <article class="story-text"><div class="kicker">05 / AIRPORT BUILDER</div><h3>Bring any airport online.</h3><p>Configure runways, gates and service zones directly in-game.</p></article>
-          <article class="story-text"><div class="kicker">06 / ATC + RADAR</div><h3>Control the airspace.</h3><p>Dedicated ATC gameplay with live radar, aircraft tracking and runway awareness.</p></article>
-          <article class="story-text"><div class="kicker">07 / GROUND SERVICES</div><h3>The gate becomes gameplay.</h3><p>Pushback, fuel, baggage, catering, GPU, water and lavatory complete the turnaround.</p></article>
-        </div>
-        <div class="visuals">
-          <div class="visual active cockpit"><div class="screen a"><span></span></div><div class="screen b"><span></span></div><div class="screen c"></div></div>
-          <div class="visual"><div class="big-screen"><div class="reticle"></div><div class="data"><b>274°</b><b>12,000 FT</b><b>AUTO</b></div></div></div>
-          <div class="visual"><div class="tilegrid"><div>AI 001<br><b>Inbound</b></div><div>AI 002<br><b>Taxi</b></div><div>AI 003<br><b>Departure</b></div><div>AI 004<br><b>Holding</b></div></div></div>
-          <div class="visual"><div class="company"><b>NORTHSTAR AVIATION</b><div class="stats"><span>8 Aircraft</span><span>14 Members</span><span>$2.4M Value</span></div></div></div>
-          <div class="visual"><div class="tilegrid"><div>RUNWAY<br><b>09 / 27</b></div><div>GATES<br><b>12 Active</b></div><div>SERVICE<br><b>6 Zones</b></div><div>STATUS<br><b>Operational</b></div></div></div>
-          <div class="visual"><div class="radar"><i></i><span class="blip x1"></span><span class="blip x2"></span><span class="blip x3"></span></div></div>
-          <div class="visual"><div class="tilegrid"><div>GPU<br><b>Connected</b></div><div>FUEL<br><b>Servicing</b></div><div>BAGS<br><b>Loading</b></div><div>CATERING<br><b>Active</b></div></div></div>
-        </div>
-        <div class="progress"><i></i></div>
-      </div>
-    </section>
-    <section class="callout"><h2><span class="outline">PILOT.</span><span class="accent">ATC.</span><span>GROUND.</span></h2></section>
-    <section class="subscriptions"><div class="section-head reveal"><div class="kicker">MS FLIGHT SUBSCRIPTION</div><h2>The whole airport.<br>One subscription.</h2></div><div class="sub-grid"><article class="sub flight wide reveal"><div class="label">MS FLIGHT</div><h3>Complete Aviation</h3><p>Everything in the Flight ecosystem plus future aviation modules.</p><div class="price">$24.99 <small>/ MONTH</small></div><button>Subscribe</button></article></div></section>
-  </main>
-
-  <main class="page" id="page-police" data-accent="#59a7ff">
-    <header class="hero"><div class="grid"></div><div class="hero-orb"></div><div class="ghost">PD</div><div class="hero-copy"><div class="kicker">MS POLICE / LAW ENFORCEMENT ECOSYSTEM</div><h1><span>OWN</span><span class="outline">THE</span><span>ROADSIDE.</span></h1><p>Traffic enforcement, officer technology and future policing systems inside one growing subscription.</p><div class="pills"><span>LiDAR</span><span>Radar</span><span>Live Vehicle Feed</span><span>Evidence</span><span>Officer Tools</span></div></div><div class="scrollcue">SCROLL TO ENFORCE ↓</div></header>
-    <section class="marquee"><div class="marquee-track"><b>DETECT</b><i>•</i><b>IDENTIFY</b><i>•</i><b>STOP</b><i>•</i><b>DOCUMENT</b><i>•</i><b>ENFORCE</b><i>•</i><b>DETECT</b><i>•</i><b>IDENTIFY</b><i>•</i></div></section>
-    <section class="manifesto"><div class="mega reveal">NOT JUST</div><div class="mega outline reveal">A RADAR.</div><div class="mega reveal">A <em>POLICING WORLD.</em></div><p class="reveal">Start with traffic enforcement, then expand into evidence, patrol technology, field tools and additional officer systems.</p></section>
-    <section class="story" data-story><div class="story-sticky">
-      <div class="story-bg active"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div>
-      <div class="story-copy">
-        <article class="story-text active"><div class="kicker">01 / HANDHELD LIDAR</div><h3>See the violation live.</h3><p>Live LCD feed with speed, distance and targeting information.</p></article>
-        <article class="story-text"><div class="kicker">02 / VEHICLE IDENTIFICATION</div><h3>Know what you aimed at.</h3><p>Quick make, model and plate information appears inside the enforcement workflow.</p></article>
-        <article class="story-text"><div class="kicker">03 / EVIDENCE</div><h3>Capture the stop.</h3><p>Vehicle and plate screenshots sit beside the recorded reading.</p></article>
-        <article class="story-text"><div class="kicker">04 / TRIPOD STATION</div><h3>Deploy enforcement.</h3><p>Mount the unit for remote stationary roadside operations.</p></article>
-        <article class="story-text"><div class="kicker">05 / FUTURE MODULES</div><h3>Build the police ecosystem.</h3><p>Expand into officer tools, patrol technology and additional field systems.</p></article>
-      </div>
-      <div class="visuals">
-        <div class="visual active"><div class="big-screen"><div class="reticle"></div><div class="data"><b>126 KM/H</b><b>184 M</b><b>ACTIVE</b></div></div></div>
-        <div class="visual"><div class="tilegrid"><div>MAKE<br><b>BMW</b></div><div>MODEL<br><b>X1</b></div><div>PLATE<br><b>ABC123</b></div><div>STATUS<br><b>LOCKED</b></div></div></div>
-        <div class="visual"><div class="tilegrid"><div>VEHICLE<br><b>Screenshot</b></div><div>PLATE<br><b>Capture</b></div><div>SPEED<br><b>126 KM/H</b></div><div>DISTANCE<br><b>184 M</b></div></div></div>
-        <div class="visual"><div class="radar"><i></i><span class="blip x1"></span><span class="blip x2"></span></div></div>
-        <div class="visual"><div class="tilegrid"><div>MODULE<br><b>Traffic</b></div><div>MODULE<br><b>Patrol</b></div><div>MODULE<br><b>Evidence</b></div><div>MODULE<br><b>Equipment</b></div></div></div>
-      </div><div class="progress"><i></i></div>
-    </div></section>
-    <section class="callout"><h2><span class="outline">SEE IT.</span><span class="accent">LOCK IT.</span><span>PROVE IT.</span></h2></section>
-    <section class="subscriptions"><div class="section-head reveal"><div class="kicker">MS POLICE SUBSCRIPTION</div><h2>One subscription.<br>A growing police ecosystem.</h2></div><div class="sub-grid"><article class="sub police wide reveal"><div class="label">MS POLICE</div><h3>Complete Policing</h3><p>Traffic enforcement now, with new police modules added over time.</p><div class="price">TBD <small>/ MONTH</small></div><button>Coming Soon</button></article></div></section>
-  </main>
-
-  <main class="page" id="page-fire" data-accent="#ff6a3d">
-    <header class="hero"><div class="grid"></div><div class="hero-orb"></div><div class="ghost">FIRE</div><div class="hero-copy"><div class="kicker">MS FIRE / FIRE & RESCUE ECOSYSTEM</div><h1><span>OWN</span><span class="outline">THE</span><span>SCENE.</span></h1><p>Incidents, apparatus, rescue, equipment and future emergency-response systems inside one growing subscription.</p><div class="pills"><span>Fire Incidents</span><span>Apparatus</span><span>Hose Operations</span><span>Rescue</span><span>Equipment</span></div></div><div class="scrollcue">SCROLL TO RESPOND ↓</div></header>
-    <section class="marquee"><div class="marquee-track"><b>DISPATCH</b><i>•</i><b>RESPOND</b><i>•</i><b>DEPLOY</b><i>•</i><b>RESCUE</b><i>•</i><b>CONTROL</b><i>•</i><b>DISPATCH</b><i>•</i><b>RESPOND</b><i>•</i></div></section>
-    <section class="manifesto"><div class="mega reveal">NOT JUST</div><div class="mega outline reveal">A FIRE.</div><div class="mega reveal">A <em>RESPONSE WORLD.</em></div><p class="reveal">The whole response loop — incident, apparatus, equipment, suppression, rescue and scene management.</p></section>
-    <section class="story" data-story><div class="story-sticky">
-      <div class="story-bg active"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div><div class="story-bg"></div>
-      <div class="story-copy">
-        <article class="story-text active"><div class="kicker">01 / DISPATCH</div><h3>Every call starts somewhere.</h3><p>Incidents create a clear reason for crews to respond with the right equipment.</p></article>
-        <article class="story-text"><div class="kicker">02 / APPARATUS</div><h3>The truck becomes a tool.</h3><p>Engines, ladders and support units matter to the scene.</p></article>
-        <article class="story-text"><div class="kicker">03 / DEPLOYMENT</div><h3>Build the scene.</h3><p>Deploy hose lines and operational equipment before attacking the incident.</p></article>
-        <article class="story-text"><div class="kicker">04 / RESCUE</div><h3>More than suppression.</h3><p>Expand calls into rescue and specialist response workflows.</p></article>
-        <article class="story-text"><div class="kicker">05 / FUTURE MODULES</div><h3>Build the response ecosystem.</h3><p>Station systems, additional apparatus and specialist incidents can all grow here.</p></article>
-      </div>
-      <div class="visuals">
-        <div class="visual active"><div class="tilegrid"><div>DISPATCH<br><b>Structure Fire</b></div><div>LOCATION<br><b>Downtown</b></div><div>UNITS<br><b>Engine 1</b></div><div>PRIORITY<br><b>High</b></div></div></div>
-        <div class="visual"><div class="tilegrid"><div>ENGINE<br><b>Primary</b></div><div>LADDER<br><b>Access</b></div><div>RESCUE<br><b>Support</b></div><div>COMMAND<br><b>Scene</b></div></div></div>
-        <div class="visual"><div class="tilegrid"><div>TOOL<br><b>Hose Line</b></div><div>TOOL<br><b>Supply</b></div><div>TOOL<br><b>Entry</b></div><div>TOOL<br><b>Ventilation</b></div></div></div>
-        <div class="visual"><div class="tilegrid"><div>RESCUE<br><b>Victim</b></div><div>RESCUE<br><b>Extrication</b></div><div>RESCUE<br><b>Search</b></div><div>RESCUE<br><b>Evacuation</b></div></div></div>
-        <div class="visual"><div class="tilegrid"><div>MODULE<br><b>Station</b></div><div>MODULE<br><b>HazMat</b></div><div>MODULE<br><b>Wildland</b></div><div>MODULE<br><b>Technical Rescue</b></div></div></div>
-      </div><div class="progress"><i></i></div>
-    </div></section>
-    <section class="callout"><h2><span class="outline">ARRIVE.</span><span class="accent">DEPLOY.</span><span>CONTROL.</span></h2></section>
-    <section class="subscriptions"><div class="section-head reveal"><div class="kicker">MS FIRE SUBSCRIPTION</div><h2>One subscription.<br>A growing response ecosystem.</h2></div><div class="sub-grid"><article class="sub fire wide reveal"><div class="label">MS FIRE</div><h3>Complete Fire & Rescue</h3><p>Fire response now, with new rescue and specialist modules added over time.</p><div class="price">TBD <small>/ MONTH</small></div><button>Coming Soon</button></article></div></section>
-  </main>
-
-  <script src="app.js"></script>
-</body>
-</html>
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('button,a');if(!b)return;
+    if(b.hasAttribute('data-cart')){renderCart();openDialog($('#cart-dialog'));}
+    else if(b.hasAttribute('data-add'))addToBag(b.dataset.add);
+    else if(b.hasAttribute('data-buy')&&client.enabled){e.preventDefault();addToBag(b.dataset.buy);prepareCheckout();}
+    else if(b.hasAttribute('data-remove')&&!state.busy){state.cart=state.cart.filter(id=>id!==b.dataset.remove);invalidateCheckout();renderCart();}
+    else if(b.id==='prepare-checkout')prepareCheckout();
+    else if(b.id==='launch-checkout'&&state.ready&&window.Tebex?.checkout){try{window.Tebex.checkout.init({ident:state.ready.ident,theme:'dark',locale:'en_US',colors:[{name:'primary',color:'#d9efaa'}]});window.Tebex.checkout.launch();}catch{toast('Use the direct Tebex basket link below to continue.');}}
+  });
+  window.MSCommerce={enabled:client.enabled};
+  renderCart();persist();ui.refreshPrices();
+  if(client.enabled)client.catalogue().then(rows=>{for(const row of rows)if(variants.has(String(row.id)))ui.live.set(String(row.id),row);document.dispatchEvent(new CustomEvent('ms:prices'));renderCart();}).catch(()=>toast('Live prices are unavailable. The Tebex listings remain available.'));
+  addEventListener('hashchange',handleReturn);handleReturn();
+})();
+</script><script>/* Server-owner UX, V3. No analytics, build dependency, credential input or network writes.
+ * Progressive enhancement: the core catalog and Tebex links work without this module.
+ */
+(() => {
+  'use strict';
+  const ui = window.MS_UI, data = window.MS_OWNER_DATA;
+  if (!ui || !data) return;
+  const $ = (s,r=document) => r.querySelector(s), $$ = (s,r=document) => [...r.querySelectorAll(s)];
+  const esc=ui.esc, icon=ui.icon, names={all:'All frameworks',esx:'ESX Legacy',qbcore:'QBCore',qbox:'Qbox',standalone:'Standalone'};
+  const key='ms-owner-v3';
+  let saved={}; try { saved=JSON.parse(sessionStorage.getItem(key)||'{}')||{}; } catch {}
+  const state={framework:Object.hasOwn(names,saved.framework)?saved.framework:'all',compare:[],checks:{},reduced:saved.reduced===true};
+  state.compare=(Array.isArray(saved.compare)?saved.compare:[]).filter((s,i,a)=>Object.hasOwn(data.products,s)&&ui.bySlug.has(s)&&a.indexOf(s)===i).slice(0,3);
+  for (const slug of Object.keys(data.products)) state.checks[slug]=(Array.isArray(saved.checks?.[slug])?saved.checks[slug]:[]).filter((v,i,a)=>Number.isInteger(v)&&v>=0&&v<4&&a.indexOf(v)===i);
+  const persist=()=>{try{sessionStorage.setItem(key,JSON.stringify(state));}catch{/* In-memory functionality stays available. */}};
+  const osMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  const reduced=()=>state.reduced||osMotion.matches;
+  const effects=new WeakMap();
+  function animate(el,kind='enter',delay=0){
+    if(!el||reduced()||typeof el.animate!=='function')return;
+    effects.get(el)?.cancel();
+    const frame=kind==='drawer'?[{opacity:.7,transform:'translateX(22px)'},{opacity:1,transform:'none'}]:kind==='press'?[{transform:'scale(.96)'},{transform:'scale(1)'}]:[{opacity:.6,transform:'translateY(10px)'},{opacity:1,transform:'none'}];
+    const a=el.animate(frame,{duration:kind==='press'?170:kind==='enter'?360:240,easing:'cubic-bezier(.2,.75,.25,1)',delay:Math.min(delay,140)});effects.set(el,a);
+  }
+  let revealObserver;
+  const revealed=new WeakSet();
+  function observeReveals(){
+    if(reduced()||!('IntersectionObserver' in window))return;
+    if(!revealObserver)revealObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){revealObserver.unobserve(e.target);if(!revealed.has(e.target)){revealed.add(e.target);animate(e.target);}}});},{threshold:.12});
+    $$('.section-head,.showcase-item,.aircraft-row,.product-content-row').forEach(el=>{if(!revealed.has(el))revealObserver.observe(el);});
+  }
+  function syncMotion(){
+    document.documentElement.dataset.motion=reduced()?'reduce':'full';
+    $$('[data-motion-toggle]').forEach(b=>{b.setAttribute('aria-pressed',String(state.reduced));b.textContent=reduced()?'Motion reduced':'Motion on';b.title=osMotion.matches?'Your device requests reduced motion.':'Toggle reduced interface motion';});
+    if(reduced()){
+      document.getAnimations?.().forEach(a=>a.cancel());revealObserver?.disconnect();
+      $$('video').forEach(v=>v.pause());$$('.media-frame.playing').forEach(f=>f.classList.remove('playing'));
+      $$('[data-hero-motion],#viewer-motion').forEach(b=>{b.setAttribute('aria-pressed','false');b.innerHTML=icon('play')+' Play preview';});
+    }else observeReveals();
+  }
+  window.MSMotion={reduced};
+  window.MSOwner={matches:p=>state.framework==='all'||data.products[p.slug]?.frameworks.includes(state.framework),resetFramework:()=>{state.framework='all';persist();syncFrameworkControls();}};
+  function options(value){return Object.entries(names).map(([k,v])=>`<option value="${k}" ${k===value?'selected':''}>${esc(v)}</option>`).join('');}
+  function support(p){const spec=data.products[p.slug];if(!spec)return {text:'Check aircraft compatibility',kind:'unknown'};if(state.framework==='all')return {text:spec.kind,kind:'neutral'};return spec.frameworks.includes(state.framework)?{text:state.framework==='standalone'?'Standalone listed':`${names[state.framework]} listed`,kind:'match'}:{text:`${names[state.framework]} not listed`,kind:'unknown'};}
+  const productURL=slug=>`products/${slug}/`;
+  function sourceLink(p){return p.source?`<a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">Original listing ↗</a>`:'';}
+  function compareButton(p){return `<button class="compare-toggle" data-compare="${p.slug}" aria-pressed="${state.compare.includes(p.slug)}" aria-label="${state.compare.includes(p.slug)?'Remove':'Add'} ${esc(p.name)} ${state.compare.includes(p.slug)?'from':'to'} comparison"><span class="compare-check" aria-hidden="true">${state.compare.includes(p.slug)?'✓':'+'}</span> Compare</button>`;}
+  document.body.insertAdjacentHTML('beforeend',`
+    <dialog id="owner-search" class="owner-dialog command-dialog" aria-labelledby="command-title">
+      <div class="owner-dialog-head"><div><span class="kicker">Find a resource</span><h2 id="command-title">Search MikeScripts</h2></div><button class="icon-button" data-owner-close aria-label="Close search">×</button></div>
+      <label class="command-input">${icon('search')}<input id="command-query" type="search" placeholder="Aircraft, police, OneSync…" aria-label="Search product names and requirements" autocomplete="off"></label>
+      <p class="command-count" id="command-count" aria-live="polite"></p><nav id="command-results" aria-label="Product search results"></nav>
+      <div class="command-foot"><span>↑ ↓ navigate · Enter opens a product</span><kbd>Esc</kbd></div>
+    </dialog>
+    <dialog id="owner-compare" class="owner-dialog compare-dialog" aria-labelledby="compare-title"><div class="owner-dialog-head"><div><span class="kicker">Server planning</span><h2 id="compare-title">Compare resources</h2></div><button class="icon-button" data-owner-close aria-label="Close comparison">×</button></div><div id="compare-content"></div></dialog>
+    <dialog id="owner-demo" class="owner-dialog demo-dialog" aria-labelledby="demo-title"><div class="owner-dialog-head"><div><span class="kicker">Advertised on the MikeScripts store</span><h2 id="demo-title">Try the demo server.</h2></div><button class="icon-button" data-owner-close aria-label="Close demo instructions">×</button></div><div class="owner-dialog-body"><p>Open FiveM’s console and paste the connection command below.</p><code class="demo-command"></code><button class="button primary" data-copy-demo>Copy connection command ${icon('arrow')}</button><p class="owner-fine">The address is taken from the official store. Server availability and installed demos are not checked here. Confirm the aircraft or script you want to try with MikeScripts.</p><a class="text-link" href="${esc(data.demo.source)}" target="_blank" rel="noopener noreferrer">Check the store’s current demo link ↗</a></div></dialog>
+    <dialog id="owner-copy" class="owner-dialog copy-dialog" aria-labelledby="copy-title"><div class="owner-dialog-head"><div><span class="kicker">Copy manually</span><h2 id="copy-title">Your setup brief.</h2></div><button class="icon-button" data-owner-close aria-label="Close setup brief">×</button></div><div class="owner-dialog-body"><p>Automatic copying is unavailable in this browser. Select the text below and copy it.</p><textarea id="copy-content" readonly aria-label="Text to copy"></textarea><button class="button" data-select-copy>Select text</button></div></dialog>
+    <aside id="compare-tray" class="compare-tray" aria-label="Comparison selection" hidden><span class="tray-label">Your shortlist</span><span id="compare-tray-items"></span><button class="button primary" data-open-compare>Compare <span data-compare-count>0</span> ${icon('arrow')}</button><button class="tray-clear" data-clear-compare aria-label="Clear comparison">×</button></aside>
+    <aside id="owner-buy-dock" class="owner-buy-dock" aria-label="Product purchase shortcut" hidden></aside>
+  `);
+  $('.demo-command').textContent=data.demo.command;
+  const head=$('.header-actions');head?.insertAdjacentHTML('afterbegin',`<button class="quick-search" data-open-search aria-label="Search products (Control or Command K)">${icon('search')}<kbd>Ctrl K</kbd></button>`);
+  $('.site-header')?.insertAdjacentHTML('beforeend','<div class="reading-progress" aria-hidden="true"><i></i></div>');
+  $('.footer-links')?.insertAdjacentHTML('beforeend','<button class="motion-toggle" data-motion-toggle aria-pressed="false">Motion on</button>');
+  $('#mobile-nav')?.insertAdjacentHTML('beforeend','<button data-open-demo class="mobile-demo">Demo server instructions ↗</button>');
+  let lastOpener=null;
+  function openDialog(d,focus){lastOpener=document.activeElement;if(!d.open)d.showModal();animate(d,'dialog');focus?.focus();}
+  function closeDialog(d){if(d?.open)d.close();}
+  $$('.owner-dialog').forEach(d=>{d.addEventListener('close',()=>{if(lastOpener?.isConnected&&lastOpener instanceof HTMLElement)lastOpener.focus({preventScroll:true});});d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});});
+  function renderSearch(){
+    const q=$('#command-query').value.trim().toLowerCase();
+    const found=ui.products.filter(p=>`${p.name} ${p.code} ${p.summary} ${p.category} ${(data.products[p.slug]?.required||[]).join(' ')} ${p.tags.join(' ')}`.toLowerCase().includes(q));
+    $('#command-count').textContent=`${found.length} ${found.length===1?'result':'results'} · Search includes all frameworks`;
+    $('#command-results').innerHTML=found.length?found.map(p=>`<a href="${productURL(p.slug)}" data-route="${p.slug}" class="command-result"><span class="command-type">${esc(p.code)}</span><span><strong>${esc(p.name)}</strong><small>${esc(p.summary)}</small></span>${icon('arrow')}</a>`).join(''):'<p class="command-empty">No matching resource. Try “flight”, “fire” or “aircraft”.</p>';
+  }
+  function syncFrameworkControls(){
+    $$('[data-server-framework]').forEach(s=>s.value=state.framework);
+    $$('[data-framework-label]').forEach(e=>e.textContent=names[state.framework]);
+  }
+  function decorateGrid(){
+    const cards=$$('.product-card');
+    cards.forEach((el,i)=>{
+      const p=ui.bySlug.get(el.dataset.productCard);if(!p)return;
+      const match=support(p);
+      let strip=$('.owner-card-strip',el);if(!strip){strip=document.createElement('div');strip.className='owner-card-strip';$('.product-info',el)?.append(strip);}
+      strip.innerHTML=`<span class="support-status ${match.kind}">${match.kind==='match'?'<span aria-hidden="true">✓</span> ':''}${esc(match.text)}</span>${compareButton(p)}`;
+      animate(el,'enter',i*35);
+    });
+    const count=$('#owner-result-count');if(count)count.textContent=`${cards.length} ${cards.length===1?'resource':'resources'} shown${state.framework==='all'?'':` · ${names[state.framework]}`}`;
+    syncFrameworkControls();renderTray();
+  }
+  function ownerbar(){return `<div class="owner-toolbar"><div class="owner-profile"><span class="owner-profile-icon" aria-hidden="true">≡</span><div><label for="server-framework">YOUR SERVER</label><select id="server-framework" data-server-framework>${options(state.framework)}</select></div></div><span class="owner-toolbar-note">Filter by declared framework support.<small>This does not scan or verify your server.</small></span><button data-open-demo class="demo-trigger">Try the demo ${icon('arrow')}</button></div><div class="owner-results-line"><span id="owner-result-count" aria-live="polite"></span><button data-open-search class="text-link">Quick find <kbd>Ctrl K</kbd></button></div>`;}
+  const checkLabels=['Review the framework and required dependencies.','Confirm the package contents and editable files.','Plan a backup and a staging-server test.','Read the bundled installation and permission setup.'];
+  function productTools(p){
+    const spec=data.products[p.slug];
+    if(!spec)return;
+    const match=support(p);
+    if(!$('.owner-product-tools')){
+      $('.compat')?.insertAdjacentHTML('afterend',`<div class="owner-product-tools"><label for="detail-framework">Your framework</label><select id="detail-framework" data-server-framework>${options(state.framework)}</select><p class="support-status ${match.kind}" id="detail-support">${esc(match.text)}</p><small>Based on the listing, not a server diagnostic.</small></div><div class="owner-detail-actions">${compareButton(p)}<button class="text-link" data-copy-brief="${p.slug}">Copy setup brief ↗</button></div>`);
+    }else{const s=$('#detail-support');s.className=`support-status ${match.kind}`;s.textContent=match.text;}
+    let tech=$('#owner-technical');
+    if(!tech){
+      $('#requirements')?.insertAdjacentHTML('beforeend',`<div id="owner-technical"><dl class="owner-specs"><div><dt>Required resources</dt><dd>${spec.required.length?spec.required.map(v=>`<code>${esc(v)}</code>`).join(' '):'No separate mandatory resource listed; check the original listing.'}</dd></div><div><dt>Optional / recommended</dt><dd>${esc(spec.optional.join(' · ')||'Not listed')}</dd></div><div><dt>Editable files</dt><dd>${esc(spec.editable)}</dd></div><div><dt>Protection</dt><dd>${esc(spec.protection)}</dd></div><div><dt>Setup notes</dt><dd>${esc(spec.setup)}</dd></div></dl><p class="owner-fine">Declared by MikeScripts · checked ${data.checked}. ${sourceLink(p)}. No compatibility with GTA V single-player is implied.</p></div><div class="install-checklist"><div class="checklist-heading"><h3>Before installing</h3><span id="checklist-count"></span></div><progress id="checklist-progress" max="4" value="0" aria-label="Personal pre-install checklist progress"></progress><div>${checkLabels.map((text,i)=>`<label class="checklist-item"><input type="checkbox" data-install-check="${i}" data-check-product="${p.slug}" ${state.checks[p.slug].includes(i)?'checked':''}><span>${esc(text)}</span></label>`).join('')}</div><p class="owner-fine">Personal planning checklist only. Ticking a box does not validate your server, install a resource or confirm a purchase.</p><button class="text-link" data-copy-brief="${p.slug}">Copy these setup notes ↗</button></div>`);
+    }
+    updateChecklist(p.slug);syncFrameworkControls();
+    const select=$('#purchase-variant');if(select?.options.length===1){select.classList.add('sr-only');$('label[for="purchase-variant"]')?.classList.add('sr-only');}
+    updateDock();
+  }
+  function updateChecklist(slug){const count=state.checks[slug].length;if($('#checklist-count'))$('#checklist-count').textContent=`${count}/4 noted`;if($('#checklist-progress'))$('#checklist-progress').value=count;}
+  function setupBrief(slug){const p=ui.bySlug.get(slug),s=data.products[slug];if(!p||!s)return '';return [
+    `MIKESCRIPTS — ${p.name}`,`My framework: ${names[state.framework]}`,`Declared support: ${s.frameworks.map(f=>names[f]).join(', ')}`,
+    `Required: ${s.required.join(', ')||'No separate mandatory resource listed; confirm in the listing.'}`,`Optional / recommended: ${s.optional.join(', ')}`,`Editable: ${s.editable}`,`Protection: ${s.protection}`,`Setup: ${s.setup}`,
+    '',...checkLabels.map((v,i)=>`[${state.checks[slug].includes(i)?'x':' '}] ${v}`),'',`Source: ${p.source}`,`Listing checked: ${data.checked}`,'Personal planning notes, not a server diagnostic or purchase confirmation.'
+  ].join('\n');}
+  async function copy(text,label='Copied.'){
+    try{if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(text);ui.toast(label);}
+    catch{$('#copy-title').textContent=text.startsWith('connect ')?'Connection command.':'Your setup brief.';$('#copy-content').value=text;openDialog($('#owner-copy'),$('#copy-content'));$('#copy-content').select();}
+  }
+  function renderTray(){
+    const tray=$('#compare-tray');tray.hidden=!state.compare.length;
+    $('#compare-tray-items').textContent=state.compare.map(s=>ui.bySlug.get(s).code).join(' · ');
+    $('[data-compare-count]').textContent=state.compare.length;
+    $$('[data-compare]').forEach(b=>{const yes=state.compare.includes(b.dataset.compare),p=ui.bySlug.get(b.dataset.compare);b.setAttribute('aria-pressed',String(yes));b.setAttribute('aria-label',`${yes?'Remove':'Add'} ${p.name} ${yes?'from':'to'} comparison`);const sign=$('.compare-check',b);if(sign)sign.textContent=yes?'✓':'+';});
+    document.body.classList.toggle('has-owner-tray',!!state.compare.length);updateDockVisibility();
+  }
+  function renderComparison(){
+    const selected=state.compare.map(s=>ui.bySlug.get(s));
+    if(!selected.length){$('#compare-content').innerHTML='<div class="owner-dialog-body"><p>No resources selected. Use Compare on a product card to build a shortlist.</p></div>';return;}
+    const row=(label,fn)=>`<tr><th scope="row">${label}</th>${selected.map(p=>`<td>${fn(p,data.products[p.slug])}</td>`).join('')}</tr>`;
+    $('#compare-content').innerHTML=`<p class="compare-note">Technical information from the product listings. “Not listed” is not a tested incompatibility. Your framework: <strong>${esc(names[state.framework])}</strong>.</p><div class="compare-scroll" tabindex="0" role="region" aria-label="Scrollable resource comparison"><table class="compare-table"><caption class="sr-only">MikeScripts resource requirements and package contents comparison</caption><thead><tr><th scope="col">Server requirements</th>${selected.map(p=>`<th scope="col"><small>${esc(p.code)}</small><strong>${esc(p.name)}</strong><button data-compare="${p.slug}" class="comparison-remove" aria-label="Remove ${esc(p.name)} from comparison">Remove ×</button></th>`).join('')}</tr></thead><tbody>${row('Package',(p,s)=>esc(s.kind))}${row('Frameworks',(p,s)=>esc(s.frameworks.map(f=>names[f]).join(' · ')))}${row('Your framework',(p,s)=>esc(state.framework==='all'?'Choose a framework to check the listing.':s.frameworks.includes(state.framework)?'Listed — review dependencies below.':'Not listed — ask MikeScripts.'))}${row('Required',(p,s)=>esc(s.required.join(', ')||'No separate mandatory resource listed.'))}${row('Optional / recommended',(p,s)=>esc(s.optional.join(', ')))}${row('Editable files',(p,s)=>esc(s.editable))}${row('Protection',(p,s)=>esc(s.protection))}${row('Price',(p)=>esc(ui.price(ui.variantsFor(p)[0]?.id)||'Check current price on Tebex'))}${row('Details',(p)=>`<a class="text-link" data-route="${p.slug}" href="${productURL(p.slug)}">View product ${icon('arrow')}</a>`)}${row('Source',(p)=>sourceLink(p))}</tbody></table></div><div class="compare-bottom"><span>Listing check: ${data.checked} · No private server access required.</span><button class="text-link" data-clear-compare>Clear selection</button></div>`;
+  }
+  function updateDock(){
+    const p=ui.active(),dock=$('#owner-buy-dock');if(!dock)return;
+    const id=$('#purchase-variant')?.value,v=p&&ui.variantsFor(p).find(v=>v.id===id);
+    if(!p||!v){dock.hidden=true;dock.replaceChildren();return;}
+    dock.innerHTML=`<div><strong>${esc(p.name)}</strong><small>${esc(ui.price(v.id)||v.label)}</small></div><a class="button primary" data-buy="${v.id}" href="${ui.packageURL(v.id)}" target="_blank" rel="noopener noreferrer">${window.MSCommerce?.enabled?'Checkout':'View on Tebex'} ${icon('arrow')}</a>`;
+    updateDockVisibility();
+  }
+  function updateDockVisibility(){const d=$('#owner-buy-dock'),block=$('.purchase-block');if(!d)return;d.hidden=!d.children.length||!!state.compare.length||!block||block.getBoundingClientRect().bottom>85;}
+  function refresh(){
+    if($('#catalog')&&!$('.owner-toolbar'))$('.catalog-tools')?.insertAdjacentHTML('beforebegin',ownerbar());
+    const p=ui.active();if(p)productTools(p);else{$('#owner-buy-dock').hidden=true;$('#owner-buy-dock').replaceChildren();}
+    decorateGrid();observeReveals();animate($('.hero .wrap'),'enter');
+  }
+  function selectFramework(value){state.framework=Object.hasOwn(names,value)?value:'all';persist();syncFrameworkControls();ui.refreshCatalog();if(ui.active())productTools(ui.active());if($('#owner-compare').open)renderComparison();}
+  let scrollPending=false;
+  function scrollTick(){if(scrollPending)return;scrollPending=true;requestAnimationFrame(()=>{scrollPending=false;const total=document.documentElement.scrollHeight-innerHeight;const value=total>0?Math.max(0,Math.min(1,scrollY/total)):0;const line=$('.reading-progress i');if(line)line.style.transform=`scaleX(${value})`;$('.site-header')?.classList.toggle('is-scrolled',scrollY>30);updateDockVisibility();});}
+  addEventListener('scroll',scrollTick,{passive:true});addEventListener('resize',scrollTick,{passive:true});
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('button,a');if(!b)return;
+    if(b.hasAttribute('data-open-search')){renderSearch();openDialog($('#owner-search'),$('#command-query'));}
+    else if(b.hasAttribute('data-open-demo'))openDialog($('#owner-demo'));
+    else if(b.hasAttribute('data-owner-close'))closeDialog(b.closest('dialog'));
+    else if(b.hasAttribute('data-motion-toggle')){state.reduced=!state.reduced;persist();syncMotion();}
+    else if(b.hasAttribute('data-copy-demo'))copy(data.demo.command,'Connection command copied.');
+    else if(b.hasAttribute('data-copy-brief'))copy(setupBrief(b.dataset.copyBrief),'Setup brief copied.');
+    else if(b.hasAttribute('data-select-copy')){$('#copy-content').focus();$('#copy-content').select();}
+    else if(b.hasAttribute('data-compare')){
+      const slug=b.dataset.compare;if(!data.products[slug])return;
+      if(state.compare.includes(slug))state.compare=state.compare.filter(s=>s!==slug);else{if(state.compare.length>=3)return ui.toast('Compare up to three resources. Remove one to add another.');state.compare.push(slug);}
+      persist();renderTray();animate(b,'press');if($('#owner-compare').open)renderComparison();
+    }else if(b.hasAttribute('data-open-compare')){renderComparison();openDialog($('#owner-compare'));}
+    else if(b.hasAttribute('data-clear-compare')){state.compare=[];persist();renderTray();if($('#owner-compare').open)renderComparison();}
+    if(b.hasAttribute('data-route')){$$('.owner-dialog[open]').forEach(closeDialog);}
+    if(b.hasAttribute('data-feature')){animate($('.hero .wrap'),'enter');animate($('#hero .hero-media'),'dialog');}
+  });
+  document.addEventListener('change',e=>{
+    if(e.target.hasAttribute('data-server-framework'))selectFramework(e.target.value);
+    if(e.target.hasAttribute('data-install-check')){const slug=e.target.dataset.checkProduct,index=Number(e.target.dataset.installCheck);if(!data.products[slug]||!Number.isInteger(index)||index<0||index>3)return;state.checks[slug]=state.checks[slug].filter(i=>i!==index);if(e.target.checked)state.checks[slug].push(index);persist();updateChecklist(slug);}
+    if(e.target.id==='purchase-variant')updateDock();
+  });
+  $('#command-query').addEventListener('input',renderSearch);
+  document.addEventListener('keydown',e=>{
+    const typing=e.target instanceof HTMLElement&&(e.target.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName));
+    if((e.key.toLowerCase()==='k'&&(e.ctrlKey||e.metaKey))||(e.key==='/'&&!typing&&!e.altKey&&!e.ctrlKey&&!e.metaKey)){
+      if(document.querySelector('dialog[open]')&&!$('#owner-search').open)return;
+      e.preventDefault();renderSearch();openDialog($('#owner-search'),$('#command-query'));return;
+    }
+    if($('#owner-search').open&&['ArrowDown','ArrowUp'].includes(e.key)){
+      e.preventDefault();const links=$$('#command-results a');if(!links.length)return;const i=links.indexOf(document.activeElement),next=i<0?(e.key==='ArrowDown'?0:links.length-1):(i+(e.key==='ArrowDown'?1:-1)+links.length)%links.length;links[next].focus();
+    }
+    if($('#owner-search').open&&e.key==='Enter'&&e.target.id==='command-query'){e.preventDefault();$('#command-results a')?.click();}
+  });
+  // Keyboard focus and native dialogs remain immediate; animation never delays actions.
+  const dialogs=new MutationObserver(entries=>entries.forEach(({target,attributeName})=>{if(attributeName==='open'&&target.open)animate(target,target.id==='cart-dialog'?'drawer':'dialog');}));
+  $$('#cart-dialog,#media-dialog').forEach(d=>dialogs.observe(d,{attributes:true,attributeFilter:['open']}));
+  document.addEventListener('ms:render',refresh);document.addEventListener('ms:grid',decorateGrid);
+  document.addEventListener('ms:gallery',()=>animate($('.gallery-stage'),'dialog'));
+  document.addEventListener('ms:prices',()=>{updateDock();if($('#owner-compare').open)renderComparison();});
+  osMotion.addEventListener?.('change',syncMotion);
+  syncMotion();refresh();if(state.framework!=='all')ui.refreshCatalog();scrollTick();
+})();
+</script></body></html>
